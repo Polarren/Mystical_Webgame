@@ -68,17 +68,54 @@
                                 <article class="grid_8">
                                     <h3 class="p2">Trial Room</h3>
                                     <div class="wrapper">
-                                        <figure class="img-indent frame2"><img src="images/trial_room_1.png" alt=""  width="580" id="room_1" /></figure>
-                                        <a class="button" href="#" onclick="change_pic('room_1','images/trial_room_1.png')">Tape 1: 0:00-1:34 </a>
-                                        <a class="button" href="#" onclick="change_pic('room_1','images/trial_room_2.png')">Tape 2: 1:40-2:52 </a>
-                                        <audio controls="controls">
-                                            <source src="audios/trial_room_1.mp3" type="audio/mpeg">
+                                        <script>
+                                            function play2() {
+                                                var audio_stop1 = document.getElementById("audio1");
+                                                audio_stop1.pause();
+                                                var audio_stop2 = document.getElementById("audio3");
+                                                audio_stop2.pause();
+                                                var audio = document.getElementById("audio2");
+                                                audio.currentTime=0;
+                                                audio.play();
+                                            }
+                                        </script>
+                                        <script>
+                                            function play1() {
+                                                var audio_stop1 = document.getElementById("audio2");
+                                                audio_stop1.pause();
+                                                var audio_stop2 = document.getElementById("audio3");
+                                                audio_stop2.pause();
+
+                                                var audio = document.getElementById("audio1");
+                                                audio.currentTime=0;
+                                                audio.play();
+                                            }
+                                        </script>
+                                        <script>
+                                            function play3() {
+                                                var audio_stop1 = document.getElementById("audio1");
+                                                audio_stop1.pause();
+
+                                                var audio_stop2 = document.getElementById("audio2");
+                                                audio_stop2.pause();
+
+                                                var audio = document.getElementById("audio3");
+                                                audio.currentTime=0;
+                                                audio.play();
+                                            }
+                                        </script>
+
+                                <figure class="img-indent frame2"><img src="images/trial_room_1.png" alt=""  width="580" id="room_1" /></figure>
+                                        <a class="button" href="#" onclick="change_pic('room_1','images/trial_room_1.png');play1()" value = "PLAY1" ><audio id="audio1" src="audios/trial_room_1.mp3"></audio> Tape 1: 0:00-1:34 </a>
+                                        <a class="button" href="#" onclick="change_pic('room_1','images/trial_room_2.png');play2()" value = "PLAY2" ><audio id="audio2" src="audios/trial_room_2.mp3"></audio> Tape 2: 1:40-2:52 </a>
+                                        <!-- <audio controls="controls"> -->
+                                            <!-- <source src="audios/trial_room_1.mp3" type="audio/mpeg">
                                         Your browser does not support the audio element.
                                         </audio>
                                         <audio controls="controls">
                                             <source src="audios/trial_room_2.mp3" type="audio/mpeg">
                                         Your browser does not support the audio element.
-                                        </audio>
+                                        </audio> -->
                                     </div>
         
                                 </article>
@@ -87,11 +124,11 @@
                                     <h3 class="p2">Reception Room</h3>
                                     <div class="wrapper">
                                         <figure class="img-indent frame2"><img src="images/reception_room_1.png" alt=""  width="580" id="room_2" /></figure>
-                                        <a class="button" href="#">Tape 1: 0:00-2:52 </a>
-                                        <audio controls="controls">
+                                        <a class="button" href="#"onclick="change_pic('room_1','images/trial_room_2.png');play3()" value = "PLAY3" ><audio id="audio3" src="audios/reception_room.mp3"></audio>Tape 1: 0:00-2:52 </a>
+                                        <!-- <audio controls="controls">
                                             <source src="audios/reception_room.mp3" type="audio/mpeg">
                                         Your browser does not support the audio element.
-                                        </audio>
+                                        </audio> -->
                                     </div>
                                 </article>
         
