@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +13,8 @@
     <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
     <script src="js/jquery.galleriffic.js" type="text/javascript"></script>
     <script src="js/jquery.opacityrollover.js" type="text/javascript"></script>  
-      
+    <script src="js/load.js" type="text/javascript"></script>  
+
 	<!--[if lt IE 7]>
         <div style=' clear: both; text-align:center; position: relative;'>
             <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0"  alt="" /></a>
@@ -55,9 +60,22 @@
                             <p> Assume you are detective provided with a recording of an event taking place at the police station. </p>
                             
                             <p> In this website we have recordings from each room and person. </p>
-                            <p> Please find the answer to the questions in the Questions page.</p>
+                            <p> Please find the answer to the questions in the Answer page.</p>
+                            <p> Current user id:
+                                <?php
+                                $myfile = fopen("./data/version.txt", "r") or die("Unable to open file!");
+                                $user_id = fread($myfile,filesize("./data/version.txt"));
+                                echo $user_id;
+                                fclose($myfile);
+                                ?>
+                            </p>
+                            
+                            <p> To start logging, please click on "Start".</p>
                         </article>
-                        
+                        <a class="button" href="#" onclick="start_logging('<?php echo $user_id ?>');style.display = 'none'" >
+                            Start
+                        </a>
+
                     </div>
                 </div>
 
