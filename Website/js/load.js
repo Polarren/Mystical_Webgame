@@ -18,6 +18,61 @@ function mouseclick(){
 
 }
 
+
+function mousemove(){
+    
+  var log = ''+ event.clientX +' '+ event.clientY+'\n';
+  // console.log(log);
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.onload = function() {
+    return;
+  }
+  xmlhttp.open('POST', "js/jshelper.php?q=" + "mouse_move", true);
+  xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xmlhttp.onload = function () {
+      // do something to response
+      console.log(this.responseText);
+  };
+  xmlhttp.send("log="+log);
+
+}
+
+function keydown(){
+    
+  var log = ''+ event.key+' 0'+'\n';
+  // console.log(log);
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.onload = function() {
+    return;
+  }
+  xmlhttp.open('POST', "js/jshelper.php?q=" + "keydown", true);
+  xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xmlhttp.onload = function () {
+      // do something to response
+      console.log(this.responseText);
+  };
+  xmlhttp.send("log="+log);
+
+}
+
+function keyup(){
+    
+  var log = ''+ event.key +' 1'+'\n';
+  // console.log(log);
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.onload = function() {
+    return;
+  }
+  xmlhttp.open('POST', "js/jshelper.php?q=" + "keyup", true);
+  xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xmlhttp.onload = function () {
+      // do something to response
+      console.log(this.responseText);
+  };
+  xmlhttp.send("log="+log);
+
+}
+
 function start_logging(user_id){
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
@@ -27,14 +82,25 @@ function start_logging(user_id){
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xmlhttp.send("user="+user_id);
     console.log("Starting session: " + user_id);
-    window.addEventListener('mousemove', function(){mouseclick()});
+    window.addEventListener('mousemove', function(){mousemove()});
+    window.addEventListener('click', function(){mouseclick()});
+    // contact-form
+    // let textbar = document.getElementById('#notes');
+    // textbar.addEventListener('keydown',function(){keydown});
+    // textbar.addEventListener('keyup',function(){keyup});
 }
 
 function continue_logging(){
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
       if (this.responseText==="1"){
-        window.addEventListener('mousemove', function(){mouseclick()});
+        window.addEventListener('mousemove', function(){mousemove()});
+        window.addEventListener('click', function(){mouseclick()});
+        // let textbar = document.getElementById('notes');
+        // textbar.addEventListener('keydown',function(){keydown});
+        // textbar.addEventListener('keyup',function(){keyup});
+        // window.addEventListener('keydown',function(){keydown});
+        // window.addEventListener('keyup',function(){keyup});
       }
     }
     xmlhttp.open("GET", "js/jshelper.php?q=" + "started");

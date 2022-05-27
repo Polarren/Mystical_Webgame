@@ -39,6 +39,60 @@ if ($q==="mouse_click") {
     fclose($mouse_click);
     $response = "You have successfully logged mouse clicks: ".$log;
 }
+if ($q==="mouse_move") {
+    if (isset($_POST["log"])){
+        $log = $_POST["log"];
+        $userID = $_SESSION["user"];
+    }else{
+        print_r($_POST);
+        echo "Error";
+        http_response_code(400);
+    }
+    $current_time = floor(microtime(true) * 1000);
+    $time_elapsed = $current_time-$_SESSION["start_time"];
+    $log = ''.$time_elapsed.' '.$log;
+
+    $mouse_move = fopen("$DOCUMENT_ROOT/data/mouse_move/$userID.txt", "a") or die("Unable to open file!");
+    fwrite($mouse_move, $log);
+    fclose($mouse_move);
+    $response = "You have successfully logged mouse moves: ".$log;
+}
+if ($q==="keydown") {
+    if (isset($_POST["log"])){
+        $log = $_POST["log"];
+        $userID = $_SESSION["user"];
+    }else{
+        print_r($_POST);
+        echo "Error";
+        http_response_code(400);
+    }
+    $current_time = floor(microtime(true) * 1000);
+    $time_elapsed = $current_time-$_SESSION["start_time"];
+    $log = ''.$time_elapsed.' '.$log;
+
+    $mouse_move = fopen("$DOCUMENT_ROOT/data/keyboard/$userID.txt", "a") or die("Unable to open file!");
+    fwrite($mouse_move, $log);
+    fclose($mouse_move);
+    $response = "You pressed a key: ".$log;
+}
+if ($q==="keyup") {
+    if (isset($_POST["log"])){
+        $log = $_POST["log"];
+        $userID = $_SESSION["user"];
+    }else{
+        print_r($_POST);
+        echo "Error";
+        http_response_code(400);
+    }
+    $current_time = floor(microtime(true) * 1000);
+    $time_elapsed = $current_time-$_SESSION["start_time"];
+    $log = ''.$time_elapsed.' '.$log;
+
+    $mouse_move = fopen("$DOCUMENT_ROOT/data/keyboard/$userID.txt", "a") or die("Unable to open file!");
+    fwrite($mouse_move, $log);
+    fclose($mouse_move);
+    $response = "You released a key: ".$log;
+}
 if ($q === "start") {
     $_SESSION["started"] = "1";
     $_SESSION["user"] = $_POST["user"];

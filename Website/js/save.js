@@ -1,5 +1,7 @@
 var editor = document.getElementById("notes");
-        editor.value="";
+
+    editor.value="";
+    //this causes problem in safari, version is unable to increment by 1
     var UserData = {
         userData : null,
         name : location.hostname,

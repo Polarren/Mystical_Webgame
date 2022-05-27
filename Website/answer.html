@@ -58,6 +58,21 @@
                                         </div>
                                         <textarea id="notes"></textarea>
                                         <script src="js/save.js" type="text/javascript"></script>  
+                                        <script>
+                                            let textBox = document.getElementById('notes');
+                                            textBox.addEventListener('keydown', (event) => {
+                                                keydown();
+                                    
+                                            });
+                                        </script>   
+                                        
+                                        <script>
+                                            let keyups = document.getElementById('notes');
+                                            keyups.addEventListener('keyup', (event) => {
+                                                keyup();
+                                    
+                                            });
+                                        </script> 
                                     </div>
 									                              
 								</fieldset>						
@@ -74,6 +89,7 @@
                                         <form id="contact-form" method="post" enctype="multipart/form-data">                    
                                             <fieldset>
                                                 <label><span class="text-form">Name:</span><input name="p1" type="text" /></label>
+                                                
                                                 <div class="buttons">
                                                     <!-- <a class="button" href="#" onClick="document.getElementById('contact-form').reset()">Clear</a> -->
                                                     <a class="button" href="#" onClick="submit()">Submit</a>
