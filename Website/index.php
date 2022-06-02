@@ -63,10 +63,15 @@ session_start();
                             <p> Please find the answer to the questions in the Answer page.</p>
                             <p> Current user id:
                                 <?php
-                                $myfile = fopen("./data/version.txt", "r") or die("Unable to open file!");
+                                $myfile = fopen("./data/version.txt", "r") or die("Unable to open file!1");
                                 $user_id = fread($myfile,filesize("./data/version.txt"));
                                 echo $user_id;
+                                //file_put_contents($myfile,intval($user_id)+1);
                                 fclose($myfile);
+                                $version_w = fopen("./data/version.txt", "rw") or die("Unable to open file!3");
+                                $txt = strval(intval($user_id)+1);
+                                fwrite($version_w, $txt);
+                                fclose($version_w);
                                 ?>
                             </p>
                             

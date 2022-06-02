@@ -2,7 +2,9 @@
 
 function mouseclick(){
     
-    var log = ''+ event.clientX +' '+ event.clientY+'\n';
+    //var log = ''+ event.clientX +' '+ event.clientY+'\n';
+    var index_x = event.clientX;
+    var index_y = event.clientY;
     // console.log(log);
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
@@ -12,16 +14,21 @@ function mouseclick(){
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xmlhttp.onload = function () {
         // do something to response
-        console.log(this.responseText);
+       console.log(this.responseText);
     };
-    xmlhttp.send("log="+log);
+    
+    xmlhttp.send('&index_x='+index_x+'&index_y='+index_y);
+    // xmlhttp.send("index_x="+index_x);
+    // xmlhttp.send("index_y="+index_y);
 
 }
 
 
 function mousemove(){
     
-  var log = ''+ event.clientX +' '+ event.clientY+'\n';
+ // var log = ''+ event.clientX +' '+ event.clientY+'\n';
+  var index_x = event.clientX;
+  var index_y = event.clientY;
   // console.log(log);
   const xmlhttp = new XMLHttpRequest();
   xmlhttp.onload = function() {
@@ -31,15 +38,19 @@ function mousemove(){
   xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xmlhttp.onload = function () {
       // do something to response
-      console.log(this.responseText);
+
+     console.log(this.responseText);
   };
-  xmlhttp.send("log="+log);
+  // xmlhttp.send("log="+log);
+  xmlhttp.send('&index_x='+index_x+'&index_y='+index_y);
+  // xmlhttp.send("index_x="+index_x);
+  // xmlhttp.send("index_y="+index_y);
 
 }
 
 function keydown(){
     
-  var log = ''+ event.key+' 0'+'\n';
+  var log = event.key;
   // console.log(log);
   const xmlhttp = new XMLHttpRequest();
   xmlhttp.onload = function() {
@@ -57,7 +68,7 @@ function keydown(){
 
 function keyup(){
     
-  var log = ''+ event.key +' 1'+'\n';
+  var log = event.key ;
   // console.log(log);
   const xmlhttp = new XMLHttpRequest();
   xmlhttp.onload = function() {

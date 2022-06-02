@@ -11,19 +11,22 @@ if ($q==="submit") {
     
     $_SESSION["started"] = "0";
     // Get current user id
-    $version_r = fopen("$DOCUMENT_ROOT/data/version.txt", "r") or die("Unable to open file!");
+    $version_r = fopen("$DOCUMENT_ROOT/data/version.txt", "r") or die("Unable to open file!2");
     $version = intval(fread($version_r,2))+1;
     fclose($version_r);
     // write new user id
-    $version_w = fopen("$DOCUMENT_ROOT/data/version.txt", "w") or die("Unable to open file!");
+    $version_w = fopen("$DOCUMENT_ROOT/data/version.txt", "w") or die("Unable to open file!3");
     $txt = strval($version);
     fwrite($version_w, $txt);
     fclose($version_w);
     $response = "You have successfully submitted your answers to the current story!";
+
 }
 if ($q==="mouse_click") {
-    if (isset($_POST["log"])){
-        $log = $_POST["log"];
+    if (isset($_POST["index_x"])){
+       // $log = $_POST["log"];
+        $index_x = $_POST["index_x"];
+        $index_y = $_POST["index_y"];
         $userID = $_SESSION["user"];
     }else{
         print_r($_POST);
@@ -32,16 +35,46 @@ if ($q==="mouse_click") {
     }
     $current_time = floor(microtime(true) * 1000);
     $time_elapsed = $current_time-$_SESSION["start_time"];
-    $log = ''.$time_elapsed.' '.$log;
+    //$log = ''.$time_elapsed.' '.$log;
 
-    $mouse_click = fopen("$DOCUMENT_ROOT/data/mouse_click/$userID.txt", "a") or die("Unable to open file!");
-    fwrite($mouse_click, $log);
-    fclose($mouse_click);
-    $response = "You have successfully logged mouse clicks: ".$log;
+    // $mouse_click = fopen("$DOCUMENT_ROOT/data/mouse_click/$userID.txt", "a") or die("Unable to open file!4");
+    // $mouse_click = fopen("data/mouse_click/$userID.txt", "a") or die("Unable to open file!4");
+
+    // fwrite($mouse_click, $log);
+    // fclose($mouse_click);
+    $response = "You have successfully logged mouse clicks: ".$index_x.' '.$index_y;
+
+
+$servername = "localhost";
+$database = "database_test";
+$username = "changliu";
+$password = "test123";
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $database);
+// Check connection
+if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
 }
+ 
+echo "Connected successfully\n";
+ 
+$sql = "INSERT INTO mouse (time, index_x, index_y,type) VALUES ('$time_elapsed', '$index_x', '$index_y','1')";
+if (mysqli_query($conn, $sql)) {
+      echo "New record created successfully";
+} else {
+      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+mysqli_close($conn);
+
+}
+
+
+
 if ($q==="mouse_move") {
-    if (isset($_POST["log"])){
-        $log = $_POST["log"];
+    if (isset($_POST["index_x"])){
+       // $log = $_POST["log"];
+        $index_x = $_POST["index_x"];
+        $index_y = $_POST["index_y"];
         $userID = $_SESSION["user"];
     }else{
         print_r($_POST);
@@ -50,13 +83,36 @@ if ($q==="mouse_move") {
     }
     $current_time = floor(microtime(true) * 1000);
     $time_elapsed = $current_time-$_SESSION["start_time"];
-    $log = ''.$time_elapsed.' '.$log;
+   // $log = ''.$time_elapsed.' '.$log;
 
-    $mouse_move = fopen("$DOCUMENT_ROOT/data/mouse_move/$userID.txt", "a") or die("Unable to open file!");
-    fwrite($mouse_move, $log);
-    fclose($mouse_move);
-    $response = "You have successfully logged mouse moves: ".$log;
+    // $mouse_move = fopen("$DOCUMENT_ROOT/data/mouse_move/$userID.txt", "a") or die("Unable to open file!5");
+    // fwrite($mouse_move, $log);
+    // fclose($mouse_move);
+    $response = "You have successfully logged mouse moves: ".$index_x.' '.$index_y;
+
+$servername = "localhost";
+$database = "database_test";
+$username = "changliu";
+$password = "test123";
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $database);
+// Check connection
+if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
 }
+ 
+echo "Connected successfully\n";
+ 
+$sql = "INSERT INTO mouse (time, index_x, index_y,type) VALUES ('$time_elapsed', '$index_x', '$index_y','0')";
+if (mysqli_query($conn, $sql)) {
+      echo "New record created successfully";
+} else {
+      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+mysqli_close($conn);
+}
+
+
 if ($q==="keydown") {
     if (isset($_POST["log"])){
         $log = $_POST["log"];
@@ -68,12 +124,33 @@ if ($q==="keydown") {
     }
     $current_time = floor(microtime(true) * 1000);
     $time_elapsed = $current_time-$_SESSION["start_time"];
-    $log = ''.$time_elapsed.' '.$log;
+    // $log = ''.$time_elapsed.' '.$log;
 
-    $mouse_move = fopen("$DOCUMENT_ROOT/data/keyboard/$userID.txt", "a") or die("Unable to open file!");
-    fwrite($mouse_move, $log);
-    fclose($mouse_move);
+    // $mouse_move = fopen("$DOCUMENT_ROOT/data/keyboard/$userID.txt", "a") or die("Unable to open file!6");
+    // fwrite($mouse_move, $log);
+    // fclose($mouse_move);
     $response = "You pressed a key: ".$log;
+    
+$servername = "localhost";
+$database = "database_test";
+$username = "changliu";
+$password = "test123";
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $database);
+// Check connection
+if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
+}
+ 
+echo "Connected successfully\n";
+ 
+$sql = "INSERT INTO keyboard1 (time, content,action) VALUES ('$time_elapsed', '$log', '0')";
+if (mysqli_query($conn, $sql)) {
+      echo "New record created successfully";
+} else {
+      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+mysqli_close($conn);
 }
 if ($q==="keyup") {
     if (isset($_POST["log"])){
@@ -86,12 +163,33 @@ if ($q==="keyup") {
     }
     $current_time = floor(microtime(true) * 1000);
     $time_elapsed = $current_time-$_SESSION["start_time"];
-    $log = ''.$time_elapsed.' '.$log;
+    // $log = ''.$time_elapsed.' '.$log;
 
-    $mouse_move = fopen("$DOCUMENT_ROOT/data/keyboard/$userID.txt", "a") or die("Unable to open file!");
-    fwrite($mouse_move, $log);
-    fclose($mouse_move);
+    // $mouse_move = fopen("$DOCUMENT_ROOT/data/keyboard/$userID.txt", "a") or die("Unable to open file!7");
+    // fwrite($mouse_move, $log);
+    // fclose($mouse_move);
     $response = "You released a key: ".$log;
+
+$servername = "localhost";
+$database = "database_test";
+$username = "changliu";
+$password = "test123";
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $database);
+// Check connection
+if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
+}
+
+echo "Connected successfully\n";
+ 
+$sql = "INSERT INTO keyboard1 (time, content,action) VALUES ('$time_elapsed', '$log', '1')";
+if (mysqli_query($conn, $sql)) {
+      echo "New record created successfully";
+} else {
+      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+mysqli_close($conn);
 }
 if ($q === "start") {
     $_SESSION["started"] = "1";
