@@ -12,6 +12,7 @@ if ($q==="submit") {
     $_SESSION["started"] = "0";
     // Get current user id
     $version_r = fopen("$DOCUMENT_ROOT/data/version.txt", "r") or die("Unable to open file!2");
+   // $version_r = fopen("./data/version.txt", "r") or die("Unable to open file!2");
     $version = intval(fread($version_r,2))+1;
     fclose($version_r);
     // write new user id
@@ -35,7 +36,7 @@ if ($q==="mouse_click") {
     }
     $current_time = floor(microtime(true) * 1000);
     $time_elapsed = $current_time-$_SESSION["start_time"];
-    //$log = ''.$time_elapsed.' '.$log;
+    // $log = ''.$time_elapsed.' '.$log;
 
     // $mouse_click = fopen("$DOCUMENT_ROOT/data/mouse_click/$userID.txt", "a") or die("Unable to open file!4");
     // $mouse_click = fopen("data/mouse_click/$userID.txt", "a") or die("Unable to open file!4");
@@ -46,7 +47,7 @@ if ($q==="mouse_click") {
 
 
 $servername = "localhost";
-$database = "database_test";
+$database = "database_2";
 $username = "changliu";
 $password = "test123";
 // Create connection
@@ -78,20 +79,22 @@ if ($q==="mouse_move") {
         $userID = $_SESSION["user"];
     }else{
         print_r($_POST);
-        echo "Error";
+        echo "Error3333";
         http_response_code(400);
     }
+    // echo "what the fuck\n";
     $current_time = floor(microtime(true) * 1000);
     $time_elapsed = $current_time-$_SESSION["start_time"];
-   // $log = ''.$time_elapsed.' '.$log;
+//    $log = ''.$time_elapsed.' '.$log;
 
     // $mouse_move = fopen("$DOCUMENT_ROOT/data/mouse_move/$userID.txt", "a") or die("Unable to open file!5");
-    // fwrite($mouse_move, $log);
-    // fclose($mouse_move);
+//     fwrite($mouse_move, $log);
+//     fclose($mouse_move);
+    // $mouse_move = "1";
     $response = "You have successfully logged mouse moves: ".$index_x.' '.$index_y;
 
 $servername = "localhost";
-$database = "database_test";
+$database = "database_2";
 $username = "changliu";
 $password = "test123";
 // Create connection
@@ -122,6 +125,7 @@ if ($q==="keydown") {
         echo "Error";
         http_response_code(400);
     }
+    echo"keydown received";
     $current_time = floor(microtime(true) * 1000);
     $time_elapsed = $current_time-$_SESSION["start_time"];
     // $log = ''.$time_elapsed.' '.$log;
@@ -132,7 +136,7 @@ if ($q==="keydown") {
     $response = "You pressed a key: ".$log;
     
 $servername = "localhost";
-$database = "database_test";
+$database = "database_2";
 $username = "changliu";
 $password = "test123";
 // Create connection
@@ -144,7 +148,7 @@ if (!$conn) {
  
 echo "Connected successfully\n";
  
-$sql = "INSERT INTO keyboard1 (time, content,action) VALUES ('$time_elapsed', '$log', '0')";
+$sql = "INSERT INTO keyboard (time, content,action,userid) VALUES ('$time_elapsed', '$log', '0','$userID')";
 if (mysqli_query($conn, $sql)) {
       echo "New record created successfully";
 } else {
@@ -171,7 +175,7 @@ if ($q==="keyup") {
     $response = "You released a key: ".$log;
 
 $servername = "localhost";
-$database = "database_test";
+$database = "database_2";
 $username = "changliu";
 $password = "test123";
 // Create connection
@@ -183,7 +187,7 @@ if (!$conn) {
 
 echo "Connected successfully\n";
  
-$sql = "INSERT INTO keyboard1 (time, content,action) VALUES ('$time_elapsed', '$log', '1')";
+$sql = "INSERT INTO keyboard(time, content,action,userid) VALUES ('$time_elapsed', '$log', '1','$userID')";
 if (mysqli_query($conn, $sql)) {
       echo "New record created successfully";
 } else {

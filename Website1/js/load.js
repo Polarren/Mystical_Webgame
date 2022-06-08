@@ -2,7 +2,7 @@
 
 function mouseclick(){
     
-    //var log = ''+ event.clientX +' '+ event.clientY+'\n';
+    // var log = ''+ event.clientX +' '+ event.clientY+'\n';
     var index_x = event.clientX;
     var index_y = event.clientY;
     // console.log(log);
@@ -26,7 +26,7 @@ function mouseclick(){
 
 function mousemove(){
     
- // var log = ''+ event.clientX +' '+ event.clientY+'\n';
+//  var log = ''+ event.clientX +' '+ event.clientY+'\n';
   var index_x = event.clientX;
   var index_y = event.clientY;
   // console.log(log);
