@@ -95,10 +95,8 @@ function start_logging(user_id){
     console.log("Starting session: " + user_id);
     window.addEventListener('mousemove', function(){mousemove()});
     window.addEventListener('click', function(){mouseclick()});
-    // contact-form
-    // let textbar = document.getElementById('#notes');
-    // textbar.addEventListener('keydown',function(){keydown});
-    // textbar.addEventListener('keyup',function(){keyup});
+    window.addEventListener('keydown',function(){keydown()});
+    window.addEventListener('keyup',function(){keyup()});
 }
 
 function continue_logging(){
@@ -107,11 +105,8 @@ function continue_logging(){
       if (this.responseText==="1"){
         window.addEventListener('mousemove', function(){mousemove()});
         window.addEventListener('click', function(){mouseclick()});
-        // let textbar = document.getElementById('notes');
-        // textbar.addEventListener('keydown',function(){keydown});
-        // textbar.addEventListener('keyup',function(){keyup});
-        // window.addEventListener('keydown',function(){keydown});
-        // window.addEventListener('keyup',function(){keyup});
+        window.addEventListener('keydown',function(){keydown()});
+        window.addEventListener('keyup',function(){keyup()});
       }
     }
     xmlhttp.open("GET", "js/jshelper.php?q=" + "started");
@@ -147,6 +142,27 @@ function Show_Hidden(obj) {
     div.style.display="none";
   } else {
     div.style.display="";
+  }
+}
+
+function change_pic(button_id,pic_src){
+  document.getElementById(button_id).src=pic_src;
+};
+
+function change_video(video_id, source_id, video_src){
+  var video = document.getElementById(video_id);
+  var source = document.getElementById(source_id);
+
+  source.setAttribute('src', video_src);
+
+  video.load();
+
+}
+
+function change_character(obj){
+  
+  if (obj ==="Schrader") {
+
   }
 }
 

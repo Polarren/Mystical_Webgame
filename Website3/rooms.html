@@ -25,12 +25,12 @@
           background-color: rgb(58, 58, 56);
           color: rgb(252, 251, 253);
           cursor: pointer;
-          padding: 18px;
+          padding: 18px 30px 18px;
           width: 100%;
           border: none;
           text-align: left;
           outline: none;
-          font-size: 15px;
+          font-size: 18px;
         }
         
         .active, .collapsible:hover {
@@ -41,12 +41,13 @@
 
         .container {
         width: 100%;
-        height: 500px;
+        height: 520px;
+        padding:20px
         }
 
         .leftpane {
-            width: 50%;
-            height: 100px;
+            width: 45%;
+            height: auto;
             float: left;
             /* background-color: rosybrown; */
             border-collapse: collapse;
@@ -61,8 +62,8 @@
         }
 
         .rightpane {
-        width: 40%;
-        height: 100px;
+        width: 45%;
+        height: auto;
         position: relative;
         float: right;
         /* background-color: yellow; */
@@ -102,19 +103,7 @@
     </header>
     
     <script>
-        function change_pic(button_id,pic_src){
-            document.getElementById(button_id).src=pic_src;
-        };
-
-        function change_video(video_id, source_id, video_src){
-            var video = document.getElementById(video_id);
-            var source = document.getElementById(source_id);
-
-            source.setAttribute('src', video_src);
-
-            video.load();
-
-        }
+        
     </script>
 
 <!-- !this is the first capsule -->
@@ -124,7 +113,7 @@
     <div class="leftpane">
         <!-- <div id= "wrapper_lobby" class="wrapper" style="display: none;"> -->
 
-            <video id = "video_lobby" width="700"  controls >
+            <video id = "video_lobby" width="650"  controls >
                     
                 <source id ="source_lobby" src="videos/Reception_0000-0512.mp4" type="video/mp4">
 
@@ -135,12 +124,116 @@
     </div>
 
     <div class="middlepane">
-        <a class="button" href="#" onClick="change_character()">Schrader</a> 
-        <a class="button" href="#" onClick="change_character()">Dwight</a> 
-        <a class="button" href="#" onClick="change_character()">Jessica</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character()">Schrader</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character()">Dwight</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character()">Jessica</a> 
     </div>
-    <div class="rightpane">
-        <textarea>questions about one certain character.</textarea>
+    <div class="rightpane" style="height: 500px; overflow:scroll" >
+        <div id="question_1" class="question" >
+            <div class="indent-left">
+                <h4 class="p2">Please describe what happened in the police station.</h4>
+                <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                    <fieldset>
+                        <textarea rows="7" cols="80"></textarea>
+                    </fieldset>						
+                <!-- </form> -->
+            </div>
+        </div>
+
+        <div id="question_2" class="question" >
+            <div class="indent-left">
+                <h4 class="p2">Who brought the bomb? Please provide your reasons.</h4>
+                <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                    <fieldset>
+                        <textarea rows="7" cols="60"></textarea>
+                    </fieldset>						
+                <!-- </form> -->
+            </div>
+        </div>
+        <div id="question_3" class="question" >
+            <div class="indent-left">
+                <h4 class="p2">Who detonated the bomb? Please provide your reasons.</h4>
+                <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                    <fieldset>
+                        <textarea rows="7" cols="60"></textarea>
+                    </fieldset>						
+                <!-- </form> -->
+            </div>
+        </div>
+        
+        <div id="question_4" class="question" >
+            <div class="indent-left">
+                <h4 class="p2">Who is Raven? Please try to list some information about him.</h4>
+                <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                    <fieldset>
+                        <textarea rows="7" cols="60"></textarea>
+                    </fieldset>						
+                <!-- </form> -->
+            </div>
+        </div>
+        
+        <div id="question_5" class="question" >
+            <div class="indent-left">
+                <h4 class="p2">Please express your opinion about Tucker. What kind of role is he?</h4>
+                <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                    <fieldset>
+                        <textarea rows="7" cols="60"></textarea>
+                    </fieldset>						
+                <!-- </form> -->
+            </div>
+        </div>
+        
+        <div id="question_6" class="question" >
+            <div class="indent-left">
+                <h4 class="p2">Who is Blade? What is his occupation? Why is he in the police station?</h4>
+                <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                    <fieldset>
+                        <textarea rows="7" cols="60"></textarea>
+                    </fieldset>						
+                <!-- </form> -->
+            </div>
+        </div>
+        <div id="question_7" class="question" >
+            <div class="indent-left">
+                <h4 class="p2">Among all characters, who do not work in the police station? And what are their relationships?</h4>
+                <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                    <fieldset>
+                        <textarea rows="7" cols="60"></textarea>
+                    </fieldset>						
+                <!-- </form> -->
+            </div>
+        </div>
+        <div id="question_8" class="question" >
+            <div class="indent-left">
+                <h4 class="p2">What is the conversation between Cassidy and Sting about?</h4>
+                <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                    <fieldset>
+                        <textarea rows="7" cols="60"></textarea>
+                    </fieldset>						
+                <!-- </form> -->
+            </div>
+        </div>
+        <div id="question_9" class="question" >
+            <div class="indent-left">
+                <h4 class="p2">Describe other converstions that you find important in this case.</h4>
+                <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                    <fieldset>
+                        <textarea rows="7" cols="60"></textarea>
+                    </fieldset>						
+                <!-- </form> -->
+            </div>
+        </div>
+        <div id="question_10" class="question" >
+            <div class="indent-left">
+                <h4 class="p2">Free writing box. Write anything here, relevant or irrelavent to this story, including complaints about this study.</h4>
+                <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                    <fieldset>
+                        <textarea rows="7" cols="60"></textarea>
+                    </fieldset>						
+                <!-- </form> -->
+            </div>
+        </div>
+        
     
     </div>
 </div>
