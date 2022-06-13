@@ -126,6 +126,13 @@ function submit(){
     }
     xmlhttp.open("GET", "js/jshelper.php?q=" + "submit");
     xmlhttp.send();
+
+    editor.value="";
+    if(!window.localStorage){
+        UserData.remove('editor-text');
+    }else{
+        localStorage.removeItem('editor-text');
+    }
 }
 
 
