@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
     <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">   
     <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
-    <script src="js/save.js" type="text/javascript"></script>        
+          
     <script src="js/load.js" type="text/javascript"></script>  
     <script> continue_logging();</script>      
 	<!--[if lt IE 7]>
@@ -48,7 +48,7 @@
         <div class="bg-bot">
         	<div class="main">
                 <div style="width:100%; margin:0 auto; overflow:auto; _display:inline-block;">
-                    <div style="width:270px; float:right" >
+                    <!-- <div style="width:270px; float:right" >
                         <article class="grid_4">
                             <form id="contact-form" method="post" enctype="multipart/form-data">                    
 								<fieldset>
@@ -78,7 +78,7 @@
 								</fieldset>						
 							</form>
                         </article>
-                    </div>
+                    </div> -->
                 
                     <!-- <div style=" margin-right:210px">
                         <div class="container_8">
@@ -106,7 +106,7 @@
                     <div style=" margin-right:210px">
                         <div class="container_8">
                             <div class="wrapper">
-                                <div class="grid_8">
+                                <div id = "question1" class="question">
                                     <div class="indent-left">
                                         <h3 class="p2">Why is the frame empty?</h3>
                                         <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
@@ -115,27 +115,8 @@
                                                 <!-- <label><span class="text-form">Why is frame empty?</span><input name="p1" type="text" /></label> -->
                                                 <!-- <label for="w3review">Review of W3Schools:</label> -->
 
-                                                <textarea id="q1" name="q1" rows="10" cols="60"></textarea>
-
-                                                <script>
-                                                    let keydownq1 = document.getElementById('q1');
-                                                    keydownq1.addEventListener('keydown', (event) => {
-                                                        keydown();
-                                            
-                                                    });
-                                                </script>   
+                                                <textarea id="q1" name="questiontextbar" rows="10" cols="60"></textarea>
                                                 
-                                                <script>
-                                                    let keyupsq1 = document.getElementById('q1');
-                                                    keyupsq1.addEventListener('keyup', (event) => {
-                                                        keyup();
-                                            
-                                                    });
-                                                </script> 
-                                                
-                                                <!-- <div class="buttons">
-                                                                   <a class="button" href="#" onClick="submit()">Submit</a>
-                                                </div>                              -->
                                             </fieldset>						
                                         <!-- </form> -->
                                     </div>
@@ -148,7 +129,7 @@
                     <div style=" margin-right:210px">
                         <div class="container_8">
                             <div class="wrapper">
-                                <div class="grid_8">
+                                <div id = "question2" class="question">
                                     <div class="indent-left">
                                         <h3 class="p2">What is Maestro's plan?</h3>
                                         <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
@@ -157,26 +138,9 @@
                                                 <!-- <label><span class="text-form">Why is frame empty?</span><input name="p1" type="text" /></label> -->
                                                 <!-- <label for="w3review">Review of W3Schools:</label> -->
 
-                                                <textarea id="q2" name="q2" rows="10" cols="60"></textarea>
+                                                <textarea id="q2" name="questiontextbar" rows="10" cols="60"></textarea>
 
-                                                <script>
-                                                    let keydownq2 = document.getElementById('q2');
-                                                    keydownq2.addEventListener('keydown', (event) => {
-                                                        keydown();
-                                            
-                                                    });
-                                                </script>   
-                                                
-                                                <script>
-                                                    let keyupsq2 = document.getElementById('q2');
-                                                    keyupsq2.addEventListener('keyup', (event) => {
-                                                        keyup();
-                                            
-                                                    });
-                                                </script> 
-                                                
-                                                
-                                                                       
+                                                            
                                             </fieldset>						
                                         <!-- </form> -->
                                     </div>
@@ -189,7 +153,7 @@
                     <div style=" margin-right:210px">
                         <div class="container_8">
                             <div class="wrapper">
-                                <div class="grid_8">
+                                <div id = "q3" class="question">
                                     <div class="indent-left">
                                         <h3 class="p2">What did Reeves claim? Did she lie?</h3>
                                         <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
@@ -198,24 +162,8 @@
                                                 <!-- <label><span class="text-form">Why is frame empty?</span><input name="p1" type="text" /></label> -->
                                                 <!-- <label for="w3review">Review of W3Schools:</label> -->
 
-                                                <textarea id="q3" name="q3" rows="10" cols="60"></textarea>
-                                                
-
-                                                <script>
-                                                    let keydownq3 = document.getElementById('q3');
-                                                    keydownq3.addEventListener('keydown', (event) => {
-                                                        keydown();
-                                            
-                                                    });
-                                                </script>   
-                                                
-                                                <script>
-                                                    let keyupsq3 = document.getElementById('q3');
-                                                    keyupsq3.addEventListener('keyup', (event) => {
-                                                        keyup();
-                                            
-                                                    });
-                                                </script> 
+                                                <textarea id="q3" name="questiontextbar" rows="10" cols="60"></textarea>
+                                    
                                                 
                                                 
                                                                           
@@ -231,7 +179,7 @@
                     <div style=" margin-right:210px">
                         <div class="container_8">
                             <div class="wrapper">
-                                <div class="grid_8">
+                                <div id = "q4" class="question">
                                     <div class="indent-left">
                                         <h3 class="p2">Why is Mac in the museum?</h3>
                                         <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
@@ -240,23 +188,9 @@
                                                 <!-- <label><span class="text-form">Why is frame empty?</span><input name="p1" type="text" /></label> -->
                                                 <!-- <label for="w3review">Review of W3Schools:</label> -->
 
-                                                <textarea id="q4" name="q4" rows="10" cols="60"></textarea>
+                                                <textarea id="q4" name="questiontextbar" rows="10" cols="60"></textarea>
                                                 
-                                                <script>
-                                                    let keydownq4 = document.getElementById('q4');
-                                                    keydownq4.addEventListener('keydown', (event) => {
-                                                        keydown();
-                                            
-                                                    });
-                                                </script>   
-                                                
-                                                <script>
-                                                    let keyupsq4 = document.getElementById('q4');
-                                                    keyupsq4.addEventListener('keyup', (event) => {
-                                                        keyup();
-                                            
-                                                    });
-                                                </script>
+                                             
                                                 
                                                 
                                                                        
@@ -273,7 +207,7 @@
                     <div style=" margin-right:210px">
                         <div class="container_8">
                             <div class="wrapper">
-                                <div class="grid_8">
+                                <div id = "q5" class="question">
                                     <div class="indent-left">
                                         <h3 class="p2">Describe the track of the real painting.</h3>
                                         <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
@@ -282,23 +216,9 @@
                                                 <!-- <label><span class="text-form">Why is frame empty?</span><input name="p1" type="text" /></label> -->
                                                 <!-- <label for="w3review">Review of W3Schools:</label> -->
 
-                                                <textarea id="q5" name="q5" rows="10" cols="60"></textarea>
+                                                <textarea id="q5" name="questiontextbar" rows="10" cols="60"></textarea>
                                                 
-                                                <script>
-                                                    let keydownq5 = document.getElementById('q5');
-                                                    keydownq5.addEventListener('keydown', (event) => {
-                                                        keydown();
                                             
-                                                    });
-                                                </script>   
-                                                
-                                                <script>
-                                                    let keyupsq5 = document.getElementById('q5');
-                                                    keyupsq5.addEventListener('keyup', (event) => {
-                                                        keyup();
-                                            
-                                                    });
-                                                </script>
                                                 
                                                 
                                                 <div class="buttons">
@@ -312,7 +232,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <script src="js/save.js" type="text/javascript"></script>   
                     <!-- <div style="width:270px;float:unset" >
                         <article class="grid_7">
                             <form id="contact-form" method="post" enctype="multipart/form-data">                    

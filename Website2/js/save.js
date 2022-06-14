@@ -1,6 +1,19 @@
-var editor = document.getElementById("notes");
+var editor_array = document.getElementsByName('questiontextbar');
+var i;
+for (i = 0; i < editor_array.length; i++) {
+    // console.log(editor_array[i]);
+    editor_array[i].innerHTML="wtfwtfwtf";
+    // editor_array[i].();
+};
+// editor_array[i].value = "dfadsgfa";
 
-    editor.value="";
+
+
+
+// editor.value="";
+//this causes problem in safari, version is unable to increment by 1
+
+
     //this causes problem in safari, version is unable to increment by 1
     var UserData = {
         userData : null,
@@ -54,32 +67,57 @@ var editor = document.getElementById("notes");
         }
     };
  
-    window.onbeforeunload=function(){
-        // 离开本页之前保存数据
+
+window.onbeforeunload=function(){
+    // 离开本页之前保存数据
+    for (i = 0; i < editor_array.length; i++) {
         if(!window.localStorage){
-            UserData.setItem('editor-text',editor.value);
+            UserData.setItem('editor-text'+i.toString(),editor_array[i].value);
         }else{
-            localStorage.setItem('editor-text',editor.value);
+            localStorage.setItem('editor-text'+i.toString(),editor_array[i].value);
         }
- 
-    };
-    window.onload=function(){
-        // 加载页面时判断是否有数据并加载
+    }
+    
+
+};
+
+window.onload = function(){
+    for(i = 0;i<editor_array.length;i++){
         if(!window.localStorage){
-            if(UserData.getItem('editor-text')==undefined) {
-                editor.value="";
+            if(UserData.getItem('editor-text'+i.toString())==undefined) {
+                editor_array[i].value="";
             }else{
-                editor.value=UserData.getItem('editor-text');
+                editor_array[i].value=UserData.getItem('editor-text'+i.toString());
             }
         }else{
-            if(localStorage.getItem('editor-text')!=null){
-                editor.value=localStorage.getItem('editor-text');
+            if(localStorage.getItem('editor-text'+i.toString())!=null){
+                editor_array[i].value=localStorage.getItem('editor-text'+i.toString());
             }else{
-                editor.value="";
+                editor_array[i].value="";
             }
         }
+    }
+}
+
+
+
+    // window.onload=function(){
+    //     // 加载页面时判断是否有数据并加载
+    //     if(!window.localStorage){
+    //         if(UserData.getItem('editor-text')==undefined) {
+    //             editor.value="";
+    //         }else{
+    //             editor.value=UserData.getItem('editor-text');
+    //         }
+    //     }else{
+    //         if(localStorage.getItem('editor-text')!=null){
+    //             editor.value=localStorage.getItem('editor-text');
+    //         }else{
+    //             editor.value="";
+    //         }
+    //     }
  
-    };
+    // };
     // // 点击发表时删除数据
     // document.getElementById("save").onclick=function(){
     //     editor.value="";
