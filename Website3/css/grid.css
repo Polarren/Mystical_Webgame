@@ -33,14 +33,9 @@
 	width: 480px;
 }
 
-.container {
-	padding:0 20px 0 20px;
-	position:relative;
-}
-
 /* Grid >> Global
 ----------------------------------------------------------------------------------------------------*/
-
+.question,
 .grid_1,
 .grid_2,
 .grid_3,
@@ -120,6 +115,10 @@
 
 .container_12 .grid_12 {
 	width:940px;
+}
+
+.container_12 .question {
+	width:620px;
 }
 
 
