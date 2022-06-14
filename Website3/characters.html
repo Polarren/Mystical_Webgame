@@ -9,7 +9,25 @@
     <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>   
     <script src="js/load.js" type="text/javascript"></script>    
     <script> continue_logging();</script>   
-      
+    <style>
+        .collapsible {
+          background-color: #eee;
+          color: #444;
+          cursor: pointer;
+          padding: 18px 30px 18px;
+          width: 100%;
+          border: none;
+          text-align: left;
+          outline: none;
+          font-size: 18px;
+        }
+        
+        .active, .collapsible:hover {
+          background-color: rgb(135, 134, 134);
+        }
+
+
+    </style>
 	<!--[if lt IE 7]>
         <div style=' clear: both; text-align:center; position: relative;'>
             <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0"  alt="" /></a>
@@ -77,159 +95,134 @@
                         <div class="container_8">
                             <div class="wrapper">
                                 <!-- 1 -->
-                                <article class="grid_8">
-                                    <h3 class="p2" onclick="Show_Hidden('wrapper_Dwight')">Dwight</h3>
-                                    <div id= "wrapper_Dwight" class="wrapper" style="display: none;">
-                                        <video width="650" height="460" controls>    
-                                            <source src="videos/Dwight.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </article>
-                                <br>
-                                <p><br></p>
-                                <br>
-                                <!-- 2 -->
-                                <article class="grid_8">
-                                    <h3 class="p2"  onclick="Show_Hidden('wrapper_Schrader')">Schrader</h3>
-                                    <div id= "wrapper_Schrader" class="wrapper" style="display: none;">
-                                        <video width="650" height="460" controls>    
-                                            <source src="videos/Schrader.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </article>
-                                <br>
-                                <p><br></p>
-                                <br>
-                                <!-- 3 -->
-                                <article class="grid_8">
-                                    <h3 class="p2" onclick="Show_Hidden('wrapper_Jessica')">Jessica </h3>
-                                    <div id= "wrapper_Jessica" class="wrapper" style="display: none;">
-                                        <video width="650" height="460" controls>    
-                                            <source src="videos/Jessica.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </article>
-                                <br>
-                                <p><br></p>
-                                <br>
-                                <!-- 4 -->
-                                <article class="grid_8">
-                                    <h3 class="p2" onclick="Show_Hidden('wrapper_Chip')">Chip </h3>
-                                    <div id= "wrapper_Chip" class="wrapper" style="display: none;">
-                                        <video width="650" height="460" controls>    
-                                            <source src="videos/Chip.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </article>
-                                <br>
-                                <p><br></p>
-                                <br>
-                                <!-- 5 -->
-                                <article class="grid_8">
-                                    <h3 class="p2" onclick="Show_Hidden('wrapper_Kint')">Kint </h3>
-                                    <div id= "wrapper_Kint" class="wrapper" style="display: none;">
-                                        <video width="650" height="460" controls>    
-                                            <source src="videos/Kint.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </article>
-                                <br>
-                                <p><br></p>
-                                <br>
-                                <!-- 6 -->
-                                <article class="grid_8">
-                                    <h3 class="p2" onclick="Show_Hidden('wrapper_Mickey')">Mickey </h3>
-                                    <div id= "wrapper_Mickey" class="wrapper" style="display: none;">
-                                        <video width="650" height="460" controls>    
-                                            <source src="videos/Mickey.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </article>
-                                <br>
-                                <p><br></p>
-                                <br>
-                                <!-- 7 -->
-                                <article class="grid_8">
-                                    <h3 class="p2" onclick="Show_Hidden('wrapper_Martin')" >Martin </h3>
-                                    <div id= "wrapper_Martin" class="wrapper" style="display: none;">
-                                        <video width="650" height="460" controls>    
-                                            <source src="videos/Martin.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </article>
-                                <br>
-                                <p><br></p>
-                                <br>
-                                <!-- 8 -->
-                                <article class="grid_8">
-                                    <h3 class="p2" onclick="Show_Hidden('wrapper_Blade')" >Blade </h3>
-                                    <div id= "wrapper_Blade" class="wrapper" style="display: none;">
-                                        <video width="650" height="460" controls>    
-                                            <source src="videos/Blade.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </article>
-                                <br>
-                                <p><br></p>
-                                <br>
-                                <!-- 9 -->
-                                <article class="grid_8">
-                                    <h3 class="p2" onclick="Show_Hidden('wrapper_Doug')">Doug </h3>
-                                    <div id= "wrapper_Doug" class="wrapper" style="display: none;">
-                                        <video width="650" height="460" controls>    
-                                            <source src="videos/Doug.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </article>
+                                <button type="button" class="collapsible" href="#" onclick="show_hidden('Dwight')">Dwight</button>
+                                <div id = "Dwight" class="container" style="display: none;">
+                                    <video width="650" height="460" controls>    
+                                        <source src="videos/Dwight.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                    </video>
+                                    <br>
+                                </div>
 
-                                <br>
-                                <p><br></p>
-                                <br>
+
+                                <!-- 2 -->
+                                <button type="button" class="collapsible" href="#" onclick="show_hidden('Schrader')">Schrader</button>
+                                <div id = "Schrader" class="container" style="display: none;">
+                                    <video width="650" height="460" controls>    
+                                        <source src="videos/Schrader.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                    </video>
+                                    <br>
+                                </div>
+
+
+                                <!-- 3 -->
+                                <button type="button" class="collapsible" href="#" onclick="show_hidden('Jessica')">Jessica</button>
+                                <div id = "Jessica" class="container" style="display: none;">
+                                    <video width="650" height="460" controls>    
+                                        <source src="videos/Jessica.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                    </video>
+                                    <br>
+                                </div>
+
+
+                                <!-- 4 -->
+                                <button type="button" class="collapsible" href="#" onclick="show_hidden('Chip')">Chip</button>
+                                <div id = "Chip" class="container" style="display: none;">
+                                    <video width="650" height="460" controls>    
+                                        <source src="videos/Chip.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                    </video>
+                                    <br>
+                                </div>
+
+
+                                <!-- 5 -->
+                                <button type="button" class="collapsible" href="#" onclick="show_hidden('Kint')">Kint</button>
+                                <div id = "Kint" class="container" style="display: none;">
+                                    <video width="650" height="460" controls>    
+                                        <source src="videos/Kint.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                    </video>
+                                    <br>
+                                </div>
+
+                              
+                                <!-- 6 -->
+                                <button type="button" class="collapsible" href="#" onclick="show_hidden('Mickey')">Mickey</button>
+                                <div id = "Mickey" class="container" style="display: none;">
+                                    <video width="650" height="460" controls>    
+                                        <source src="videos/Mickey.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                    </video>
+                                    <br>
+                                </div>
+
+                               
+                                <!-- 7 -->
+                                <button type="button" class="collapsible" href="#" onclick="show_hidden('Martin')">Martin</button>
+                                <div id = "Martin" class="container" style="display: none;">
+                                    <video width="650" height="460" controls>    
+                                        <source src="videos/Martin.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                    </video>
+                                    <br>
+                                </div>
+
+
+                                <!-- 8 -->
+                                <button type="button" class="collapsible" href="#" onclick="show_hidden('Blade')">Blade</button>
+                                <div id = "Blade" class="container" style="display: none;">
+                                    <video width="650" height="460" controls>    
+                                        <source src="videos/Blade.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                    </video>
+                                    <br>
+                                </div>
+
+                                <!-- 9 -->
+                                <button type="button" class="collapsible" href="#" onclick="show_hidden('Doug')">Doug</button>
+                                <div id = "Doug" class="container" style="display: none;">
+                                    <video width="650" height="460" controls>    
+                                        <source src="videos/Doug.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                    </video>
+                                    <br>
+                                </div>
+
+                                
                                 <!-- 10 -->
-                                <article class="grid_8">
-                                    <h3 class="p2" onclick="Show_Hidden('wrapper_Cassidy')" >Cassidy </h3>
-                                    <div id= "wrapper_Cassidy" class="wrapper" style="display: none;">
-                                        <video width="650" height="460" controls>    
-                                            <source src="videos/Cassidy.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </article>
-                                <br>
-                                <p><br></p>
-                                <br>
+                                <button type="button" class="collapsible" href="#" onclick="show_hidden('Cassidy')">Cassidy</button>
+                                <div id = "Cassidy" class="container" style="display: none;">
+                                    <video width="650" height="460" controls>    
+                                        <source src="videos/Cassidy.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                    </video>
+                                    <br>
+                                </div>
+
+                                
                                 <!-- 11 -->
-                                <article class="grid_8">
-                                    <h3 class="p2" onclick="Show_Hidden('wrapper_Tucker')"  >Tucker </h3>
-                                    <div id= "wrapper_Tucker" class="wrapper" style="display: none;">
-                                        <video width="650" height="460" controls>    
-                                            <source src="videos/Tucker.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </article>
-                                <br>
-                                <p><br></p>
-                                <br>
+                                <button type="button" class="collapsible" href="#" onclick="show_hidden('Tucker')">Tucker</button>
+                                <div id = "Tucker" class="container" style="display: none;">
+                                    <video width="650" height="460" controls>    
+                                        <source src="videos/Tucker.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                    </video>
+                                    <br>
+                                </div>
+
                                 <!-- 12 -->
-                                <article class="grid_8">
-                                    <h3 class="p2" onclick="Show_Hidden('wrapper_Sting')" >Sting </h3>
-                                    <div id= "wrapper_Sting" class="wrapper" style="display: none;">
-                                        <video width="650" height="460" controls>    
-                                            <source src="videos/Sting.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                </article>
+                                <button type="button" class="collapsible" href="#" onclick="show_hidden('Sting')">Sting</button>
+                                <div id = "Sting" class="container" style="display: none;">
+                                    <video width="650" height="460" controls>    
+                                        <source src="videos/Sting.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                    </video>
+                                    <br>
+                                </div>
+
 
                             </div>
                         </div>
@@ -240,6 +233,19 @@
         </div>
     </section>
     
+
+
+<script>
+    function show_hidden(obj){
+        var div = document.getElementById(obj);
+       
+        if (div.style.display===""){
+          div.style.display="none";
+        } else {
+          div.style.display="";
+        }
+      }
+    </script>
 	<!--==============================footer=================================-->
 
 </body>
