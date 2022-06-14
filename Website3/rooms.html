@@ -23,7 +23,7 @@
         <style>
         .collapsible {
           background-color: #eee;
-          color: #444;
+          color: #000;
           cursor: pointer;
           padding: 18px 30px 18px;
           width: 100%;
@@ -34,7 +34,8 @@
         }
         
         .active, .collapsible:hover {
-          background-color: rgb(135, 134, 134);
+          background-color: rgb(0, 0, 0);
+          color: #eee;
         }
 
 
@@ -106,14 +107,14 @@
         
     </script>
 
-<!-- !this is the first capsule -->
+<!-- ****************************** !this is the 1st capsule *************************************-->
 <button type="button" class="collapsible" onclick="Show_Hidden('content_lobby')">Lobby</button>
 <div id="content_lobby"  class="container" style="display: none;">
     <!-- <div class="toppane">Test Page</div> -->
     <div class="leftpane">
         <!-- <div id= "wrapper_lobby" class="wrapper" style="display: none;"> -->
 
-            <video id = "video_lobby" width="650"  controls >
+            <video id = "video_lobby" width="640"  controls >
                     
                 <source id ="source_lobby" src="videos/Reception_0000-0512.mp4" type="video/mp4">
 
@@ -124,328 +125,772 @@
     </div>
 
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Schrader')">Schrader</a> 
-        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Dwight')">Dwight</a> 
-        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Mickey')">Mickey</a> 
-        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Martin')">Martin</a> 
-        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Blade')">Blade</a> 
-        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Doug')">Doug</a> 
-        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Jessica')">Jessica</a> 
-        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Chip')">Chip</a> 
-
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Schrader','lobby')">Schrader</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Dwight','lobby')">Dwight</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Mickey','lobby')">Mickey</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Martin','lobby')">Martin</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Blade','lobby')">Blade</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Doug','lobby')">Doug</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Jessica','lobby')">Jessica</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Chip','lobby')">Chip</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Tucker','lobby')">Tucker</a> 
     </div>
     <div class="rightpane" style="height: 500px; overflow:scroll" >
-        <div id="question_1" class="question" style="display:none ;">
+        <!-- Question 1 Please describe what happened in the police station.-->
+        <div id="question_1_lobby" class="question" style="display:none ;">
             <div class="indent-left">
                 <h4 class="p2">Please describe what happened in the police station.</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea rows="7" cols="80"></textarea>
+                        <textarea name="question_1_textarea" rows="7" cols="80"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
         </div>
-
-        <div id="question_2" class="question" style="display:none ;">
+        <!-- Question 2 Who brought the bomb? Please provide your reasons.-->
+        <div id="question_2_lobby" class="question" style="display:none ;">
             <div class="indent-left">
                 <h4 class="p2">Who brought the bomb? Please provide your reasons.</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea rows="7" cols="80"></textarea>
+                        <textarea name="question_2_textarea" rows="7" cols="80"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
         </div>
-        <div id="question_3" class="question" style="display:none ;">
+        <!-- Question 3 Who detonated the bomb? Please provide your reasons. -->
+        <div id="question_3_lobby" class="question" style="display:none ;">
             <div class="indent-left">
                 <h4 class="p2">Who detonated the bomb? Please provide your reasons.</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea rows="7" cols="80"></textarea>
+                        <textarea  name="question_3_textarea" rows="7" cols="80"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
         </div>
-        
-        <div id="question_4" class="question" style="display:none ;">
+        <!-- Question 4 Who is Raven? Please try to list some information about him.-->
+        <div id="question_4_lobby" class="question" style="display:none ;">
             <div class="indent-left">
                 <h4 class="p2">Who is Raven? Please try to list some information about him.</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea rows="7" cols="80"></textarea>
+                        <textarea  name="question_4_textarea"  rows="7" cols="80"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
         </div>
-        
-        <div id="question_5" class="question" style="display:none ;">
+        <!-- Question 5 Please express your opinion about Tucker. What kind of role is he? -->
+        <div id="question_5_lobby" class="question" style="display:none ;">
             <div class="indent-left">
                 <h4 class="p2">Please express your opinion about Tucker. What kind of role is he?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea rows="7" cols="80"></textarea>
+                        <textarea  name="question_5_textarea"  rows="7" cols="80"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
         </div>
-        
-        <div id="question_6" class="question" style="display:none ;">
+        <!-- Question 6 Who is Blade? What is his occupation? Why is he in the police station? -->
+        <div id="question_6_lobby" class="question" style="display:none ;">
             <div class="indent-left">
                 <h4 class="p2">Who is Blade? What is his occupation? Why is he in the police station?</h4>
-                <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea rows="7" cols="80"></textarea>
+                        <textarea  name="question_6_textarea"  rows="7" cols="80"></textarea>
                     </fieldset>						
-                <!-- </form> -->
             </div>
         </div>
-        <div id="question_7" class="question" style="display:none ;" >
+
+        <!-- Question 7 Among all characters, who do not work in the police station? And what are their relationships?-->
+        <div id="question_7_lobby" class="question" style="display:none ;" >
             <div class="indent-left">
                 <h4 class="p2">Among all characters, who do not work in the police station? And what are their relationships?</h4>
-                <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea rows="7" cols="80"></textarea>
+                        <textarea  name="question_7_textarea"  rows="7" cols="80"></textarea>
                     </fieldset>						
-                <!-- </form> -->
             </div>
         </div>
-        <div id="question_8" class="question" style="display:none ;">
+
+        <!-- Question 8 What is the conversation between Cassidy and Sting about? -->
+        <div id="question_8_lobby" class="question" style="display:none ;">
             <div class="indent-left">
                 <h4 class="p2">What is the conversation between Cassidy and Sting about?</h4>
-                <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea rows="7" cols="80"></textarea>
+                        <textarea  name="question_8_textarea"  rows="7" cols="80"></textarea>
                     </fieldset>						
-                <!-- </form> -->
             </div>
         </div>
-        <div id="question_9" class="question" >
+        <!-- Question 9 Describe other converstions that you find important in this case.  -->
+        <div id="question_9_lobby" class="question" style="display:none ;" >
             <div class="indent-left">
                 <h4 class="p2">Describe other converstions that you find important in this case.</h4>
-                <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea rows="7" cols="80"></textarea>
+                        <textarea  name="question_9_textarea"  rows="7" cols="80"></textarea>
                     </fieldset>						
-                <!-- </form> -->
             </div>
         </div>
-        <div id="question_10" class="question" style="display:none ;">
+
+        <!-- Question 10 Who is Schrader?   -->
+        <div id="question_10_lobby" class="question"  style="display:none ;">
             <div class="indent-left">
-                <h4 class="p2">Free writing box. Write anything here, relevant or irrelavent to this story, including complaints about this study.</h4>
-                <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                <h4 class="p2">Who is Schrader? </h4>
                     <fieldset>
-                        <textarea rows="7" cols="80"></textarea>
+                        <textarea  name="question_10_textarea"  rows="7" cols="80"></textarea>
                     </fieldset>						
-                <!-- </form> -->
             </div>
         </div>
+
+         <!-- Question 11 Who is Jessica? What is her role in this game?  -->
+         <div id="question_11_lobby" class="question"  style="display:none ;">
+             <div class="indent-left">
+                 <h4 class="p2">Who is Jessica? What is her role in this game? </h4>
+                     <fieldset>
+                         <textarea  name="question_11_textarea"  rows="7" cols="80"></textarea>
+                     </fieldset>						
+             </div>
+         </div>
+
+
+         <!-- Question 12 Who is Mickey? What did he do?  -->
+         <div id="question_12_lobby" class="question" style="display:none ;">
+             <div class="indent-left">
+                 <h4 class="p2">Who is Mickey? What did he do?</h4>
+                     <fieldset>
+                         <textarea  name="question_12_textarea"  rows="7" cols="80"></textarea>
+                     </fieldset>						
+             </div>
+         </div>
+
+
+         <!-- Question 13 Who is Chip? What did he do?  -->
+         <div id="question_13_lobby" class="question"  style="display:none ;">
+             <div class="indent-left">
+                 <h4 class="p2">Who is Chip? What did he do?</h4>
+                     <fieldset>
+                         <textarea name="question_13_textarea"  rows="7" cols="80"></textarea>
+                     </fieldset>						
+             </div>
+         </div>
+
+         <!-- Question 14 Who is Martin? What is his role in this game?  -->
+          <div id="question_14_lobby" class="question" style="display:none ;">
+             <div class="indent-left">
+                 <h4 class="p2">Who is Martin? What is his role in this game?</h4>
+                     <fieldset>
+                         <textarea  name="question_14_textarea" rows="7" cols="80"></textarea>
+                     </fieldset>						
+             </div>
+         </div>
+
+
+          <!-- Question 15 Who is Cassidy? What is his occupation?  -->
+          <div id="question_15_lobby" class="question" style="display:none ;">
+              <div class="indent-left">
+                  <h4 class="p2">Who is Cassidy? What is his occupation?</h4>
+                      <fieldset>
+                          <textarea name="question_15_textarea" rows="7" cols="80"></textarea>
+                      </fieldset>						
+              </div>
+          </div>
+
+          <!-- Question 16 Who is Doug? Describe what you know about him.  -->
+          <div id="question_16_lobby" class="question"  style="display:none ;">
+              <div class="indent-left">
+                  <h4 class="p2">Who is Doug? Describe what you know about him.</h4>
+                      <fieldset>
+                          <textarea  name="question_16_textarea" rows="7" cols="80"></textarea>
+                      </fieldset>						
+              </div>
+          </div>
+        
+
+          <!-- Question 17 Who is Kint? What happened to him?  -->
+          <div id="question_17_lobby" class="question"  style="display:none ;">
+              <div class="indent-left">
+                  <h4 class="p2">Who is Kint? What happened to him? </h4>
+                      <fieldset>
+                          <textarea  name="question_17_textarea"  rows="7" cols="80"></textarea>
+                      </fieldset>						
+              </div>
+          </div>
+
+           <!-- Question 18 Why is Dwight in the police station?  -->
+           <div id="question_18_lobby" class="question"  style="display:none ;">
+               <div class="indent-left">
+                   <h4 class="p2">Why is Dwight in the police station? </h4>
+                       <fieldset>
+                           <textarea name="question_18_textarea"  rows="7" cols="80"></textarea>
+                       </fieldset>						
+               </div>
+           </div>
+
+           <!-- Question 19 Why does Dwight have two phones? Feel free to make any guesses.  -->
+           <div id="question_19_lobby" class="question" style="display:none ;">
+               <div class="indent-left">
+                   <h4 class="p2">Why does Dwight have two phones? Feel free to make any guesses. </h4>
+                       <fieldset>
+                           <textarea  name="question_19_textarea" rows="7" cols="80"></textarea>
+                       </fieldset>						
+               </div>
+           </div>
         
     
     </div>
 </div>
 
-
-
-
-
-<!-- !this is the second capsule -->
+<!-- ****************************** !this is the 2rd capsule *************************************-->
 <button type="button" class="collapsible" onclick="Show_Hidden('content_outside')">Outside</button>
 <div id="content_outside"  class="container" style="display: none;">
-    <!-- <div class="toppane">Test Page</div> -->
     <div class="leftpane">
-       <video id = "video_outside" width="640" height="460" controls>
-               
-           <source  id ="source_outside" src="videos/Outside_0217-0512.mp4" type="video/mp4">
-       Your browser does not support the video tag.
-       </video>
-       <a class="button" href="#!" onclick="change_video('video_outside','source_outside','videos/Outside_0217-0512.mp4');">Tape 1: 2:17-5:12 </a>
+
+            <video id = "video_outside" width="640"  controls >
+                    
+                <source id ="source_outside" src="videos/Outside_0217-0512.mp4" type="video/mp4">
+
+            Your browser does not support the video tag.
+            </video>
+            <a class="button" href="#!" onclick="change_video('video_outside','source_outside','videos/Outside_0217-0512.mp4');">Tape 1: 2:17-5:12 </a>
 
     </div>
 
     <div class="middlepane">
-        <a class="button" href="#" onClick="change_character()">Schrader</a>
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Mickey','outside')">Mickey</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Dwight','outside')">Dwight</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Chip','outside')">Chip</a> 
+
     </div>
-    <div class="rightpane">
-        <textarea>questions about one certain character.</textarea>
+    <div class="rightpane" style="height: 500px; overflow:scroll" >
+        <!-- Question 12 Who is Mickey? What did he do?  -->
+        <div id="question_12_outside" class="question"  style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Mickey? What did he do?</h4>
+                    <fieldset>
+                        <textarea  name="question_12_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+
+
+        <!-- Question 13 Who is Chip? What did he do?  -->
+        <div id="question_13_outside" class="question"  style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Chip? What did he do?</h4>
+                    <fieldset>
+                        <textarea name="question_13_textarea"  rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+
+        
+        <!-- Question 18 Why is Dwight in the police station?  -->
+        <div id="question_18_outside" class="question"  style="display:none ;">
+            <div class="indent-left">
+             <h4 class="p2">Why is Dwight in the police station? </h4>
+                 <fieldset>
+                     <textarea  name="question_18_textarea" rows="7" cols="80"></textarea>
+                 </fieldset>						
+            </div>
+        </div>
+
+        <!-- Question 19 Why does Dwight have two phones? Feel free to make any guesses.  -->
+        <div id="question_19_outside" class="question"  style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Why does Dwight have two phones? Feel free to make any guesses. </h4>
+                    <fieldset>
+                        <textarea  name="question_19_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+        
     
     </div>
 </div>
-<script src="js/save.js" type="text/javascript"></script>
 
-<!-- content -->
-    <section id="content">
-        <div class="bg-bot">
-        	<div class="main">
-                <div style="width:100%; margin:0 auto; overflow:auto; _display:inline-block;">
-                  
-                    <div style="width:270px; float:right" >
-                        <article class="grid_4">
-                            <form id="contact-form" method="post" enctype="multipart/form-data">                    
-								<fieldset>
-									<div class="wrapper"><div class="text-form"><h3 class="p2">Notes:</h3></div><textarea id="notes"></textarea></div>
-									
-                                    <!-- <script>
-                                        let textBox = document.getElementById('notes');
-                                        textBox.addEventListener('keydown', (event) => {
-                                            keydown();
-                                
-                                        });
-                                    </script>   
-                                    
-                                    <script>
-                                        let keyupw = document.getElementById('notes');
-                                        keyupw.addEventListener('keyup', (event) => {
-                                            keyup();
-                                
-                                        });
-                                    </script>  -->
-								</fieldset>						
-							</form>
-                        </article>
-                    </div>
-                    <div style=" margin-right:210px">
-                        <div class="container_8">
-                            <div class="container_8">
-                                
-                                <article class="grid_8">
-                                    <h3 class="p2" onclick="Show_Hidden('wrapper_lobby')">Lobby </h3>
-                                    <div id= "wrapper_lobby" class="wrapper" style="display: none;">
 
-                                        <video id = "video_lobby" width="640" height="460" controls >
+<!-- ****************************** !this is the 3rd capsule *************************************-->
+<button type="button" class="collapsible" onclick="Show_Hidden('content_hall')">Hall</button>
+<div id="content_hall"  class="container" style="display: none;">
+    <div class="leftpane">
+
+        <video id = "video_hall" width="640" controls>
                                                 
-                                            <source id ="source_lobby" src="videos/Reception_0000-0512.mp4" type="video/mp4">
+            <source  id ="source_hall" src="videos/Hall-1_0034-0052.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+        <a class="button" href="#!" onclick="change_video('video_hall','source_hall','videos/Hall-1_0034-0052.mp4');">Tape 1: 0:34-0:52 </a>
+        <a class="button" href="#!" onclick="change_video('video_hall','source_hall','videos/Hall-2_0213-0258.mp4');">Tape 2: 2:13-2:58 </a>
+        <a class="button" href="#!" onclick="change_video('video_hall','source_hall','videos/Hall-3_0304-0512.mp4');">Tape 3: 3:04-5:12 </a>
+    
+    </div>
 
-                                        Your browser does not support the video tag.
-                                        </video>
-                                        <a class="button" href="#!" onclick="change_video('video_lobby','source_lobby','videos/Reception_0000-0512.mp4');">Tape 1: 0:00-5:12 </a>
-                                    </div>
-                                </article>
-                                <br>
-                                <br>
-                                <br>
-
-                                
-                                <article class="grid_8">
-                                    <h3 class="p2"  onclick="Show_Hidden('wrapper_outside')" >Outside</h3>
-                                    <div id= "wrapper_outside" class="wrapper" style="display: none;">
-
-                                        <video id = "video_outside" width="640" height="460" controls>
-                                                
-                                            <source  id ="source_outside" src="videos/Outside_0217-0512.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                        </video>
-                                        <a class="button" href="#!" onclick="change_video('video_outside','source_outside','videos/Outside_0217-0512.mp4');">Tape 1: 2:17-5:12 </a>
-                                    </div>
-                                </article>
-                                <br>
-                                <br>
-                                <br>
-                                   
-                                <article class="grid_8">
-                                    <h3 class="p2" onclick="Show_Hidden('wrapper_hall')"  >Hall</h3>
-                                    <div id= "wrapper_hall" class="wrapper" style="display: none;">
-
-                                        <video id = "video_hall" width="640" height="460" controls>
-                                                
-                                            <source  id ="source_hall" src="videos/Hall-1_0034-0052.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                        </video>
-                                        <a class="button" href="#!" onclick="change_video('video_hall','source_hall','videos/Hall-1_0034-0052.mp4');">Tape 1: 0:34-0:52 </a>
-                                        <a class="button" href="#!" onclick="change_video('video_hall','source_hall','videos/Hall-2_0213-0258.mp4');">Tape 2: 2:13-2:58 </a>
-                                        <a class="button" href="#!" onclick="change_video('video_hall','source_hall','videos/Hall-3_0304-0512.mp4');">Tape 3: 3:04-5:12 </a>
-                                    </div>
-                                </article>
-                                <br>
-                                <br>
-                                <br>
-                                <article class="grid_8">
-                                    <h3 class="p2" onclick="Show_Hidden('wrapper_conference_room')" >Conference Room</h3>
-                                    <div id= "wrapper_conference_room" class="wrapper" style="display: none;">
-
-                                        <video id = "video_conference_room" width="640" height="460" controls>
-                                                
-                                            <source  id ="source_conference_room" src="videos/ConferenceRoom_0101-0315.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                        </video>
-                                        <a class="button" href="#!" onclick="change_video('video_conference_room','source_conference_room','videos/ConferenceRoom_0101-0315.mp4');">Tape 1: 1:01-3:15 </a>
-                                    </div>
-                                </article>
-                                <br>
-                                <br>
-                                <br>
-                                <article class="grid_8">
-                                    <h3 class="p2" onclick="Show_Hidden('wrapper_tucker_office')" >Tucker's Office</h3>
-                                    <div id= "wrapper_tucker_office" class="wrapper" style="display: none;">
-
-                                        <video id = "video_tucker_office" width="640" height="460" controls>
-                                                
-                                            <source  id ="source_tucker_office" src="videos/Tucker_Office_0306-0457.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                        </video>
-                                        <a class="button" href="#!" onclick="change_video('video_tucker_office','source_tucker_office','videos/Tucker_Office_0306-0457.mp4');">Tape 1: 3:06-4:57 </a>
-                                    </div>
-                                </article>
-                                <br>
-                                <br>
-                                <br>
-                                <article class="grid_8">
-                                    <h3 class="p2" onclick="Show_Hidden('wrapper_interview_room_1')" >Interview Room 1</h3>
-                                    <div id= "wrapper_interview_room_1" class="wrapper" style="display: none;">
-
-                                        <video id = "video_interview_room_1" width="640" height="460" controls>
-                                                
-                                            <source  id ="source_interview_room_1" src="videos/InterviewRoom1_0152-0512.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                        </video>
-                                        <a class="button" href="#!" onclick="change_video('video_interview_room_1','source_interview_room_1','videos/InterviewRoom1_0152-0512.mp4');">Tape 1: 1:52-5:12 </a>
-                                    </div>
-                                </article>
-                                <br>
-                                <br>
-                                <br>
-                                <article class="grid_8">
-                                    <h3 class="p2" onclick="Show_Hidden('wrapper_interview_room_2')">Interview Room 2</h3>
-                                    <div id= "wrapper_interview_room_2" class="wrapper" style="display: none;">
-
-                                        <video id = "video_interview_room_2" width="640" height="460" controls>
-                                                
-                                            <source  id ="source_interview_room_2" src="videos/InterviewRoom2-1_0001-0120.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                        </video>
-                                        <a class="button" href="#!" onclick="change_video('video_interview_room_2','source_interview_room_2','videos/InterviewRoom2-1_0001-0120.mp4');">Tape 1: 0:01-1:20 </a>
-                                        <a class="button" href="#!" onclick="change_video('video_interview_room_2','source_interview_room_2','videos/InterviewRoom2-2_0226-0512.mp4');">Tape 2: 2:26-5:12 </a>
-
-                                    </div>
-                                </article>
-                                <br>
-                                <br>
-                                <br>
-                                <article class="grid_8">
-                                    <h3 class="p2" onclick="Show_Hidden('wrapper_toilet')" >Toilet</h3>
-                                    <div id= "wrapper_toilet" class="wrapper" style="display: none;">
-
-                                        <video id = "video_toilet" width="640" height="460" controls>
-                                                
-                                            <source  id ="source_toilet" src="videos/Toilet-1_0146-0229.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                        </video>
-                                        <a class="button" href="#!" onclick="change_video('video_toilet','source_toilet','videos/Toilet-1_0146-0229.mp4');">Tape 1: 1:46-2:29 </a>
-                                        <a class="button" href="#!" onclick="change_video('video_toilet','source_toilet','videos/Toilet-2_0310-0425.mp4');">Tape 2: 3:16-4:25 </a>
-
-                                    </div>
-                                </article>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            	
+    <div class="middlepane">
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Dwight','hall')">Dwight</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Jessica','hall')">Jessica</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Martin','hall')">Martin</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Cassidy','hall')">Cassidy</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Kint','hall')">Kint</a> 
+    </div>
+    <div class="rightpane" style="height: 500px; overflow:scroll" >
+        <!-- Question 4 Who is Raven? Please try to list some information about him.-->
+        <div id="question_4_hall" class="question" style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Raven? Please try to list some information about him.</h4>
+                <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                    <fieldset>
+                        <textarea  name="question_4_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+                <!-- </form> -->
             </div>
         </div>
-    </section>
+        <!-- Question 8 What is the conversation between Cassidy and Sting about? -->
+        <div id="question_8_hall" class="question" style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">What is the conversation between Cassidy and Sting about?</h4>
+                    <fieldset>
+                        <textarea name="question_8_textarea"  rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+        <!-- Question 11 Who is Jessica? What is her role in this game?  -->
+        <div id="question_11_hall" class="question"  style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Jessica? What is her role in this game? </h4>
+                    <fieldset>
+                        <textarea  name="question_11_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+        <!-- Question 14 Who is Martin? What is his role in this game?  -->
+        <div id="question_14_hall" class="question" style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Martin? What is his role in this game?</h4>
+                    <fieldset>
+                        <textarea name="question_14_textarea"  rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+
+
+         <!-- Question 15 Who is Cassidy? What is his occupation?  -->
+         <div id="question_15_hall" class="question" style="display:none ;">
+             <div class="indent-left">
+                 <h4 class="p2">Who is Cassidy? What is his occupation?</h4>
+                     <fieldset>
+                         <textarea  name="question_15_textarea" rows="7" cols="80"></textarea>
+                     </fieldset>						
+             </div>
+         </div>
+
+        <!-- Question 17 Who is Kint? What happened to him?  -->
+        <div id="question_17_hall" class="question"  style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Kint? What happened to him? </h4>
+                    <fieldset>
+                        <textarea name="question_17_textarea"  rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+
+         <!-- Question 18 Why is Dwight in the police station?  -->
+         <div id="question_18_hall" class="question"  style="display:none ;">
+             <div class="indent-left">
+                 <h4 class="p2">Why is Dwight in the police station? </h4>
+                     <fieldset>
+                         <textarea  name="question_18_textarea" rows="7" cols="80"></textarea>
+                     </fieldset>						
+             </div>
+         </div>
+
+         <!-- Question 19 Why does Dwight have two phones? Feel free to make any guesses.  -->
+         <div id="question_19_hall" class="question">
+             <div class="indent-left">
+                 <h4 class="p2">Why does Dwight have two phones? Feel free to make any guesses. </h4>
+                     <fieldset>
+                         <textarea name="question_19_textarea"  rows="7" cols="80"></textarea>
+                     </fieldset>						
+             </div>
+         </div>
     
+    </div>
+</div>
+
+
+<!-- ****************************** !this is the 4th capsule *************************************-->
+<button type="button" class="collapsible" onclick="Show_Hidden('content_conference_room')">Conference Room</button>
+<div id="content_conference_room"  class="container" style="display: none;">
+    <div class="leftpane">
+
+        <video id = "video_conference_room" width="640" controls>
+                                                
+            <source  id ="source_conference_room" src="videos/ConferenceRoom_0101-0315.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+        <a class="button" href="#!" onclick="change_video('video_conference_room','source_conference_room','videos/ConferenceRoom_0101-0315.mp4');">Tape 1: 1:01-3:15 </a>
+    
+    </div>
+
+    <div class="middlepane">
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Dwight','conference_room')">Dwight</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Jessica','conference_room')">Jessica</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Martin','conference_room')">Martin</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Cassidy','conference_room')">Cassidy</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Kint','conference_room')">Kint</a> 
+    </div>
+    <div class="rightpane" style="height: 500px; overflow:scroll" >
+        <!-- Question 4 Who is Raven? Please try to list some information about him.-->
+        <div id="question_4_conference_room" class="question" style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Raven? Please try to list some information about him.</h4>
+                <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                    <fieldset>
+                        <textarea  name="question_4_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+                <!-- </form> -->
+            </div>
+        </div>
+
+         <!-- Question 6 Who is Blade? What is his occupation? Why is he in the police station? -->
+         <div id="question_6_conference_room" class="question" style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Blade? What is his occupation? Why is he in the police station?</h4>
+                    <fieldset>
+                        <textarea  name="question_6_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+
+        <!-- Question 8 What is the conversation between Cassidy and Sting about? -->
+        <div id="question_8_conference_room" class="question" style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">What is the conversation between Cassidy and Sting about?</h4>
+                    <fieldset>
+                        <textarea  name="question_8_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+        <!-- Question 11 Who is Jessica? What is her role in this game?  -->
+        <div id="question_11_conference_room" class="question"  style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Jessica? What is her role in this game? </h4>
+                    <fieldset>
+                        <textarea  name="question_11_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+        <!-- Question 14 Who is Martin? What is his role in this game?  -->
+        <div id="question_14_conference_room" class="question" style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Martin? What is his role in this game?</h4>
+                    <fieldset>
+                        <textarea  name="question_14_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+
+
+         <!-- Question 15 Who is Cassidy? What is his occupation?  -->
+         <div id="question_15_conference_room" class="question" style="display:none ;">
+             <div class="indent-left">
+                 <h4 class="p2">Who is Cassidy? What is his occupation?</h4>
+                     <fieldset>
+                         <textarea name="question_15_textarea"  rows="7" cols="80"></textarea>
+                     </fieldset>						
+             </div>
+         </div>
+
+         <!-- Question 16 Who is Doug? Describe what you know about him.  -->
+         <div id="question_16_conference_room" class="question"  style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Doug? Describe what you know about him.</h4>
+                    <fieldset>
+                        <textarea  name="question_16_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+
+        <!-- Question 17 Who is Kint? What happened to him?  -->
+        <div id="question_17_conference_room" class="question"  style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Kint? What happened to him? </h4>
+                    <fieldset>
+                        <textarea  name="question_17_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+
+         <!-- Question 18 Why is Dwight in the police station?  -->
+         <div id="question_18_conference_room" class="question"  style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Why is Dwight in the police station? </h4>
+                    <fieldset>
+                        <textarea  name="question_18_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+
+        <!-- Question 19 Why does Dwight have two phones? Feel free to make any guesses.  -->
+        <div id="question_19_conference_room" class="question"  style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Why does Dwight have two phones? Feel free to make any guesses. </h4>
+                    <fieldset>
+                        <textarea  name="question_19_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+<!-- ****************************** !this is the 5th capsule *************************************-->
+<button type="button" class="collapsible" onclick="Show_Hidden('content_tucker_office')">Tucker's Office</button>
+<div id="content_tucker_office"  class="container" style="display: none;">
+    <div class="leftpane">
+
+        <video id = "video_tucker_office" width="640"  controls>
+                                                
+            <source  id ="source_tucker_office" src="videos/Tucker_Office_0306-0457.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+        <a class="button" href="#!" onclick="change_video('video_tucker_office','source_tucker_office','videos/Tucker_Office_0306-0457.mp4');">Tape 1: 3:06-4:57 </a>
+    
+    </div>
+
+    <div class="middlepane">
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Tucker','tucker_office')">Tucker</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Doug','tucker_office')">Doug</a> 
+    </div>
+    <div class="rightpane" style="height: 500px; overflow:scroll" >
+        <!-- Question 4 Who is Raven? Please try to list some information about him.-->
+        <div id="question_4_tucker_office" class="question" style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Raven? Please try to list some information about him.</h4>
+                    <fieldset>
+                        <textarea  name="question_4_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+        <!-- Question 5 Please express your opinion about Tucker. What kind of role is he? -->
+        <div id="question_5_tucker_office" class="question" style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Please express your opinion about Tucker. What kind of role is he?</h4>
+                    <fieldset>
+                        <textarea  name="question_5_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+
+            </div>
+        </div>
+         <!-- Question 16 Who is Doug? Describe what you know about him.  -->
+         <div id="question_16_tucker_office" class="question"  style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Doug? Describe what you know about him.</h4>
+                    <fieldset>
+                        <textarea  name="question_16_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>    
+    </div>
+</div>
+
+<!-- ****************************** !this is the 6th capsule *************************************-->
+<button type="button" class="collapsible" onclick="Show_Hidden('content_interview_room_1')">Interview Room 1</button>
+<div id="content_interview_room_1"  class="container" style="display: none;">
+    <div class="leftpane">
+
+        <video id = "video_interview_room_1" width="640" controls>
+                                                
+            <source  id ="source_interview_room_1" src="videos/InterviewRoom1_0152-0512.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+        <a class="button" href="#!" onclick="change_video('video_interview_room_1','source_interview_room_1','videos/InterviewRoom1_0152-0512.mp4');">Tape 1: 1:52-5:12 </a>
+   
+    </div>
+
+    <div class="middlepane">
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Martin','interview_room_1')">Martin</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Blade','interview_room_1')">Blade</a> 
+    </div>
+    
+    <div class="rightpane" style="height: 500px; overflow:scroll" >
+        <!-- Question 4 Who is Raven? Please try to list some information about him.-->
+        <div id="question_4_interview_room_1" class="question" style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Raven? Please try to list some information about him.</h4>
+                    <fieldset>
+                        <textarea  name="question_4_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+        <!-- Question 6 Who is Blade? What is his occupation? Why is he in the police station? -->
+        <div id="question_6_interview_room_1" class="question" style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Blade? What is his occupation? Why is he in the police station?</h4>
+                    <fieldset>
+                        <textarea  name="question_6_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+
+        <!-- Question 8 What is the conversation between Cassidy and Sting about? -->
+        <div id="question_8_interview_room_1" class="question" style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">What is the conversation between Cassidy and Sting about?</h4>
+                    <fieldset>
+                        <textarea  name="question_8_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+        <!-- Question 14 Who is Martin? What is his role in this game?  -->
+        <div id="question_14_interview_room_1" class="question" style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Martin? What is his role in this game?</h4>
+                    <fieldset>
+                        <textarea  name="question_14_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ****************************** !this is the 7th capsule *************************************-->
+<button type="button" class="collapsible" onclick="Show_Hidden('content_interview_room_2')">Interview Room 2</button>
+<div id="content_interview_room_2"  class="container" style="display: none;">
+    <div class="leftpane">
+
+        <video id = "video_interview_room_2" width="640"  controls>
+                                                
+            <source  id ="source_interview_room_2" src="videos/InterviewRoom2-1_0001-0120.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+        <a class="button" href="#!" onclick="change_video('video_interview_room_2','source_interview_room_2','videos/InterviewRoom2-1_0001-0120.mp4');">Tape 1: 0:01-1:20 </a>
+        <a class="button" href="#!" onclick="change_video('video_interview_room_2','source_interview_room_2','videos/InterviewRoom2-2_0226-0512.mp4');">Tape 2: 2:26-5:12 </a>
+
+    </div>
+
+    <div class="middlepane">
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Jessica','interview_room_2')">Jessica</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Dwight','interview_room_2')">Dwight</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Chip','interview_room_2')">Chip</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Cassidy','interview_room_2')">Cassidy</a> 
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Sting','interview_room_2')">Sting</a> 
+    </div>
+    
+    <div class="rightpane" style="height: 500px; overflow:scroll" >
+        <!-- Question 4 Who is Raven? Please try to list some information about him.-->
+        <div id="question_4_interview_room_2" class="question" style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Raven? Please try to list some information about him.</h4>
+                    <fieldset>
+                        <textarea name="question_4_textarea"  rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+        <!-- Question 8 What is the conversation between Cassidy and Sting about? -->
+        <div id="question_8_interview_room_2" class="question" style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">What is the conversation between Cassidy and Sting about?</h4>
+                    <fieldset>
+                        <textarea name="question_2_textarea"  rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+         <!-- Question 11 Who is Jessica? What is her role in this game?  -->
+         <div id="question_11_interview_room_2" class="question"  style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Jessica? What is her role in this game? </h4>
+                    <fieldset>
+                        <textarea  name="question_11_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+
+        <!-- Question 13 Who is Chip? What did he do?  -->
+        <div id="question_13_interview_room_2" class="question"  style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Who is Chip? What did he do?</h4>
+                    <fieldset>
+                        <textarea name="question_13_textarea"  rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+
+        <!-- Question 15 Who is Cassidy? What is his occupation?  -->
+         <div id="question_15_interview_room_2" class="question" style="display:none ;">
+             <div class="indent-left">
+                 <h4 class="p2">Who is Cassidy? What is his occupation?</h4>
+                     <fieldset>
+                         <textarea  name="question_15_textarea" rows="7" cols="80"></textarea>
+                     </fieldset>						
+             </div>
+         </div>
+
+         <!-- Question 18 Why is Dwight in the police station?  -->
+         <div id="question_18_interview_room_2" class="question"  style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Why is Dwight in the police station? </h4>
+                    <fieldset>
+                        <textarea name="question_18_textarea"  rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+
+        <!-- Question 19 Why does Dwight have two phones? Feel free to make any guesses.  -->
+        <div id="question_19_interview_room_2" class="question"  style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Why does Dwight have two phones? Feel free to make any guesses. </h4>
+                    <fieldset>
+                        <textarea  name="question_19_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+<!-- ****************************** !this is the 8th capsule *************************************-->
+<button type="button" class="collapsible" onclick="Show_Hidden('content_toilet')">Toilet</button>
+<div id="content_toilet"  class="container" style="display: none;">
+    <div class="leftpane">
+
+        <video id = "video_toilet" width="640" controls>
+                                                
+            <source  id ="source_toilet" src="videos/Toilet-1_0146-0229.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+        <a class="button" href="#!" onclick="change_video('video_toilet','source_toilet','videos/Toilet-1_0146-0229.mp4');">Tape 1: 1:46-2:29 </a>
+        <a class="button" href="#!" onclick="change_video('video_toilet','source_toilet','videos/Toilet-2_0310-0425.mp4');">Tape 2: 3:16-4:25 </a>
+
+    </div>
+
+    <div class="middlepane">
+        <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Dwight','toilet')">Dwight</a> 
+    </div>
+
+    <div class="rightpane" style="height: 500px; overflow:scroll" >
+             <!-- Question 18 Why is Dwight in the police station?  -->
+         <div id="question_18_toilet" class="question"  style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Why is Dwight in the police station? </h4>
+                    <fieldset>
+                        <textarea  name="question_18_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+
+        <!-- Question 19 Why does Dwight have two phones? Feel free to make any guesses.  -->
+        <div id="question_19_toilet" class="question"  style="display:none ;">
+            <div class="indent-left">
+                <h4 class="p2">Why does Dwight have two phones? Feel free to make any guesses. </h4>
+                    <fieldset>
+                        <textarea  name="question_19_textarea" rows="7" cols="80"></textarea>
+                    </fieldset>						
+            </div>
+        </div>
+    </div>
+</div>
+
 	<!--==============================footer=================================-->
-    
+    <script src="js/save.js" type="text/javascript"></script>   
 </body>
 </html>

@@ -136,18 +136,19 @@ function submit(){
  * @param {[id]} obj [需要显示隐藏div的id]
  */
 function Show_Hidden(obj) {
-  var coll_array = document.getElementsByClassName("container");
+  var coll_array;
   var i;
-  
-  for (i = 0; i < coll_array.length; i++) {
-    coll_array[i].style.display="none";
-  }
+ 
 
   var div = document.getElementById(obj);
  
   if (div.style.display===""){
     div.style.display="none";
   } else {
+    coll_array = document.getElementsByClassName("container");
+    for (i = 0; i < coll_array.length; i++) {
+      coll_array[i].style.display="none";
+    }
     div.style.display="";
   }
 
@@ -170,20 +171,30 @@ function change_video(video_id, source_id, video_src){
 
 const question_map = new Map();
 
-question_map.set('Schrader', [7]);
-question_map.set('Jessica', [2,3]);
-question_map.set('Dwight', [2,3]);
-question_map.set('Mickey', [2,3]);
-question_map.set('Chip', [2,3]);
-question_map.set('Martin', [2,3,4]);
-question_map.set('Doug', [2,3]);
-question_map.set('Tucker', [2,3,4,5]);
-question_map.set('Sting', [2,3,4]);
-question_map.set('Kint', [2,3]);
-question_map.set('Cassidy', [2,3,4,8]);
-question_map.set('Blade', [2,3,6,8]);
+question_map.set('Schrader', [10]);
+question_map.set('Jessica', [11]);
+question_map.set('Dwight', [18,19]);
+question_map.set('Mickey', [12]);
+question_map.set('Chip', [13]);
+question_map.set('Martin', [4,14]);
+question_map.set('Doug', [4,16]);
+question_map.set('Tucker', [4,5]);
+question_map.set('Sting', [4,8]);
+question_map.set('Kint', [17]);
+question_map.set('Cassidy', [4,8,15]);
+question_map.set('Blade', [4,6,8]);
 
-function change_character(name){
+question_map.set('lobby', [1,2,3,7,19]);
+question_map.set('outside', [3,12,13,19]);
+question_map.set('hall', [2,4,7,14,15]);
+question_map.set('interview_room_1', [6,14]);
+question_map.set('interview_room_2', [4,8,11,13,17]);
+question_map.set('conference_room', [6]);
+question_map.set('tucker_office', [5,16]);
+question_map.set('toilet', [18,19]);
+
+
+function change_character(name,room){
   // Hide all questions
   var questions = Array.prototype.slice
     .call(document.getElementsByClassName("question"));
@@ -200,7 +211,30 @@ function change_character(name){
   var target_questions = question_map.get(name);
   // console.log(target_questions);
   for ( i =0; i<target_questions.length; i++){
-    question = document.getElementById("question_"+target_questions[i].toString());
+    question = document.getElementById("question_"+target_questions[i].toString()+"_"+room);
+    question.style.display = "";
+  }
+
+}
+
+function change_room(room,name){
+  // Hide all questions
+  var questions = Array.prototype.slice
+    .call(document.getElementsByClassName("question"));
+
+  for(var i = 0; i < questions.length; ++i){
+    questions[i].style.display="none";
+  }
+
+  
+  // Show only questions related to the character
+  var question;
+  var i;
+  // console.log( question_map.get(name));
+  var target_questions = question_map.get(room);
+  // console.log(target_questions);
+  for ( i =0; i<target_questions.length; i++){
+    question = document.getElementById("question_"+target_questions[i].toString()+"_"+name);
     question.style.display = "";
   }
 

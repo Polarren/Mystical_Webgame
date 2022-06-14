@@ -1,72 +1,64 @@
-var editor_array = document.getElementsByName('questiontextbar');
-var i;
-for (i = 0; i < editor_array.length; i++) {
-    // console.log(editor_array[i]);
-    editor_array[i].innerHTML="wtfwtfwtf";
-    // editor_array[i].();
-};
-// editor_array[i].value = "dfadsgfa";
+var UserData = {
+    userData : null,
+    name : location.hostname,
+    //this.name = "www.xuanfengge.com";
 
-
-
-
-// editor.value="";
-//this causes problem in safari, version is unable to increment by 1
-
-
-    //this causes problem in safari, version is unable to increment by 1
-    var UserData = {
-        userData : null,
-        name : location.hostname,
-        //this.name = "www.xuanfengge.com";
- 
-        init:function(){
-            // IE7下返回true，其他浏览器返回false
-            if (!UserData.userData) {
-                try {
-                    UserData.userData = document.createElement('INPUT');
-                    UserData.userData.type = "hidden";
-                    UserData.userData.style.display = "none";
-                    UserData.userData.addBehavior ("#default#userData");
-                    document.body.appendChild(UserData.userData);
-                    var expires = new Date();
-                    expires.setDate(expires.getDate()+365);
-                    UserData.userData.expires = expires.toUTCString();
-                } catch(e) {
-                    return false;
-                }
+    init:function(){
+        // IE7下返回true，其他浏览器返回false
+        if (!UserData.userData) {
+            try {
+                UserData.userData = document.createElement('INPUT');
+                UserData.userData.type = "hidden";
+                UserData.userData.style.display = "none";
+                UserData.userData.addBehavior ("#default#userData");
+                document.body.appendChild(UserData.userData);
+                var expires = new Date();
+                expires.setDate(expires.getDate()+365);
+                UserData.userData.expires = expires.toUTCString();
+            } catch(e) {
+                return false;
             }
-            return true;
-        },
- 
-        setItem : function(key, value) {
-            // IE7下的set
-            if(UserData.init()){
-                UserData.userData.load(UserData.name);
-                UserData.userData.setAttribute(key, value);
-                UserData.userData.save(UserData.name);
-            }
-        },
- 
-        getItem : function(key) {
-          // IE7下的get
-            if(UserData.init()){
-              UserData.userData.load(UserData.name);
-              return UserData.userData.getAttribute(key)
-            }
-        },
- 
-        remove : function(key) {
-            // IE7下的remove
-            if(UserData.init()){
-              UserData.userData.load(UserData.name);
-              UserData.userData.removeAttribute(key);
-              UserData.userData.save(UserData.name);
-            }
- 
         }
-    };
+        return true;
+    },
  
+    setItem : function(key, value) {
+        // IE7下的set
+        if(UserData.init()){
+            UserData.userData.load(UserData.name);
+            UserData.userData.setAttribute(key, value);
+            UserData.userData.save(UserData.name);
+        }
+    },
+
+    getItem : function(key) {
+      // IE7下的get
+        if(UserData.init()){
+          UserData.userData.load(UserData.name);
+          return UserData.userData.getAttribute(key)
+        }
+    },
+
+    remove : function(key) {
+        // IE7下的remove
+        if(UserData.init()){
+          UserData.userData.load(UserData.name);
+          UserData.userData.removeAttribute(key);
+          UserData.userData.save(UserData.name);
+        }
+
+    }
+};
+
+const editor_array = new Array(19);
+// var editor_array = document.getElementsByName('questiontextbar');
+var i;
+for (i = 0; i < 19; i++) {
+    editor_array[i]="";
+};
+var question_i_array;
+var j;
+
 
 window.onbeforeunload=function(){
     // 离开本页之前保存数据
@@ -85,13 +77,22 @@ window.onload = function(){
     for(i = 0;i<editor_array.length;i++){
         if(!window.localStorage){
             if(UserData.getItem('editor-text'+i.toString())==undefined) {
-                editor_array[i].value="";
+                editor_array[i]="";
             }else{
-                editor_array[i].value=UserData.getItem('editor-text'+i.toString());
+                editor_array[i]=UserData.getItem('editor-text'+i.toString());
+                question_i_array = document.getElementsByName("question_"+i.toString()+"_textarea");
+                console.log(question_i_array);
+                for (j=0; j<question_i_array.length;j++){
+                    question_i_array[j].value = editor_array[i];
+                }
             }
         }else{
             if(localStorage.getItem('editor-text'+i.toString())!=null){
                 editor_array[i].value=localStorage.getItem('editor-text'+i.toString());
+                question_i_array = document.getElementsByName("question_"+i.toString()+"_textarea");
+                for (j=0; j<question_i_array.length;j++){
+                    question_i_array[j].value = editor_array[i];
+                }
             }else{
                 editor_array[i].value="";
             }
