@@ -136,6 +136,13 @@ function submit(){
  * @param {[id]} obj [需要显示隐藏div的id]
  */
 function Show_Hidden(obj) {
+  var coll_array = document.getElementsByClassName("container");
+  var i;
+  
+  for (i = 0; i < coll_array.length; i++) {
+    coll_array[i].style.display="none";
+  }
+
   var div = document.getElementById(obj);
  
   if (div.style.display===""){
@@ -143,6 +150,8 @@ function Show_Hidden(obj) {
   } else {
     div.style.display="";
   }
+
+  
 }
 
 function change_pic(button_id,pic_src){
@@ -159,11 +168,42 @@ function change_video(video_id, source_id, video_src){
 
 }
 
-function change_character(obj){
-  
-  if (obj ==="Schrader") {
+const question_map = new Map();
 
+question_map.set('Schrader', [7]);
+question_map.set('Jessica', [2,3]);
+question_map.set('Dwight', [2,3]);
+question_map.set('Mickey', [2,3]);
+question_map.set('Chip', [2,3]);
+question_map.set('Martin', [2,3,4]);
+question_map.set('Doug', [2,3]);
+question_map.set('Tucker', [2,3,4,5]);
+question_map.set('Sting', [2,3,4]);
+question_map.set('Kint', [2,3]);
+question_map.set('Cassidy', [2,3,4,8]);
+question_map.set('Blade', [2,3,6,8]);
+
+function change_character(name){
+  // Hide all questions
+  var questions = Array.prototype.slice
+    .call(document.getElementsByClassName("question"));
+
+  for(var i = 0; i < questions.length; ++i){
+    questions[i].style.display="none";
   }
+
+  
+  // Show only questions related to the character
+  var question;
+  var i;
+  // console.log( question_map.get(name));
+  var target_questions = question_map.get(name);
+  // console.log(target_questions);
+  for ( i =0; i<target_questions.length; i++){
+    question = document.getElementById("question_"+target_questions[i].toString());
+    question.style.display = "";
+  }
+
 }
 
 
