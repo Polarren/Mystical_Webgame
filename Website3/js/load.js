@@ -149,7 +149,7 @@ function Show_Hidden(obj) {
     coll_array = document.getElementsByClassName("container");
     for (i = 0; i < coll_array.length; i++) {
       if(coll_array[i].style.display===""){
-        store_content(coll_array[i].name);
+        // store_content(coll_array[i].name);
       }
       coll_array[i].style.display="none";
     }
