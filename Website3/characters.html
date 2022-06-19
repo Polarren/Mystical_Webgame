@@ -88,10 +88,10 @@
                 	<div class="grid_12">
                     	<nav>
                             <ul class="menu">
-                                <li><a href="index.php">Introduction</a></li>
-                                <li><a href="rooms.html">Rooms</a></li>
-                                <li><a class="active" href="characters.html">characters</a></li>
-                                <li><a href="answer.html">Answer</a></li>
+                                <li><a href="index.php" onclick="log_navigation(0)" >Introduction</a></li>
+                                <li><a href="rooms.html" onclick="log_navigation(0)" >Rooms</a></li>
+                                <li><a class="active" href="characters.html" onclick="log_navigation(0)" >characters</a></li>
+                                <li><a href="answer.html" onclick="log_navigation(0)" >Answer</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -103,7 +103,7 @@
     </header>
 
 <!-- ****************************** !this is the 1st capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Dwight')">Dwight</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Dwight'); log_navigation(1); ">Dwight</button>
 <div id = "content_Dwight" class="container" style="display: none;">
     <div class="leftpane">
             <video id = "video_Dwight" width="640"  controls >
@@ -113,10 +113,10 @@
     </div>
 
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Dwight')">Lobby</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Dwight')">Interview Room 2</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('toilet','Dwight')">Toilet</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('outside','Dwight')">Outside</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Dwight'); log_navigation(2); ">Lobby</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Dwight'); log_navigation(2); ">Interview Room 2</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('toilet','Dwight'); log_navigation(2); ">Toilet</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('outside','Dwight'); log_navigation(2); ">Outside</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -125,7 +125,7 @@
             <div class="indent-left">
                 <h4 class="p2">Please describe what happened in the police station.</h4>
                     <fieldset>
-                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -134,7 +134,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who brought the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -143,7 +143,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who detonated the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -152,7 +152,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Raven? Please try to list some information about him.</h4>
                     <fieldset>
-                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -161,7 +161,7 @@
             <div class="indent-left">
                 <h4 class="p2">Please express your opinion about Tucker. What kind of role is he?</h4>
                     <fieldset>
-                        <textarea  name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -170,7 +170,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Blade? What is his occupation? Why is he in the police station?</h4>
                     <fieldset>
-                        <textarea  name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -180,7 +180,7 @@
             <div class="indent-left">
                 <h4 class="p2">Among all characters, who do not work in the police station? And what are their relationships?</h4>
                     <fieldset>
-                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -190,7 +190,7 @@
             <div class="indent-left">
                 <h4 class="p2">What is the conversation between Cassidy and Sting about?</h4>
                     <fieldset>
-                        <textarea  name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -199,7 +199,7 @@
             <div class="indent-left">
                 <h4 class="p2">Describe other converstions that you find important in this case.</h4>
                     <fieldset>
-                        <textarea  name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -209,7 +209,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Schrader? </h4>
                     <fieldset>
-                        <textarea  name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -219,7 +219,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Jessica? What is her role in this game? </h4>
                      <fieldset>
-                         <textarea  name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -230,7 +230,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Mickey? What did he do?</h4>
                      <fieldset>
-                         <textarea  name="question_12_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_12_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -241,7 +241,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Chip? What did he do?</h4>
                      <fieldset>
-                         <textarea  name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -251,7 +251,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Martin? What is his role in this game?</h4>
                      <fieldset>
-                         <textarea  name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -262,7 +262,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Cassidy? What is his occupation?</h4>
                       <fieldset>
-                          <textarea  name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -272,7 +272,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Doug? Describe what you know about him.</h4>
                       <fieldset>
-                          <textarea  name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -283,7 +283,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Kint? What happened to him? </h4>
                       <fieldset>
-                          <textarea  name="question_17_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_17_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -293,7 +293,7 @@
                <div class="indent-left">
                    <h4 class="p2">Why is Dwight in the police station? </h4>
                        <fieldset>
-                           <textarea  name="question_18_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                           <textarea  name="question_18_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                        </fieldset>						
                </div>
            </div>
@@ -303,7 +303,7 @@
                <div class="indent-left">
                    <h4 class="p2">Why does Dwight have two phones? Feel free to make any guesses. </h4>
                        <fieldset>
-                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                        </fieldset>						
                </div>
            </div>
@@ -314,7 +314,7 @@
 
 
 <!-- ****************************** !this is the 2nd capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Schrader')">Schrader</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Schrader'); log_navigation(1); ">Schrader</button>
 <div id = "content_Schrader" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -324,7 +324,7 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Schrader')">Lobby</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Schrader'); log_navigation(2); ">Lobby</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -333,7 +333,7 @@
             <div class="indent-left">
                 <h4 class="p2">Please describe what happened in the police station.</h4>
                     <fieldset>
-                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -342,7 +342,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who brought the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -351,7 +351,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who detonated the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -361,7 +361,7 @@
             <div class="indent-left">
                 <h4 class="p2">Among all characters, who do not work in the police station? And what are their relationships?</h4>
                     <fieldset>
-                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -371,7 +371,7 @@
             <div class="indent-left">
                 <h4 class="p2">Why does Dwight have two phones? Feel free to make any guesses. </h4>
                     <fieldset>
-                        <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -380,7 +380,7 @@
 </div>
 
 <!-- ****************************** !this is the 3rd capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Jessica')">Jessica</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Jessica'); log_navigation(1); ">Jessica</button>
 <div id = "content_Jessica" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -390,10 +390,10 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Jessica')">Lobby</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('hall','Jessica')">Hall</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Jessica')">Interview Room 2</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Jessica')">Conference Room</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Jessica'); log_navigation(2); ">Lobby</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('hall','Jessica'); log_navigation(2); ">Hall</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Jessica'); log_navigation(2); ">Interview Room 2</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Jessica'); log_navigation(2); ">Conference Room</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -402,7 +402,7 @@
             <div class="indent-left">
                 <h4 class="p2">Please describe what happened in the police station.</h4>
                     <fieldset>
-                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -411,7 +411,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who brought the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -420,7 +420,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who detonated the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -429,7 +429,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Raven? Please try to list some information about him.</h4>
                     <fieldset>
-                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -438,7 +438,7 @@
             <div class="indent-left">
                 <h4 class="p2">Please express your opinion about Tucker. What kind of role is he?</h4>
                     <fieldset>
-                        <textarea  name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -447,7 +447,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Blade? What is his occupation? Why is he in the police station?</h4>
                     <fieldset>
-                        <textarea  name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -457,7 +457,7 @@
             <div class="indent-left">
                 <h4 class="p2">Among all characters, who do not work in the police station? And what are their relationships?</h4>
                     <fieldset>
-                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -467,7 +467,7 @@
             <div class="indent-left">
                 <h4 class="p2">What is the conversation between Cassidy and Sting about?</h4>
                     <fieldset>
-                        <textarea  name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -476,7 +476,7 @@
             <div class="indent-left">
                 <h4 class="p2">Describe other converstions that you find important in this case.</h4>
                     <fieldset>
-                        <textarea  name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -486,7 +486,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Schrader? </h4>
                     <fieldset>
-                        <textarea  name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -496,7 +496,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Jessica? What is her role in this game? </h4>
                      <fieldset>
-                         <textarea  name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -507,7 +507,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Mickey? What did he do?</h4>
                      <fieldset>
-                         <textarea  name="question_12_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_12_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -518,7 +518,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Chip? What did he do?</h4>
                      <fieldset>
-                         <textarea  name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -528,7 +528,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Martin? What is his role in this game?</h4>
                      <fieldset>
-                         <textarea  name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -539,7 +539,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Cassidy? What is his occupation?</h4>
                       <fieldset>
-                          <textarea  name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -549,7 +549,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Doug? Describe what you know about him.</h4>
                       <fieldset>
-                          <textarea  name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -560,7 +560,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Kint? What happened to him? </h4>
                       <fieldset>
-                          <textarea  name="question_17_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_17_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -570,7 +570,7 @@
                <div class="indent-left">
                    <h4 class="p2">Why is Dwight in the police station? </h4>
                        <fieldset>
-                           <textarea  name="question_18_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                           <textarea  name="question_18_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                        </fieldset>						
                </div>
            </div>
@@ -580,7 +580,7 @@
                <div class="indent-left">
                    <h4 class="p2">Why does Dwight have two phones? Feel free to make any guesses. </h4>
                        <fieldset>
-                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                        </fieldset>						
                </div>
            </div>
@@ -589,7 +589,7 @@
 </div>
 
 <!-- ****************************** !this is the 4th capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Chip')">Chip</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Chip'); log_navigation(1); ">Chip</button>
 <div id = "content_Chip" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -599,9 +599,9 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Chip')">Interview Room 2</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Chip')">Lobby</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('outside','Chip')">Outside</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Chip'); log_navigation(2); ">Interview Room 2</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Chip'); log_navigation(2); ">Lobby</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('outside','Chip'); log_navigation(2); ">Outside</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -610,7 +610,7 @@
             <div class="indent-left">
                 <h4 class="p2">Please describe what happened in the police station.</h4>
                     <fieldset>
-                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -619,7 +619,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who brought the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -628,7 +628,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who detonated the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -637,7 +637,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Raven? Please try to list some information about him.</h4>
                     <fieldset>
-                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -647,7 +647,7 @@
             <div class="indent-left">
                 <h4 class="p2">Among all characters, who do not work in the police station? And what are their relationships?</h4>
                     <fieldset>
-                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -657,7 +657,7 @@
             <div class="indent-left">
                 <h4 class="p2">What is the conversation between Cassidy and Sting about?</h4>
                     <fieldset>
-                        <textarea  name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -667,7 +667,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Jessica? What is her role in this game? </h4>
                      <fieldset>
-                         <textarea  name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -678,7 +678,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Mickey? What did he do?</h4>
                      <fieldset>
-                         <textarea  name="question_12_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_12_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -689,7 +689,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Chip? What did he do?</h4>
                      <fieldset>
-                         <textarea  name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -700,7 +700,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Kint? What happened to him? </h4>
                       <fieldset>
-                          <textarea  name="question_17_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_17_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -710,7 +710,7 @@
                <div class="indent-left">
                    <h4 class="p2">Why does Dwight have two phones? Feel free to make any guesses. </h4>
                        <fieldset>
-                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                        </fieldset>						
                </div>
            </div>
@@ -720,7 +720,7 @@
 
 
 <!-- ****************************** !this is the 5th capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Kint')">Kint</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Kint'); log_navigation(1); ">Kint</button>
 <div id = "content_Kint" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -730,7 +730,7 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('hall','Kint')">Hall</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('hall','Kint'); log_navigation(2); ">Hall</a>
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -739,7 +739,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who brought the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -749,7 +749,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Raven? Please try to list some information about him.</h4>
                     <fieldset>
-                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -759,7 +759,7 @@
             <div class="indent-left">
                 <h4 class="p2">Among all characters, who do not work in the police station? And what are their relationships?</h4>
                     <fieldset>
-                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -769,7 +769,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Martin? What is his role in this game?</h4>
                      <fieldset>
-                         <textarea  name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -780,7 +780,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Cassidy? What is his occupation?</h4>
                       <fieldset>
-                          <textarea  name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -789,7 +789,7 @@
 </div>
 
 <!-- ****************************** !this is the 6th capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Mickey')">Mickey</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Mickey'); log_navigation(1); ">Mickey</button>
 <div id = "content_Mickey" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -799,8 +799,8 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Mickey')">Lobby</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('outside','Mickey')">Outside</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Mickey'); log_navigation(2); ">Lobby</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('outside','Mickey'); log_navigation(2); ">Outside</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -809,7 +809,7 @@
             <div class="indent-left">
                 <h4 class="p2">Please describe what happened in the police station.</h4>
                     <fieldset>
-                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -818,7 +818,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who brought the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -827,7 +827,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who detonated the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -837,7 +837,7 @@
             <div class="indent-left">
                 <h4 class="p2">Among all characters, who do not work in the police station? And what are their relationships?</h4>
                     <fieldset>
-                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -848,7 +848,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Mickey? What did he do?</h4>
                      <fieldset>
-                         <textarea  name="question_12_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_12_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -859,7 +859,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Chip? What did he do?</h4>
                      <fieldset>
-                         <textarea  name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -869,7 +869,7 @@
                <div class="indent-left">
                    <h4 class="p2">Why does Dwight have two phones? Feel free to make any guesses. </h4>
                        <fieldset>
-                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                        </fieldset>						
                </div>
            </div>
@@ -879,7 +879,7 @@
 
 
 <!-- ****************************** !this is the 7rd capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Martin')">Martin</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Martin'); log_navigation(1); ">Martin</button>
 <div id = "content_Martin" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -889,9 +889,9 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Martin')">Lobby</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Martin')">Conference Room</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_1','Martin')">Interview Room 1</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Martin'); log_navigation(2); ">Lobby</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Martin'); log_navigation(2); ">Conference Room</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_1','Martin'); log_navigation(2); ">Interview Room 1</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -900,7 +900,7 @@
             <div class="indent-left">
                 <h4 class="p2">Please describe what happened in the police station.</h4>
                     <fieldset>
-                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -909,7 +909,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who brought the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -918,7 +918,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who detonated the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -927,7 +927,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Raven? Please try to list some information about him.</h4>
                     <fieldset>
-                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -936,7 +936,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Blade? What is his occupation? Why is he in the police station?</h4>
                     <fieldset>
-                        <textarea  name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -946,7 +946,7 @@
             <div class="indent-left">
                 <h4 class="p2">Among all characters, who do not work in the police station? And what are their relationships?</h4>
                     <fieldset>
-                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -956,7 +956,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Martin? What is his role in this game?</h4>
                      <fieldset>
-                         <textarea  name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -967,7 +967,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Cassidy? What is his occupation?</h4>
                       <fieldset>
-                          <textarea  name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -977,7 +977,7 @@
                <div class="indent-left">
                    <h4 class="p2">Why does Dwight have two phones? Feel free to make any guesses. </h4>
                        <fieldset>
-                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                        </fieldset>						
                </div>
            </div>
@@ -986,7 +986,7 @@
 </div>
 
 <!-- ****************************** !this is the 8th capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Blade')">Blade</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Blade'); log_navigation(1); ">Blade</button>
 <div id = "content_Blade" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -996,9 +996,9 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Blade')">Lobby</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Blade')">Conference Room</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_1','Blade')">Interview Room 1</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Blade'); log_navigation(2); ">Lobby</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Blade'); log_navigation(2); ">Conference Room</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_1','Blade'); log_navigation(2); ">Interview Room 1</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -1007,7 +1007,7 @@
             <div class="indent-left">
                 <h4 class="p2">Please describe what happened in the police station.</h4>
                     <fieldset>
-                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1016,7 +1016,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who brought the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1025,7 +1025,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who detonated the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1034,7 +1034,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Raven? Please try to list some information about him.</h4>
                     <fieldset>
-                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1043,7 +1043,7 @@
             <div class="indent-left">
                 <h4 class="p2">Please express your opinion about Tucker. What kind of role is he?</h4>
                     <fieldset>
-                        <textarea  name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1052,7 +1052,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Blade? What is his occupation? Why is he in the police station?</h4>
                     <fieldset>
-                        <textarea  name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1062,7 +1062,7 @@
             <div class="indent-left">
                 <h4 class="p2">Among all characters, who do not work in the police station? And what are their relationships?</h4>
                     <fieldset>
-                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1072,7 +1072,7 @@
             <div class="indent-left">
                 <h4 class="p2">What is the conversation between Cassidy and Sting about?</h4>
                     <fieldset>
-                        <textarea  name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1081,7 +1081,7 @@
             <div class="indent-left">
                 <h4 class="p2">Describe other converstions that you find important in this case.</h4>
                     <fieldset>
-                        <textarea  name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1091,7 +1091,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Schrader? </h4>
                     <fieldset>
-                        <textarea  name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1101,7 +1101,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Jessica? What is her role in this game? </h4>
                      <fieldset>
-                         <textarea  name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1112,7 +1112,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Mickey? What did he do?</h4>
                      <fieldset>
-                         <textarea  name="question_12_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_12_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1123,7 +1123,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Chip? What did he do?</h4>
                      <fieldset>
-                         <textarea  name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1133,7 +1133,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Martin? What is his role in this game?</h4>
                      <fieldset>
-                         <textarea  name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1144,7 +1144,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Cassidy? What is his occupation?</h4>
                       <fieldset>
-                          <textarea  name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -1154,7 +1154,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Doug? Describe what you know about him.</h4>
                       <fieldset>
-                          <textarea  name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -1165,7 +1165,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Kint? What happened to him? </h4>
                       <fieldset>
-                          <textarea  name="question_17_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_17_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -1175,7 +1175,7 @@
                <div class="indent-left">
                    <h4 class="p2">Why is Dwight in the police station? </h4>
                        <fieldset>
-                           <textarea  name="question_18_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                           <textarea  name="question_18_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                        </fieldset>						
                </div>
            </div>
@@ -1185,7 +1185,7 @@
                <div class="indent-left">
                    <h4 class="p2">Why does Dwight have two phones? Feel free to make any guesses. </h4>
                        <fieldset>
-                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                        </fieldset>						
                </div>
            </div>
@@ -1194,7 +1194,7 @@
 </div>
 
 <!-- ****************************** !this is the 9th capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Doug')">Doug</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Doug'); log_navigation(1); ">Doug</button>
 <div id = "content_Doug" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -1204,9 +1204,9 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Doug')">Lobby</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Doug')">Conference Room</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('tucker_office','Doug')">Tucker's Office</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Doug'); log_navigation(2); ">Lobby</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Doug'); log_navigation(2); ">Conference Room</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('tucker_office','Doug'); log_navigation(2); ">Tucker's Office</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -1215,7 +1215,7 @@
             <div class="indent-left">
                 <h4 class="p2">Please describe what happened in the police station.</h4>
                     <fieldset>
-                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1224,7 +1224,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who brought the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1233,7 +1233,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who detonated the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1242,7 +1242,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Raven? Please try to list some information about him.</h4>
                     <fieldset>
-                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1251,7 +1251,7 @@
             <div class="indent-left">
                 <h4 class="p2">Please express your opinion about Tucker. What kind of role is he?</h4>
                     <fieldset>
-                        <textarea  name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1260,7 +1260,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Blade? What is his occupation? Why is he in the police station?</h4>
                     <fieldset>
-                        <textarea  name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1270,7 +1270,7 @@
             <div class="indent-left">
                 <h4 class="p2">Among all characters, who do not work in the police station? And what are their relationships?</h4>
                     <fieldset>
-                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1280,7 +1280,7 @@
             <div class="indent-left">
                 <h4 class="p2">What is the conversation between Cassidy and Sting about?</h4>
                     <fieldset>
-                        <textarea  name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1289,7 +1289,7 @@
             <div class="indent-left">
                 <h4 class="p2">Describe other converstions that you find important in this case.</h4>
                     <fieldset>
-                        <textarea  name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1299,7 +1299,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Schrader? </h4>
                     <fieldset>
-                        <textarea  name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1309,7 +1309,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Jessica? What is her role in this game? </h4>
                      <fieldset>
-                         <textarea  name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1320,7 +1320,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Mickey? What did he do?</h4>
                      <fieldset>
-                         <textarea  name="question_12_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_12_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1331,7 +1331,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Chip? What did he do?</h4>
                      <fieldset>
-                         <textarea  name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1341,7 +1341,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Martin? What is his role in this game?</h4>
                      <fieldset>
-                         <textarea  name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1352,7 +1352,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Cassidy? What is his occupation?</h4>
                       <fieldset>
-                          <textarea  name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -1362,7 +1362,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Doug? Describe what you know about him.</h4>
                       <fieldset>
-                          <textarea  name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -1373,7 +1373,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Kint? What happened to him? </h4>
                       <fieldset>
-                          <textarea  name="question_17_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_17_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -1383,7 +1383,7 @@
                <div class="indent-left">
                    <h4 class="p2">Why is Dwight in the police station? </h4>
                        <fieldset>
-                           <textarea  name="question_18_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                           <textarea  name="question_18_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                        </fieldset>						
                </div>
            </div>
@@ -1393,7 +1393,7 @@
                <div class="indent-left">
                    <h4 class="p2">Why does Dwight have two phones? Feel free to make any guesses. </h4>
                        <fieldset>
-                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                        </fieldset>						
                </div>
            </div>
@@ -1403,7 +1403,7 @@
 
 
 <!-- ****************************** !this is the 10th capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Tucker')">Tucker</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Tucker'); log_navigation(1); ">Tucker</button>
 <div id = "content_Tucker" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -1413,9 +1413,9 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Tucker')">Lobby</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Tucker')">Conference Room</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('tucker_office','Tucker')">Tucker's Office</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Tucker'); log_navigation(2); ">Lobby</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Tucker'); log_navigation(2); ">Conference Room</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('tucker_office','Tucker'); log_navigation(2); ">Tucker's Office</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -1424,7 +1424,7 @@
             <div class="indent-left">
                 <h4 class="p2">Please describe what happened in the police station.</h4>
                     <fieldset>
-                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1433,7 +1433,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who brought the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1442,7 +1442,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who detonated the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1451,7 +1451,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Raven? Please try to list some information about him.</h4>
                     <fieldset>
-                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1460,7 +1460,7 @@
             <div class="indent-left">
                 <h4 class="p2">Please express your opinion about Tucker. What kind of role is he?</h4>
                     <fieldset>
-                        <textarea  name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1469,7 +1469,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Blade? What is his occupation? Why is he in the police station?</h4>
                     <fieldset>
-                        <textarea  name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1479,7 +1479,7 @@
             <div class="indent-left">
                 <h4 class="p2">Among all characters, who do not work in the police station? And what are their relationships?</h4>
                     <fieldset>
-                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1489,7 +1489,7 @@
             <div class="indent-left">
                 <h4 class="p2">What is the conversation between Cassidy and Sting about?</h4>
                     <fieldset>
-                        <textarea  name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1498,7 +1498,7 @@
             <div class="indent-left">
                 <h4 class="p2">Describe other converstions that you find important in this case.</h4>
                     <fieldset>
-                        <textarea  name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1508,7 +1508,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Schrader? </h4>
                     <fieldset>
-                        <textarea  name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1518,7 +1518,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Jessica? What is her role in this game? </h4>
                      <fieldset>
-                         <textarea  name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1529,7 +1529,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Mickey? What did he do?</h4>
                      <fieldset>
-                         <textarea  name="question_12_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_12_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1540,7 +1540,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Chip? What did he do?</h4>
                      <fieldset>
-                         <textarea  name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1550,7 +1550,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Martin? What is his role in this game?</h4>
                      <fieldset>
-                         <textarea  name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1561,7 +1561,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Cassidy? What is his occupation?</h4>
                       <fieldset>
-                          <textarea  name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -1571,7 +1571,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Doug? Describe what you know about him.</h4>
                       <fieldset>
-                          <textarea  name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -1582,7 +1582,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Kint? What happened to him? </h4>
                       <fieldset>
-                          <textarea  name="question_17_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_17_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -1592,7 +1592,7 @@
                <div class="indent-left">
                    <h4 class="p2">Why is Dwight in the police station? </h4>
                        <fieldset>
-                           <textarea  name="question_18_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                           <textarea  name="question_18_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                        </fieldset>						
                </div>
            </div>
@@ -1602,7 +1602,7 @@
                <div class="indent-left">
                    <h4 class="p2">Why does Dwight have two phones? Feel free to make any guesses. </h4>
                        <fieldset>
-                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                        </fieldset>						
                </div>
            </div>
@@ -1613,7 +1613,7 @@
 
 
 <!-- ****************************** !this is the 11th capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Cassidy')">Cassidy</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Cassidy'); log_navigation(1); ">Cassidy</button>
 <div id = "content_Cassidy" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -1623,9 +1623,9 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Cassidy')">Lobby</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('hall','Cassidy')">Hall</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Cassidy')">Interview Room 2</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Cassidy'); log_navigation(2); ">Lobby</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('hall','Cassidy'); log_navigation(2); ">Hall</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Cassidy'); log_navigation(2); ">Interview Room 2</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -1634,7 +1634,7 @@
             <div class="indent-left">
                 <h4 class="p2">Please describe what happened in the police station.</h4>
                     <fieldset>
-                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1643,7 +1643,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who brought the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1652,7 +1652,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who detonated the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1661,7 +1661,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Raven? Please try to list some information about him.</h4>
                     <fieldset>
-                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1670,7 +1670,7 @@
             <div class="indent-left">
                 <h4 class="p2">Please express your opinion about Tucker. What kind of role is he?</h4>
                     <fieldset>
-                        <textarea  name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1679,7 +1679,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Blade? What is his occupation? Why is he in the police station?</h4>
                     <fieldset>
-                        <textarea  name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1689,7 +1689,7 @@
             <div class="indent-left">
                 <h4 class="p2">Among all characters, who do not work in the police station? And what are their relationships?</h4>
                     <fieldset>
-                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1699,7 +1699,7 @@
             <div class="indent-left">
                 <h4 class="p2">What is the conversation between Cassidy and Sting about?</h4>
                     <fieldset>
-                        <textarea  name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1708,7 +1708,7 @@
             <div class="indent-left">
                 <h4 class="p2">Describe other converstions that you find important in this case.</h4>
                     <fieldset>
-                        <textarea  name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1718,7 +1718,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Schrader? </h4>
                     <fieldset>
-                        <textarea  name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1728,7 +1728,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Jessica? What is her role in this game? </h4>
                      <fieldset>
-                         <textarea  name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1739,7 +1739,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Mickey? What did he do?</h4>
                      <fieldset>
-                         <textarea  name="question_12_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_12_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1750,7 +1750,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Chip? What did he do?</h4>
                      <fieldset>
-                         <textarea  name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1760,7 +1760,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Martin? What is his role in this game?</h4>
                      <fieldset>
-                         <textarea  name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1771,7 +1771,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Cassidy? What is his occupation?</h4>
                       <fieldset>
-                          <textarea  name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -1781,7 +1781,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Doug? Describe what you know about him.</h4>
                       <fieldset>
-                          <textarea  name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -1792,7 +1792,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Kint? What happened to him? </h4>
                       <fieldset>
-                          <textarea  name="question_17_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_17_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -1802,7 +1802,7 @@
                <div class="indent-left">
                    <h4 class="p2">Why is Dwight in the police station? </h4>
                        <fieldset>
-                           <textarea  name="question_18_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                           <textarea  name="question_18_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                        </fieldset>						
                </div>
            </div>
@@ -1812,7 +1812,7 @@
                <div class="indent-left">
                    <h4 class="p2">Why does Dwight have two phones? Feel free to make any guesses. </h4>
                        <fieldset>
-                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                        </fieldset>						
                </div>
            </div>
@@ -1822,7 +1822,7 @@
 
 
 <!-- ****************************** !this is the 11th capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Sting')">Sting</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Sting'); log_navigation(1); ">Sting</button>
 <div id = "content_Sting" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -1832,8 +1832,8 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Sting')">Lobby</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Sting')">Interview Room 2</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Sting'); log_navigation(2); ">Lobby</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Sting'); log_navigation(2); ">Interview Room 2</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -1842,7 +1842,7 @@
             <div class="indent-left">
                 <h4 class="p2">Please describe what happened in the police station.</h4>
                     <fieldset>
-                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1851,7 +1851,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who brought the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1860,7 +1860,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who detonated the bomb? Please provide your reasons.</h4>
                     <fieldset>
-                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1869,7 +1869,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Raven? Please try to list some information about him.</h4>
                     <fieldset>
-                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1878,7 +1878,7 @@
             <div class="indent-left">
                 <h4 class="p2">Please express your opinion about Tucker. What kind of role is he?</h4>
                     <fieldset>
-                        <textarea  name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1887,7 +1887,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Blade? What is his occupation? Why is he in the police station?</h4>
                     <fieldset>
-                        <textarea  name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1897,7 +1897,7 @@
             <div class="indent-left">
                 <h4 class="p2">Among all characters, who do not work in the police station? And what are their relationships?</h4>
                     <fieldset>
-                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1907,7 +1907,7 @@
             <div class="indent-left">
                 <h4 class="p2">What is the conversation between Cassidy and Sting about?</h4>
                     <fieldset>
-                        <textarea  name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1916,7 +1916,7 @@
             <div class="indent-left">
                 <h4 class="p2">Describe other converstions that you find important in this case.</h4>
                     <fieldset>
-                        <textarea  name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1926,7 +1926,7 @@
             <div class="indent-left">
                 <h4 class="p2">Who is Schrader? </h4>
                     <fieldset>
-                        <textarea  name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                        <textarea  name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -1936,7 +1936,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Jessica? What is her role in this game? </h4>
                      <fieldset>
-                         <textarea  name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1947,7 +1947,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Mickey? What did he do?</h4>
                      <fieldset>
-                         <textarea  name="question_12_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_12_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1958,7 +1958,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Chip? What did he do?</h4>
                      <fieldset>
-                         <textarea  name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1968,7 +1968,7 @@
              <div class="indent-left">
                  <h4 class="p2">Who is Martin? What is his role in this game?</h4>
                      <fieldset>
-                         <textarea  name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                         <textarea  name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                      </fieldset>						
              </div>
          </div>
@@ -1979,7 +1979,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Cassidy? What is his occupation?</h4>
                       <fieldset>
-                          <textarea  name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -1989,7 +1989,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Doug? Describe what you know about him.</h4>
                       <fieldset>
-                          <textarea  name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -2000,7 +2000,7 @@
               <div class="indent-left">
                   <h4 class="p2">Who is Kint? What happened to him? </h4>
                       <fieldset>
-                          <textarea  name="question_17_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                          <textarea  name="question_17_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                       </fieldset>						
               </div>
           </div>
@@ -2010,7 +2010,7 @@
                <div class="indent-left">
                    <h4 class="p2">Why is Dwight in the police station? </h4>
                        <fieldset>
-                           <textarea  name="question_18_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                           <textarea  name="question_18_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                        </fieldset>						
                </div>
            </div>
@@ -2020,7 +2020,7 @@
                <div class="indent-left">
                    <h4 class="p2">Why does Dwight have two phones? Feel free to make any guesses. </h4>
                        <fieldset>
-                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" ></textarea>
+                           <textarea  name="question_19_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
                        </fieldset>						
                </div>
            </div>

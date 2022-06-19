@@ -7,9 +7,7 @@ function mouseclick(){
     var index_y = event.clientY;
     // console.log(log);
     const xmlhttp = new XMLHttpRequest();
-    xmlhttp.onload = function() {
-      return;
-    }
+   
     xmlhttp.open('POST', "js/jshelper.php?q=" + "mouse_click", true);
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xmlhttp.onload = function () {
@@ -31,9 +29,7 @@ function mousemove(){
   var index_y = event.clientY;
   // console.log(log);
   const xmlhttp = new XMLHttpRequest();
-  xmlhttp.onload = function() {
-    return;
-  }
+
   xmlhttp.open('POST', "js/jshelper.php?q=" + "mouse_move", true);
   xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xmlhttp.onload = function () {
@@ -53,9 +49,6 @@ function keydown(){
   var log = event.key;
   // console.log(log);
   const xmlhttp = new XMLHttpRequest();
-  xmlhttp.onload = function() {
-    return;
-  }
   xmlhttp.open('POST', "js/jshelper.php?q=" + "keydown", true);
   xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xmlhttp.onload = function () {
@@ -71,9 +64,6 @@ function keyup(){
   var log = event.key ;
   // console.log(log);
   const xmlhttp = new XMLHttpRequest();
-  xmlhttp.onload = function() {
-    return;
-  }
   xmlhttp.open('POST', "js/jshelper.php?q=" + "keyup", true);
   xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xmlhttp.onload = function () {
@@ -82,6 +72,36 @@ function keyup(){
   };
   xmlhttp.send("log="+log);
 
+}
+
+function scroll(event){
+  // console.log("Scroll event detected");
+  var up;
+  var event = event || window.event;
+  if(event.wheelDelta) {   
+        if(event.wheelDelta > 0) {     //scroll up
+          up = true;
+        }
+        if(event.wheelDelta < 0) {     //scroll down
+          up = false;
+        }
+  } else if(event.detail) {
+        if(event.detail < 0) {    //scroll up
+          up = true;
+        }
+        if(event.detail > 0) {   //scroll down
+          up = false;
+        }
+  }
+
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.open('POST', "js/jshelper.php?q=" + "wheel", true);
+  xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xmlhttp.onload = function () {
+      // do something to response
+      console.log(this.responseText);
+  };
+  xmlhttp.send("up="+up);
 }
 
 function start_logging(user_id){
@@ -93,24 +113,50 @@ function start_logging(user_id){
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xmlhttp.send("user="+user_id);
     console.log("Starting session: " + user_id);
-    window.addEventListener('mousemove', function(){mousemove()});
-    window.addEventListener('click', function(){mouseclick()});
-    window.addEventListener('keydown',function(){keydown()});
-    window.addEventListener('keyup',function(){keyup()});
+    window.addEventListener('mousemove', mousemove);
+    window.addEventListener('click', mouseclick);
+    window.addEventListener('keydown',keydown);
+    window.addEventListener('keyup',keyup);
+    //    给页面绑定鼠标滚轮事件,针对火狐的非标准事件 
+    window.addEventListener("DOMMouseScroll", scroll);
+    //    给页面绑定鼠标滚轮事件，针对Google，mousewheel非标准事件已被弃用，请使用 wheel事件代替
+    window.addEventListener("wheel", scroll);
 }
 
 function continue_logging(){
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
       if (this.responseText==="1"){
-        window.addEventListener('mousemove', function(){mousemove()});
-        window.addEventListener('click', function(){mouseclick()});
-        window.addEventListener('keydown',function(){keydown()});
-        window.addEventListener('keyup',function(){keyup()});
+        window.addEventListener('mousemove', mousemove);
+        window.addEventListener('click', mouseclick);
+        window.addEventListener('keydown',keydown);
+        window.addEventListener('keyup',keyup);
+        //    给页面绑定鼠标滚轮事件,针对火狐的非标准事件 
+        window.addEventListener("DOMMouseScroll", scroll);
+        //    给页面绑定鼠标滚轮事件，针对Google，mousewheel非标准事件已被弃用，请使用 wheel事件代替
+        window.addEventListener("wheel", scroll);
       }
     }
     xmlhttp.open("GET", "js/jshelper.php?q=" + "started");
     xmlhttp.send();
+
+}
+
+
+function log_navigation(level){
+  // Level 0: Introduction; Room; Character; Answer
+  // Level 1: Collapse bar
+  // Level 2: Selection button
+  // Level 3: question textarea
+  // console.log(log);
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.open('POST', "js/jshelper.php?q=" + "navigate", true);
+  xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xmlhttp.onload = function () {
+      // do something to response
+      console.log(this.responseText);
+  };
+  xmlhttp.send("level="+level);
 
 }
 

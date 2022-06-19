@@ -194,7 +194,88 @@ if ($q==="keyup") {
     //     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     // }
     // mysqli_close($conn);
+}
+
+
+if ($q==="wheel") {
+    if (isset($_POST["up"])){
+        $up = $_POST["up"];
+        $userID = $_SESSION["user"];
+    }else{
+        print_r($_POST);
+        echo "Error";
+        http_response_code(400);
     }
+    $current_time = floor(microtime(true) * 1000);
+    $time_elapsed = $current_time-$_SESSION["start_time"];
+    $scroll_type = 'up';
+    if (!$up){
+        $scroll_type = 'down';
+    }
+    $response = "You have successfully logged scroll ".$scroll_type;
+
+
+    // $servername = "localhost";
+    // $database = "database_2";
+    // $username = "changliu";
+    // $password = "test123";
+    // // Create connection
+    // $conn = mysqli_connect($servername, $username, $password, $database);
+    // // Check connection
+    // if (!$conn) {
+    //     die("Connection failed: " . mysqli_connect_error());
+    // }
+    
+    // echo "Connected successfully\n";
+    
+    // $sql = "INSERT INTO wheel (time, scroll_type,type) VALUES ('$time_elapsed', '$scroll_type','1')";
+    // if (mysqli_query($conn, $sql)) {
+    //     echo "New record created successfully";
+    // } else {
+    //     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    // }
+    // mysqli_close($conn);
+
+}
+
+if ($q==="navigate") {
+    if (isset($_POST["level"])){
+        $level = $_POST["level"];
+        $userID = $_SESSION["user"];
+    }else{
+        print_r($_POST);
+        echo "Error";
+        http_response_code(400);
+    }
+    $current_time = floor(microtime(true) * 1000);
+    $time_elapsed = $current_time-$_SESSION["start_time"];
+
+    $response = "You have successfully logged navigation: level ".$level;
+
+
+    // $servername = "localhost";
+    // $database = "database_2";
+    // $username = "changliu";
+    // $password = "test123";
+    // // Create connection
+    // $conn = mysqli_connect($servername, $username, $password, $database);
+    // // Check connection
+    // if (!$conn) {
+    //     die("Connection failed: " . mysqli_connect_error());
+    // }
+    
+    // echo "Connected successfully\n";
+    
+    // $sql = "INSERT INTO wheel (time, scroll_type,type) VALUES ('$time_elapsed', '$scroll_type','1')";
+    // if (mysqli_query($conn, $sql)) {
+    //     echo "New record created successfully";
+    // } else {
+    //     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    // }
+    // mysqli_close($conn);
+
+}
+
 
 
 if ($q === "start") {
