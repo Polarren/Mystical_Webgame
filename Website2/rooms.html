@@ -8,37 +8,31 @@
     <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">   
     <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>   
     <script src="js/load_audio.js" type="text/javascript"></script>   
-    <script src="js/load.js" type="text/javascript"></script>   
+    <script src="js/load.js" type="text/javascript"></script>
+    <script src="js/save.js" type="text/javascript"></script>
     <script> continue_logging();</script>   
-	<!--[if lt IE 7]>
-        <div style=' clear: both; text-align:center; position: relative;'>
-            <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0"  alt="" /></a>
-        </div>
-	<![endif]-->
-    <!--[if lt IE 9]>
-   		<script type="text/javascript" src="js/html5.js"></script>
-        <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
-	<![endif]-->
-
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
         .collapsible {
-          background-color: rgb(58, 58, 56);
-          color: rgb(252, 251, 253);
+          background-color: #eee;
+          color: #000;
           cursor: pointer;
-          padding: 18px;
+          padding: 18px 30px 18px;
           width: 100%;
           border: none;
           text-align: left;
           outline: none;
-          font-size: 15px;
+          font-size: 18px;
         }
         
         .active, .collapsible:hover {
-          background-color: rgb(160, 162, 159);
+          background-color: rgb(0, 0, 0);
+          color: #eee;
         }
-       
+
+    
+
 
 
         .container {
@@ -47,7 +41,7 @@
         }
 
         .leftpane {
-            width: 55%;
+            width: 45%;
             height: 100px;
             float: left;
             /* background-color: rosybrown; */
@@ -55,7 +49,7 @@
         }
 
         .middlepane {
-            width: 20%;
+            width: 10%;
             /* height: 100px; */
             float: left;
             /* background-color: royalblue; */
@@ -63,7 +57,7 @@
         }
 
         .rightpane {
-        width: 25%;
+        width: 45%;
         height: 100px;
         position: relative;
         float: right;
@@ -102,22 +96,18 @@
 
     </header>
     
-    <script>
-        function change_pic(button_id,pic_src){
-            document.getElementById(button_id).src=pic_src;
-        };
-    </script>
+  
 
 
 <!-- !this is the first capsule -->
-    <button type="button" class="collapsible">Office</button>
-    <div class="container">
+    <button type="button" class="collapsible" href="#" onclick="show_hidden('office')">Office</button>
+    <div id = "office" class="container" style="display: none;">
         <!-- <div class="toppane">Test Page</div> -->
         <div class="leftpane">
           <!-- <h1>Test Page</h1> -->
           <!-- <article class="grid_8"> -->
-           
-            <video width="700" height="420" controls>
+            <br>
+            <video width="640"  controls>
                                         
                 <source src="videos/office.mp4" type="video/mp4">
                 <!-- <source src="videos/" type="video/ogg"> -->
@@ -127,22 +117,115 @@
         </div>
 
         <div class="middlepane">
-            <textarea>name of characters</textarea>
+            <br>
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Sean','office')">Sean</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Greene','office')">Greene</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Maestro','office')">Maestro</a> 
         </div>
-        <div class="rightpane">
-            <textarea>questions about one certain character.</textarea>
+        <div class="rightpane" style="height: 500px; overflow:scroll">
+
+            <br>
+            <div id="question_16_office" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Who gave Greene the picture of the painting? Why?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+            
+            <div id="question_1_office" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Why is the frame empty?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+ 
         
+            <div id="question_2_office" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What is Maestro's plan?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+        
+        
+
+        
+            <div id="question_4_office" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Did Greene believe what Reeves told him?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+        
+        
+
+        
+            <div id="question_5_office" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What did Greene ask Mac to do?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+        
+       
+
+        
+            <div id="question_8_office" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What di Maestro told Tommy on the phone?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+        
+
+        
+            <div id="question_15_office" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Why is Maestro shocked in the end?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
         </div>
+
+        
     </div>
 <!-- !this is the second capsule -->
-    <button type="button" class="collapsible">Rest Room</button>
-    <div class="container">
+    <button type="button" class="collapsible" onclick="show_hidden('restroom')">Rest Room</button>
+    <div id = "restroom" class="container" style="display: none;">
         <!-- <div class="toppane">Test Page</div> -->
         <div class="leftpane">
           <!-- <h1>Test Page</h1> -->
           <!-- <article class="grid_8"> -->
-           
-            <video width="700" height="420" controls>
+            <br>
+            <video width="640" controls>
                                         
                 <source src="videos/restroom.mp4" type="video/mp4">
                 <!-- <source src="videos/" type="video/ogg"> -->
@@ -152,23 +235,137 @@
         </div>
 
         <div class="middlepane">
-            <textarea>name of characters</textarea>
+            <br>
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Mac','restroom')">Mac</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Tommy','restroom')">Tommy</a> 
+            
+     
         </div>
-        <div class="rightpane">
-            <textarea>questions about one certain character.</textarea>
+        <div class="rightpane" style="height: 500px; overflow:scroll">
+            <br>
+            <div id="question_5_restroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What did Greene ask Mac to do?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_6_restroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Why is Mac in the museum?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_7_restroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Who is Tommy?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_8_restroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What did Maestro told Tommy on the phone?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_9_restroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What happened between Tommy and Mac in restroom?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_10_restroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Why did Mac choose to approach Tommy?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_11_restroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">How did Mac think about the painting Tommy is carrying?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_13_restroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What happened between the security and Tommy when he was leaving?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_14_restroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">How good is Tommy at his job?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_15_restroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Why is Maestro shocked in the end?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
         
         </div>
     </div>
 
 <!-- !this is the third capsule -->
-    <button type="button" class="collapsible">Storage Room</button>
-    <div class="container">
+    <button type="button" class="collapsible" onclick="show_hidden('storageroom')">Storage Room</button>
+    <div id = "storageroom" class="container" style="display: none;">
         <!-- <div class="toppane">Test Page</div> -->
         <div class="leftpane">
+            <br>
           <!-- <h1>Test Page</h1> -->
           <!-- <article class="grid_8"> -->
            
-            <video width="700" height="420" controls>
+            <video width="640"  controls>
                                         
                 <source src="videos/storeroom.mp4" type="video/mp4">
                 <!-- <source src="videos/" type="video/ogg"> -->
@@ -178,22 +375,138 @@
         </div>
 
         <div class="middlepane">
-            <textarea>name of characters</textarea>
+            <br>
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Maestro','storageroom')">Maestro</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Tommy','storageroom')">Tommy</a> 
+            
         </div>
-        <div class="rightpane">
-            <textarea>questions about one certain character.</textarea>
+        <div class="rightpane" style="height: 500px; overflow:scroll">
+            <br>
+            <div id="question_1_storageroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Why is the frame empty?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+        
+        
+
+        
+            <div id="question_2_storageroom" class="question" style="display:none ;">
+                
+                <div class="indent-left">
+                    <h4 class="p2">What is Maestro's plan?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_7_storageroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Who is Tommy?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_8_storageroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What did Maestro told Tommy on the phone?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_9_storageroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What happened between Tommy and Mac in restroom?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_10_storageroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Why did Mac choose to approach Tommy?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_11_storageroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">How did Mac think about the painting Tommy is carrying?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_13_storageroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What happened between the security and Tommy when he was leaving?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_14_storageroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">How good is Tommy at his job?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_15_storageroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Why is Maestro shocked in the end?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
         
         </div>
     </div>
 <!-- !this is the fourth capsule -->
-    <button type="button" class="collapsible">Exhibition Hall</button>
-    <div class="container">
+    <button type="button" class="collapsible" onclick="show_hidden('exhibitionroom')">Exhibition Hall</button>
+    <div id = "exhibitionroom" class="container" style="display: none;">
         <!-- <div class="toppane">Test Page</div> -->
         <div class="leftpane">
           <!-- <h1>Test Page</h1> -->
           <!-- <article class="grid_8"> -->
-           
-            <video width="700" height="420" controls>
+            <br>
+            <video width="640" controls>
                                         
                 <source src="videos/exhibitionroom.mp4" type="video/mp4">
                 <!-- <source src="videos/" type="video/ogg"> -->
@@ -203,22 +516,193 @@
         </div>
 
         <div class="middlepane">
-            <textarea>name of characters</textarea>
+            <br>
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Greene','exhibitionroom')">Greene</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Sean','exhibitionroom')">Sean</a>      
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Maestro','exhibitionroom')">Maestro</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Tommy','exhibitionroom')">Tommy</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Mac','exhibitionroom')">Mac</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Security','exhibitionroom')">Security</a> 
+
+            
         </div>
-        <div class="rightpane">
-            <textarea>questions about one certain character.</textarea>
+        <div class="rightpane" style="height: 500px; overflow:scroll">
+            <br>
+            <div id="question_16_exhibitionroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Who gave Greene the picture of the painting? Why?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+            
+            <div id="question_1_exhibitionroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Why is the frame empty?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+        
+        
+
+        
+            <div id="question_2_exhibitionroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What is Maestro's plan?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+        
+        
+
+        
+            <div id="question_4_exhibitionroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Did Greene believe what Reeves told him?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+        
+        
+
+        
+            <div id="question_5_exhibitionroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What did Greene ask Mac to do?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+        
+            <div id="question_6_exhibitionroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Why is Mac in the museum?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_7_exhibitionroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Who is Tommy?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_8_exhibitionroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What did Maestro told Tommy on the phone?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_9_exhibitionroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What happened between Tommy and Mac in restroom?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_10_exhibitionroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Why did Mac choose to approach Tommy?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_11_exhibitionroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">How did Mac think about the painting Tommy is carrying?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_13_exhibitionroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What happened between the security and Tommy when he was leaving?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_14_exhibitionroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">How good is Tommy at his job?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_15_exhibitionroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Why is Maestro shocked in the end?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+       
         
         </div>
     </div>
 <!-- !this is the fifth capsule -->
-    <button type="button" class="collapsible">Entrance</button>
-    <div class="container">
+    <button type="button" class="collapsible" onclick="show_hidden('entrance')">Entrance</button>
+    <div id = "entrance" class="container" style="display: none;">
         <!-- <div class="toppane">Test Page</div> -->
         <div class="leftpane">
           <!-- <h1>Test Page</h1> -->
           <!-- <article class="grid_8"> -->
-           
-            <video width="700" height="420" controls>
+            <br>
+            <video width="640" controls>
                                         
                 <source src="videos/entrance.mp4" type="video/mp4">
                 <!-- <source src="videos/" type="video/ogg"> -->
@@ -228,24 +712,113 @@
         </div>
 
         <div class="middlepane">
-            <textarea>name of characters</textarea>
+            <br>
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Tommy','entrance')">Tommy</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Security','entrance')">Security</a> 
+
         </div>
-        <div class="rightpane">
-            <textarea>questions about one certain character.</textarea>
+        <div class="rightpane" style="height: 500px; overflow:scroll">
+            <br>
+            <div id="question_7_entrance" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Who is Tommy?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_8_entrance" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What did Maestro told Tommy on the phone?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_9_entrance" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What happened between Tommy and Mac in restroom?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_10_entrance" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Why did Mac choose to approach Tommy?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_11_entrance" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">How did Mac think about the painting Tommy is carrying?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_13_entrance" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What happened between the security and Tommy when he was leaving?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_14_entrance" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">How good is Tommy at his job?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_15_entrance" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Why is Maestro shocked in the end?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+       
+        
         
         </div>
     </div>
 
 <!-- !this is the sixth capsule -->
-    <button type="button" class="collapsible">Meeting Room</button>
-    <div class="container">
+    <button type="button" class="collapsible" onclick="show_hidden('meetingroom')">Meeting Room</button>
+    <div id = "meetingroom" class="container" style="display: none;">
         <!-- <div class="toppane">Test Page</div> -->
-        <div class="leftpane">
-          <!-- <h1>Test Page</h1> -->
-          <!-- <article class="grid_8"> -->
-           
-            <video width="700" height="420" controls>
-                
+        <div class="leftpane"> 
+            <br>
+            <video width="640"  controls>
                 <source src="videos/storeroom.mp4" type="video/mp4">
                 <!-- <source src="videos/" type="video/ogg"> -->
             Your browser does not support the video tag.
@@ -254,31 +827,66 @@
         </div>
 
         <div class="middlepane">
-            <textarea>name of characters</textarea>
+            <br>
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Greene','meetingroom')">Greene</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Reeves','meetingroom')">Reeves</a> 
+
         </div>
-        <div class="rightpane">
-            <textarea>questions about one certain character.</textarea>
+        <div class="rightpane" style="height: 500px; overflow:scroll">
+            <br>
+            <div id="question_16_meetingroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Who gave Greene the picture of the painting? Why?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_3_meetingroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What did Reeves claim?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
+            <div id="question_4_meetingroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">Did Greene believe what Reeves told him?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+        
+        
+
+        
+            <div id="question_5_meetingroom" class="question" style="display:none ;">
+                <div class="indent-left">
+                    <h4 class="p2">What did Greene ask Mac to do?</h4>
+                    <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
+                        <fieldset>
+                            <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        </fieldset>						
+                    <!-- </form> -->
+                </div>
+            </div>
+
         
         </div>
     </div>
 
-    <script>
-        var coll = document.getElementsByClassName("collapsible");
-        var i;
-        
-        for (i = 0; i < coll.length; i++) {
-          coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.display === "block") {
-              content.style.display = "none";
-            } else {
-              content.style.display = "block";
-            }
-          });
-        }
-    </script>
 
+    
     
 </body>
 </html>

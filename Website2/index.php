@@ -34,7 +34,7 @@ session_start();
                 	<div class="grid_12">
                     	<nav>
                             <ul class="menu">
-                                <li><a class="active" href="index.html">Introduction</a></li>
+                                <li><a class="active" href="index.php">Introduction</a></li>
                                 <li><a href="rooms.html">Rooms</a></li>
                                 <li><a href="characters.html">characters</a></li>
                                 <li><a href="answer.html">Answer</a></li>
