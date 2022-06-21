@@ -84,6 +84,37 @@ function keyup(){
 
 }
 
+
+function scroll(event){
+  // console.log("Scroll event detected");
+  var up;
+  var event = event || window.event;
+  if(event.wheelDelta) {   
+        if(event.wheelDelta > 0) {     //scroll up
+          up = true;
+        }
+        if(event.wheelDelta < 0) {     //scroll down
+          up = false;
+        }
+  } else if(event.detail) {
+        if(event.detail < 0) {    //scroll up
+          up = true;
+        }
+        if(event.detail > 0) {   //scroll down
+          up = false;
+        }
+  }
+
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.open('POST', "js/jshelper.php?q=" + "wheel", true);
+  xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xmlhttp.onload = function () {
+      // do something to response
+      console.log(this.responseText);
+  };
+  xmlhttp.send("up="+up);
+}
+
 function start_logging(user_id){
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
@@ -101,6 +132,9 @@ function start_logging(user_id){
     // textbar.addEventListener('keyup',function(){keyup});
     window.addEventListener('keydown',function(){keydown()});
     window.addEventListener('keyup',function(){keyup()});
+    window.addEventListener("DOMMouseScroll", function(){scroll()});
+    //    给页面绑定鼠标滚轮事件，针对Google，mousewheel非标准事件已被弃用，请使用 wheel事件代替
+    window.addEventListener("wheel", function(){scroll()});
 }
 
 function continue_logging(){
@@ -114,10 +148,31 @@ function continue_logging(){
         // textbar.addEventListener('keyup',function(){keyup});
         window.addEventListener('keydown',function(){keydown()});
         window.addEventListener('keyup',function(){keyup()});
+        window.addEventListener("DOMMouseScroll", function(){scroll()});
+    //    给页面绑定鼠标滚轮事件，针对Google，mousewheel非标准事件已被弃用，请使用 wheel事件代替
+        window.addEventListener("wheel", function(){scroll()});
+
       }
     }
     xmlhttp.open("GET", "js/jshelper.php?q=" + "started");
     xmlhttp.send();
+
+}
+
+function log_navigation(level){
+  // Level 0: Introduction; Room; Character; Answer
+  // Level 1: Collapse bar
+  // Level 2: Selection button
+  // Level 3: question textarea
+  // console.log(log);
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.open('POST', "js/jshelper.php?q=" + "navigate", true);
+  xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xmlhttp.onload = function () {
+      // do something to response
+      console.log(this.responseText);
+  };
+  xmlhttp.send("level="+level);
 
 }
 
@@ -131,7 +186,15 @@ function submit(){
     xmlhttp.send();
 }
 
+function change_video(video_id, source_id, video_src){
+  var video = document.getElementById(video_id);
+  var source = document.getElementById(source_id);
 
+  source.setAttribute('src', video_src);
+
+  video.load();
+
+}
 
 //to display or hide the videos
 // function show_hidden(obj){

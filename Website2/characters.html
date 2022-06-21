@@ -89,10 +89,10 @@
                 	<div class="grid_12">
                     	<nav>
                             <ul class="menu">
-                                <li><a href="index.php">Introduction</a></li>
-                                <li><a href="rooms.html">Rooms</a></li>
-                                <li><a class="active" href="characters.html">characters</a></li>
-                                <li><a href="answer.html">Answer</a></li>
+                                <li><a href="index.php" onclick="log_navigation(0)">Introduction</a></li>
+                                <li><a href="rooms.html" onclick="log_navigation(0)">Rooms</a></li>
+                                <li><a class="active" href="characters.html" onclick="log_navigation(0)">characters</a></li>
+                                <li><a href="answer.html" onclick="log_navigation(0)">Answer</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -107,25 +107,27 @@
    
 
 <!-- !this is the first capsule -->
-<button type="button" class="collapsible" href="#" onclick="show_hidden('Sean')">Sean</button>
+<button type="button" class="collapsible" href="#" onclick="show_hidden('Sean'); log_navigation(1); ">Sean</button>
 <div id = "Sean" class="container" style="display: none;">
     <!-- <div class="toppane">Test Page</div> -->
     <div class="leftpane">
       <!-- <h1>Test Page</h1> -->
       <!-- <article class="grid_8"> -->
        
-        <video width="700" height="420" controls>
+        <video id="video_sean" width="700" height="420" controls>
                                     
-            <source src="videos/office.mp4" type="video/mp4">
+            <source id="source_sean" src="videos/sean1.mp4" type="video/mp4">
             <!-- <source src="videos/" type="video/ogg"> -->
         Your browser does not support the video tag.
         </video>
+        <a class="button" href="#!" onclick="change_video('video_sean','source_sean','videos/sean1.mp4');">Tape 1: 0:00-6:01 </a>
+
     <!-- </article> -->
     </div>
 
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('office','Sean')">Office</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('exhibitionroom','Sean')">Exhibition Hall</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('office','Sean'); log_navigation(2); ">Office</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('exhibitionroom','Sean'); log_navigation(2); ">Exhibition Hall</a> 
     </div>
     <div class="rightpane" style="height: 500px; overflow:scroll">
 
@@ -135,7 +137,7 @@
                 <h4 class="p2">Who gave Greene the picture of the painting? Why?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -146,7 +148,7 @@
                 <h4 class="p2">Why is the frame empty?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -160,7 +162,7 @@
                 <h4 class="p2">What is Maestro's plan?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -174,7 +176,7 @@
                 <h4 class="p2">Did Greene believe what Reeves told him?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -188,7 +190,7 @@
                 <h4 class="p2">What did Greene ask Mac to do?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -204,7 +206,7 @@
                 <h4 class="p2">Why is Maestro shocked in the end?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -216,26 +218,30 @@
     
 
 <!-- !this is the second capsule -->
-<button type="button" class="collapsible" href="#" onclick="show_hidden('Greene')">Greene</button>
+<button type="button" class="collapsible" href="#" onclick="show_hidden('Greene'); log_navigation(1); ">Greene</button>
 <div id = "Greene" class="container" style="display: none;">
     <!-- <div class="toppane">Test Page</div> -->
     <div class="leftpane">
       <!-- <h1>Test Page</h1> -->
       <!-- <article class="grid_8"> -->
        
-        <video width="700" height="420" controls>
+        <video id="video_greene" width="700" height="420" controls>
                                     
-            <source src="videos/office.mp4" type="video/mp4">
+            <source id="source_greene" src="videos/greene1.mp4" type="video/mp4">
             <!-- <source src="videos/" type="video/ogg"> -->
         Your browser does not support the video tag.
         </video>
+        <a class="button" href="#!" onclick="change_video('video_greene','source_greene','videos/greene1.mp4');">Tape 1: 0:00-5:26 </a>
+        <a class="button" href="#!" onclick="change_video('video_greene','source_greene','videos/greene2.mp4');">Tape 2: 7:03-7:46 </a>
+
+
     <!-- </article> -->
     </div>
 
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('office','Greene')">Office</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('exhibitionroom','Greene')">Exhibition Hall</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('meetingroom','Greene')">Meeting Room</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('office','Greene'); log_navigation(2); ">Office</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('exhibitionroom','Greene'); log_navigation(2); ">Exhibition Hall</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('meetingroom','Greene'); log_navigation(2); ">Meeting Room</a> 
     </div>
     <div class="rightpane" style="height: 500px; overflow:scroll">
 
@@ -245,7 +251,7 @@
                 <h4 class="p2">Who gave Greene the picture of the painting? Why?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -256,7 +262,7 @@
                 <h4 class="p2">Why is the frame empty?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -270,7 +276,7 @@
                 <h4 class="p2">What is Maestro's plan?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -281,7 +287,7 @@
                 <h4 class="p2">What did Reeves claim?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -293,7 +299,7 @@
                 <h4 class="p2">Did Greene believe what Reeves told him?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -307,7 +313,7 @@
                 <h4 class="p2">What did Greene ask Mac to do?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -323,7 +329,7 @@
                 <h4 class="p2">Why is Maestro shocked in the end?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -336,25 +342,29 @@
 
 
 <!-- !this is the third capsule -->
-<button type="button" class="collapsible" href="#" onclick="show_hidden('Maestro')">Maestro</button>
+<button type="button" class="collapsible" href="#" onclick="show_hidden('Maestro'); log_navigation(1); ">Maestro</button>
 <div id = "Maestro" class="container" style="display: none;">
     <!-- <div class="toppane">Test Page</div> -->
     <div class="leftpane">
       <!-- <h1>Test Page</h1> -->
       <!-- <article class="grid_8"> -->
        
-        <video width="700" height="420" controls>
+        <video id="video_maestro" width="700" height="420" controls>
                                     
-            <source src="videos/office.mp4" type="video/mp4">
+            <source id="source_maestro" src="videos/storeroom1.mp4" type="video/mp4">
             <!-- <source src="videos/" type="video/ogg"> -->
         Your browser does not support the video tag.
         </video>
+        <a class="button" href="#!" onclick="change_video('video_maestro','source_maestro','videos/storeroom1.mp4');">Tape 1: 0:00-1:39 </a>
+        <a class="button" href="#!" onclick="change_video('video_maestro','source_maestro','videos/maestro2.mp4');">Tape 2: 1:39-5:28 </a>
+        <a class="button" href="#!" onclick="change_video('video_maestro','source_maestro','videos/maestro3.mp4');">Tape 3: 6:00-7:39 </a>
+
     <!-- </article> -->
     </div>
 
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('office','Maestro')">Office</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('exhibitionroom','Maestro')">Exhibition Hall</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('office','Maestro'); log_navigation(2); ">Office</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('exhibitionroom','Maestro'); log_navigation(2); ">Exhibition Hall</a> 
     </div>
     <div class="rightpane" style="height: 500px; overflow:scroll">
 
@@ -364,7 +374,7 @@
                 <h4 class="p2">Who gave Greene the picture of the painting? Why?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -375,7 +385,7 @@
                 <h4 class="p2">Why is the frame empty?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -389,7 +399,7 @@
                 <h4 class="p2">What is Maestro's plan?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -403,7 +413,7 @@
                 <h4 class="p2">Did Greene believe what Reeves told him?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -417,7 +427,7 @@
                 <h4 class="p2">What did Greene ask Mac to do?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -433,7 +443,7 @@
                 <h4 class="p2">Why is Maestro shocked in the end?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -445,25 +455,30 @@
 
 
 <!-- !this is the fourth capsule -->
-<button type="button" class="collapsible" href="#" onclick="show_hidden('Mac')">Mac</button>
+<button type="button" class="collapsible" href="#" onclick="show_hidden('Mac'); log_navigation(1); ">Mac</button>
 <div id = "Mac" class="container" style="display: none;">
     <!-- <div class="toppane">Test Page</div> -->
     <div class="leftpane">
       <!-- <h1>Test Page</h1> -->
       <!-- <article class="grid_8"> -->
        
-        <video width="700" height="420" controls>
+        <video id="video_mac" width="700" height="420" controls>
                                     
-            <source src="videos/office.mp4" type="video/mp4">
+            <source id="source_mac" src="videos/restroom1.mp4" type="video/mp4">
             <!-- <source src="videos/" type="video/ogg"> -->
         Your browser does not support the video tag.
         </video>
+        <a class="button" href="#!" onclick="change_video('video_mac','source_mac','videos/restroom1.mp4');">Tape 1: 0:00-1:23 </a>
+        <a class="button" href="#!" onclick="change_video('video_mac','source_mac','videos/restroom2.mp4');">Tape 2: 2:52-3:38 </a>
+        <a class="button" href="#!" onclick="change_video('video_mac','source_mac','videos/restroom3.mp4');">Tape 3: 4:14-6:45 </a>
+        <a class="button" href="#!" onclick="change_video('video_mac','source_mac','videos/greene2.mp4');">Tape 4: 7:03-7:46 </a>
+
     <!-- </article> -->
     </div>
 
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('restroom','Mac')">Restroom</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('exhibitionroom','Mac')">Exhibition Hall</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('restroom','Mac'); log_navigation(2); ">Restroom</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('exhibitionroom','Mac'); log_navigation(2); ">Exhibition Hall</a> 
     </div>
     <div class="rightpane" style="height: 500px; overflow:scroll">
 
@@ -475,7 +490,7 @@
                 <h4 class="p2">Why is the frame empty?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -489,7 +504,7 @@
                 <h4 class="p2">What is Maestro's plan?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -503,7 +518,7 @@
                 <h4 class="p2">Did Greene believe what Reeves told him?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -517,7 +532,7 @@
                 <h4 class="p2">What did Greene ask Mac to do?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -528,7 +543,7 @@
                 <h4 class="p2">Why is Mac in the museum?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -540,7 +555,7 @@
                 <h4 class="p2">What happened between Tommy and Mac in restroom?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -551,7 +566,7 @@
                 <h4 class="p2">Why did Mac choose to approach Tommy?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -562,7 +577,7 @@
                 <h4 class="p2">How did Mac think about the painting Tommy is carrying?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -578,7 +593,7 @@
                 <h4 class="p2">Why is Maestro shocked in the end?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -590,27 +605,32 @@
 
 
 <!-- !this is the fifth capsule -->
-<button type="button" class="collapsible" href="#" onclick="show_hidden('Tommy')">Tommy</button>
+<button type="button" class="collapsible" href="#" onclick="show_hidden('Tommy'); log_navigation(1); ">Tommy</button>
 <div id = "Tommy" class="container" style="display: none;">
     <!-- <div class="toppane">Test Page</div> -->
     <div class="leftpane">
       <!-- <h1>Test Page</h1> -->
       <!-- <article class="grid_8"> -->
        
-        <video width="700" height="420" controls>
+        <video id="video_tommy" width="700" height="420" controls>
                                     
-            <source src="videos/office.mp4" type="video/mp4">
+            <source id="source_tommy" src="videos/tommy1.mp4" type="video/mp4">
             <!-- <source src="videos/" type="video/ogg"> -->
         Your browser does not support the video tag.
         </video>
+        <a class="button" href="#!" onclick="change_video('video_tommy','source_tommy','videos/tommy1.mp4');">Tape 1: 0:49-1:56 </a>
+        <a class="button" href="#!" onclick="change_video('video_tommy','source_tommy','videos/storeroom2.mp4');">Tape 2: 2:25-4:18 </a>
+        <a class="button" href="#!" onclick="change_video('video_tommy','source_tommy','videos/restroom3.mp4');">Tape 3: 4:14-6:45 </a>
+        <a class="button" href="#!" onclick="change_video('video_tommy','source_tommy','videos/tommy4.mp4');">Tape 4: 6:47-7:36 </a>
+
     <!-- </article> -->
     </div>
 
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('entrance','Tommy')">Entrance</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('exhibitionroom','Tommy')">Exhibition Hall</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('storageroom','Tommy')">Storage Room</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('restroom','Tommy')">Restroom</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('entrance','Tommy'); log_navigation(2); ">Entrance</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('exhibitionroom','Tommy'); log_navigation(2); ">Exhibition Hall</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('storageroom','Tommy'); log_navigation(2); ">Storage Room</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('restroom','Tommy'); log_navigation(2); ">Restroom</a> 
 
     </div>
     <div class="rightpane" style="height: 500px; overflow:scroll">
@@ -622,7 +642,7 @@
                 <h4 class="p2">Why is the frame empty?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -636,7 +656,7 @@
                 <h4 class="p2">What is Maestro's plan?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -650,7 +670,7 @@
                 <h4 class="p2">Did Greene believe what Reeves told him?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -664,7 +684,7 @@
                 <h4 class="p2">What did Greene ask Mac to do?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -676,7 +696,7 @@
                 <h4 class="p2">Why is Mac in the museum?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -687,7 +707,7 @@
                 <h4 class="p2">Who is Tommy?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -698,7 +718,7 @@
                 <h4 class="p2">What did Maestro told Tommy on the phone?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -709,7 +729,7 @@
                 <h4 class="p2">What happened between Tommy and Mac in restroom?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -720,7 +740,7 @@
                 <h4 class="p2">Why did Mac choose to approach Tommy?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -731,7 +751,7 @@
                 <h4 class="p2">How did Mac think about the painting Tommy is carrying?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -742,7 +762,7 @@
                 <h4 class="p2">What happened between the security and Tommy when he was leaving?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -754,7 +774,7 @@
                 <h4 class="p2">Why is Maestro shocked in the end?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -765,24 +785,26 @@
 </div>
 
 <!-- !this is the sixth capsule -->
-<button type="button" class="collapsible" href="#" onclick="show_hidden('Reeves')">Reeves</button>
+<button type="button" class="collapsible" href="#" onclick="show_hidden('Reeves'); log_navigation(1); ">Reeves</button>
 <div id = "Reeves" class="container" style="display: none;">
     <!-- <div class="toppane">Test Page</div> -->
     <div class="leftpane">
       <!-- <h1>Test Page</h1> -->
       <!-- <article class="grid_8"> -->
        
-        <video width="700" height="420" controls>
+        <video id="video_reeves" width="700" height="420" controls>
                                     
-            <source src="videos/office.mp4" type="video/mp4">
+            <source id="source_reeves" src="videos/meetingroom1.mp4" type="video/mp4">
             <!-- <source src="videos/" type="video/ogg"> -->
         Your browser does not support the video tag.
         </video>
+        <a class="button" href="#!" onclick="change_video('video_reeves','source_reeves','videos/meetingroom1.mp4');">Tape 1: 0:00-5:34 </a>
+        
     <!-- </article> -->
     </div>
 
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('office','Reeves')">Office</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('office','Reeves'); log_navigation(2); ">Office</a> 
         <!-- <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('exhibitionroom','Sean')">Exhibition Hall</a>  -->
     </div>
     <div class="rightpane" style="height: 500px; overflow:scroll">
@@ -793,7 +815,7 @@
                 <h4 class="p2">Who gave Greene the picture of the painting? Why?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -804,7 +826,7 @@
                 <h4 class="p2">Why is the frame empty?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -818,7 +840,7 @@
                 <h4 class="p2">What is Maestro's plan?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -832,25 +854,28 @@
 </div>
 
 <!-- !this is the seventh capsule -->
-<button type="button" class="collapsible" href="#" onclick="show_hidden('Security')">Security</button>
+<button type="button" class="collapsible" href="#" onclick="show_hidden('Security'); log_navigation(1); ">Security</button>
 <div id = "Security" class="container" style="display: none;">
     <!-- <div class="toppane">Test Page</div> -->
     <div class="leftpane">
       <!-- <h1>Test Page</h1> -->
       <!-- <article class="grid_8"> -->
        
-        <video width="700" height="420" controls>
+        <video id="video_security" width="700" height="420" controls>
                                     
-            <source src="videos/office.mp4" type="video/mp4">
+            <source id="source_security" src="videos/tommy1.mp4" type="video/mp4">
             <!-- <source src="videos/" type="video/ogg"> -->
         Your browser does not support the video tag.
         </video>
+        <a class="button" href="#!" onclick="change_video('video_security','source_security','videos/tommy1.mp4');">Tape 1: 0:49-1:56 </a>
+        <a class="button" href="#!" onclick="change_video('video_security','source_security','videos/tommy4.mp4');">Tape 2: 6:47-7:36 </a>
+  
     <!-- </article> -->
     </div>
 
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('entrance','Security')">Entrance</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('exhibitionroom','Security')">Exhibition Hall</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('entrance','Security'); log_navigation(2); ">Entrance</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('exhibitionroom','Security'); log_navigation(2); ">Exhibition Hall</a> 
     </div>
     <div class="rightpane" style="height: 500px; overflow:scroll">
 
@@ -861,7 +886,7 @@
                 <h4 class="p2">Why is the frame empty?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -875,7 +900,7 @@
                 <h4 class="p2">What is Maestro's plan?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -889,7 +914,7 @@
                 <h4 class="p2">Did Greene believe what Reeves told him?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -903,7 +928,7 @@
                 <h4 class="p2">What did Greene ask Mac to do?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -914,7 +939,7 @@
                 <h4 class="p2">Who is Tommy?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -925,7 +950,7 @@
                 <h4 class="p2">What did Maestro told Tommy on the phone?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -936,7 +961,7 @@
                 <h4 class="p2">What happened between the security and Tommy when he was leaving?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
@@ -948,7 +973,7 @@
                 <h4 class="p2">Why is Maestro shocked in the end?</h4>
                 <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                     <fieldset>
-                        <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)"></textarea>
+                        <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
                     </fieldset>						
                 <!-- </form> -->
             </div>
