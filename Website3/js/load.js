@@ -75,22 +75,22 @@ function keyup(){
 }
 
 function scroll(event){
-  // console.log("Scroll event detected");
-  var up;
+  console.log("Scroll event detected");
+  var up=0;
   var event = event || window.event;
   if(event.wheelDelta) {   
         if(event.wheelDelta > 0) {     //scroll up
-          up = true;
+          up = 1;
         }
         if(event.wheelDelta < 0) {     //scroll down
-          up = false;
+          up = 0;
         }
   } else if(event.detail) {
         if(event.detail < 0) {    //scroll up
-          up = true;
+          up = 1;
         }
         if(event.detail > 0) {   //scroll down
-          up = false;
+          up = 0;
         }
   }
 
@@ -143,7 +143,9 @@ function continue_logging(){
 }
 
 
-function log_navigation(level){
+
+
+function log_navigation(level,path){
   // Level 0: Introduction; Room; Character; Answer
   // Level 1: Collapse bar
   // Level 2: Selection button
@@ -156,7 +158,8 @@ function log_navigation(level){
       // do something to response
       console.log(this.responseText);
   };
-  xmlhttp.send("level="+level);
+  xmlhttp.send("level="+level+"&path="+path);
+
 
 }
 
@@ -200,6 +203,14 @@ function Show_Hidden(obj) {
 
   
 }
+
+var current_button_id = null;
+
+function change_button_id(button_id){
+  current_button_id=button_id;
+  console.log("changing curent button id to "+toString(button_id));
+};
+
 
 function change_pic(button_id,pic_src){
   document.getElementById(button_id).src=pic_src;

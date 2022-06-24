@@ -125,7 +125,6 @@ if ($q==="keydown") {
         echo "Error";
         http_response_code(400);
     }
-    echo"keydown received";
     $current_time = floor(microtime(true) * 1000);
     $time_elapsed = $current_time-$_SESSION["start_time"];
     // $log = ''.$time_elapsed.' '.$log;
@@ -209,10 +208,10 @@ if ($q==="wheel") {
     $current_time = floor(microtime(true) * 1000);
     $time_elapsed = $current_time-$_SESSION["start_time"];
     $scroll_type = 'up';
-    if (!$up){
+    if ($up=="0"){
         $scroll_type = 'down';
     }
-    $response = "You have successfully logged scroll ".$scroll_type;
+    $response = "You have successfully logged a scroll: ".$scroll_type;
 
 
     // $servername = "localhost";
@@ -241,6 +240,7 @@ if ($q==="wheel") {
 if ($q==="navigate") {
     if (isset($_POST["level"])){
         $level = $_POST["level"];
+        $navigation_path=$_POST["path"];
         $userID = $_SESSION["user"];
     }else{
         print_r($_POST);
@@ -250,7 +250,7 @@ if ($q==="navigate") {
     $current_time = floor(microtime(true) * 1000);
     $time_elapsed = $current_time-$_SESSION["start_time"];
 
-    $response = "You have successfully logged navigation: level ".$level;
+    $response = "You have successfully logged navigation: level ".$level.", path ".$navigation_path;
 
 
     // $servername = "localhost";
