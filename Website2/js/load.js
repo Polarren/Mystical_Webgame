@@ -335,6 +335,13 @@ room_num.set('exhibitionroom', 4);
 room_num.set('entrance', 5);
 room_num.set('meetingroom', 6);
 
+room_num.set('Sean', 1);
+room_num.set('Greene', 2);
+room_num.set('Maestro', 3);
+room_num.set('Mac', 4);
+room_num.set('Tommy', 5);
+room_num.set('Reeves', 6);
+room_num.set('Security', 7);
 
 function read_video_position(){
   
