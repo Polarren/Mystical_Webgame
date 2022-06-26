@@ -266,7 +266,7 @@ if ($q==="navigate") {
     
     // echo "Connected successfully\n";
     
-    // $sql = "INSERT INTO wheel (time, scroll_type,type) VALUES ('$time_elapsed', '$scroll_type','1')";
+    // $sql = "INSERT INTO wheel (time, level, start , level_0, level_1, level_2, level_3) VALUES ('$time_elapsed', '$level','$navigation_path[0]','$navigation_path[1]','$navigation_path[2]','$navigation_path[3]','$navigation_path[4]')";
     // if (mysqli_query($conn, $sql)) {
     //     echo "New record created successfully";
     // } else {
