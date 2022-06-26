@@ -30,6 +30,7 @@ function mousemove(){
   var index_x = event.clientX;
   var index_y = event.clientY;
   // console.log(log);
+  read_video_position();
   const xmlhttp = new XMLHttpRequest();
   xmlhttp.onload = function() {
     return;
@@ -41,6 +42,7 @@ function mousemove(){
 
      console.log(this.responseText);
   };
+  
   // xmlhttp.send("log="+log);
   xmlhttp.send('&index_x='+index_x+'&index_y='+index_y);
   // xmlhttp.send("index_x="+index_x);
@@ -211,7 +213,7 @@ function change_video(video_id, source_id, video_src){
 
 
 
-
+var video_shown;
 /**
  * [Show_Hidden 点击控制div显示与隐藏]
  * @param {[id]} obj [需要显示隐藏div的id]
@@ -223,17 +225,20 @@ function change_video(video_id, source_id, video_src){
 
   var div = document.getElementById(obj);
   refresh_textarea();
+  video_shown = obj;
   if (div.style.display===""){
 
     div.style.display="none";
+    video_shown = "";
   } else {
     coll_array = document.getElementsByClassName("container");
-    for (i = 0; i < coll_array.length; i++) {
-      if(coll_array[i].style.display===""){
-        // store_content(coll_array[i].name);
-      }
-      coll_array[i].style.display="none";
-    }
+    // for (i = 0; i < coll_array.length; i++) {
+    //   if(coll_array[i].style.display===""){
+    //     // store_content(coll_array[i].name);
+    //   }
+    //   coll_array[i].style.display="none";
+    // }
+
     // load_content(div.name);
     // load_content('content_lobby');
     div.style.display="";
@@ -321,3 +326,32 @@ function change_room(room,name){
   }
 
 }
+
+const room_num = new Map();
+room_num.set('office', 1);
+room_num.set('restroom', 2);
+room_num.set('storageroom', 3);
+room_num.set('exhibitionroom', 4);
+room_num.set('entrance', 5);
+room_num.set('meetingroom', 6);
+
+
+function read_video_position(){
+  
+  var cur_roomnum = room_num.get(video_shown);
+  var video_height = 71+60*cur_roomnum+18;
+  var log = document.documentElement.scrollTop ;
+  var ratio = (video_height-log)/window.innerHeight;
+  console.log(ratio);
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.open('POST', "js/jshelper.php?q=" + "video_position", true);
+  xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xmlhttp.onload = function () {
+      // do something to response
+      console.log(this.responseText);
+  };
+  // console.log("ddddddddddd");
+  xmlhttp.send("log="+log);
+
+}
+

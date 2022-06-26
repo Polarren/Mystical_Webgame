@@ -93,26 +93,26 @@ if ($q==="mouse_move") {
     // $mouse_move = "1";
     $response = "You have successfully logged mouse moves: ".$index_x.' '.$index_y;
 
-$servername = "localhost";
-$database = "database_2";
-$username = "changliu";
-$password = "test123";
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $database);
-// Check connection
-if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-}
+// $servername = "localhost";
+// $database = "database_2";
+// $username = "changliu";
+// $password = "test123";
+// // Create connection
+// $conn = mysqli_connect($servername, $username, $password, $database);
+// // Check connection
+// if (!$conn) {
+//       die("Connection failed: " . mysqli_connect_error());
+// }
  
-echo "Connected successfully\n";
+// echo "Connected successfully\n";
  
-$sql = "INSERT INTO mouse (time, index_x, index_y,type) VALUES ('$time_elapsed', '$index_x', '$index_y','0')";
-if (mysqli_query($conn, $sql)) {
-      echo "New record created successfully";
-} else {
-      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
-mysqli_close($conn);
+// $sql = "INSERT INTO mouse (time, index_x, index_y,type) VALUES ('$time_elapsed', '$index_x', '$index_y','0')";
+// if (mysqli_query($conn, $sql)) {
+//       echo "New record created successfully";
+// } else {
+//       echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+// }
+// mysqli_close($conn);
 }
 
 
