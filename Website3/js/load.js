@@ -75,7 +75,7 @@ function keyup(){
 }
 
 function scroll(event){
-  console.log("Scroll event detected");
+  // console.log("Scroll event detected");
   var up=0;
   var event = event || window.event;
   if(event.wheelDelta) {   
@@ -158,6 +158,7 @@ function log_navigation(level,path){
       // do something to response
       console.log(this.responseText);
   };
+  // console.log(path);
   xmlhttp.send("level="+level+"&path="+path);
 
 

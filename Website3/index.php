@@ -34,10 +34,10 @@ session_start();
                 	<div class="grid_12">
                     	<nav>
                             <ul class="menu">
-                                <li><a class="active" href="index.php" onclick="log_navigation(0)" >Introduction</a></li>
-                                <li><a href="rooms.html" onclick="log_navigation(0)">Rooms</a></li>
-                                <li><a href="characters.html" onclick="log_navigation(0)" >characters</a></li>
-                                <li><a href="answer.html" onclick="log_navigation(0)" >Answer</a></li>
+                                <li><a class="active" href="index.php" onclick="log_navigation(0,[0,0,null,null,null])" >Introduction</a></li>
+                                <li><a href="rooms.html" onclick="log_navigation(0,[0,1,null,null,null])">Rooms</a></li>
+                                <li><a href="characters.html" onclick="log_navigation(0,[0,2,null,null,null])" >characters</a></li>
+                                <li><a href="answer.html" onclick="log_navigation(0,[0,3,null,null,null])" >Answer</a></li>
                             </ul>
                         </nav>
                     </div>

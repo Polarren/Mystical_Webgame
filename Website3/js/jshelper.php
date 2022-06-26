@@ -227,7 +227,7 @@ if ($q==="wheel") {
     
     // echo "Connected successfully\n";
     
-    // $sql = "INSERT INTO wheel (time, scroll_type,type) VALUES ('$time_elapsed', '$scroll_type','1')";
+    // $sql = "INSERT INTO wheel (time, scroll_type,type) VALUES ('$time_elapsed', '$up','1')";
     // if (mysqli_query($conn, $sql)) {
     //     echo "New record created successfully";
     // } else {
@@ -249,7 +249,7 @@ if ($q==="navigate") {
     }
     $current_time = floor(microtime(true) * 1000);
     $time_elapsed = $current_time-$_SESSION["start_time"];
-
+    // print_r($navigation_path[0]);
     $response = "You have successfully logged navigation: level ".$level.", path ".$navigation_path;
 
 

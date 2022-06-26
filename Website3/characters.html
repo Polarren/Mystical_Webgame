@@ -88,10 +88,10 @@
                 	<div class="grid_12">
                     	<nav>
                             <ul class="menu">
-                                <li><a href="index.php" onclick="log_navigation(0)" >Introduction</a></li>
-                                <li><a href="rooms.html" onclick="log_navigation(0)" >Rooms</a></li>
-                                <li><a class="active" href="characters.html" onclick="log_navigation(0)" >characters</a></li>
-                                <li><a href="answer.html" onclick="log_navigation(0)" >Answer</a></li>
+                                <li><a href="index.php" onclick="log_navigation(0,[2,0,-1,-1,-1])" >Introduction</a></li>
+                                <li><a href="rooms.html" onclick="log_navigation(0,[2,1,-1,-1,-1])" >Rooms</a></li>
+                                <li><a class="active" href="characters.html" onclick="log_navigation(0,[2,2,-1,-1,-1])" >characters</a></li>
+                                <li><a href="answer.html" onclick="log_navigation(0,[2,3,-1,-1,-1])" >Answer</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -103,7 +103,7 @@
     </header>
 
 <!-- ****************************** !this is the 1st capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Dwight'); log_navigation(1); ">Dwight</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Dwight'); log_navigation(1,[2,2,0,-1,-1]); ">Dwight</button>
 <div id = "content_Dwight" class="container" style="display: none;">
     <div class="leftpane">
             <video id = "video_Dwight" width="640"  controls >
@@ -113,10 +113,10 @@
     </div>
 
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Dwight'); log_navigation(2); ">Lobby</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Dwight'); log_navigation(2); ">Interview Room 2</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('toilet','Dwight'); log_navigation(2); ">Toilet</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('outside','Dwight'); log_navigation(2); ">Outside</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Dwight'); log_navigation(2,[2,2,0,0,-1]); change_button_id(0);  ">Lobby</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Dwight'); log_navigation(2,[2,2,0,1,-1]);change_button_id(1); ">Interview Room 2</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('toilet','Dwight'); log_navigation(2,[2,2,0,2,-1]); change_button_id(2);">Toilet</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('outside','Dwight'); log_navigation(2,[2,2,0,3,-1]); change_button_id(3);">Outside</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -314,7 +314,7 @@
 
 
 <!-- ****************************** !this is the 2nd capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Schrader'); log_navigation(1); ">Schrader</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Schrader'); log_navigation(1,[2,2,1,-1,-1]); ">Schrader</button>
 <div id = "content_Schrader" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -324,7 +324,7 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Schrader'); log_navigation(2); ">Lobby</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Schrader'); log_navigation(2,[2,2,1,0,-1]); change_button_id(0); ">Lobby</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -380,7 +380,7 @@
 </div>
 
 <!-- ****************************** !this is the 3rd capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Jessica'); log_navigation(1); ">Jessica</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Jessica'); log_navigation(1,[2,2,2,-1,-1]); ">Jessica</button>
 <div id = "content_Jessica" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -390,10 +390,10 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Jessica'); log_navigation(2); ">Lobby</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('hall','Jessica'); log_navigation(2); ">Hall</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Jessica'); log_navigation(2); ">Interview Room 2</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Jessica'); log_navigation(2); ">Conference Room</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Jessica');  log_navigation(2,[2,2,2,0,-1]); change_button_id(0); ">Lobby</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('hall','Jessica');  log_navigation(2,[2,2,2,1,-1]); change_button_id(1); ">Hall</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Jessica'); log_navigation(2,[2,2,2,2,-1]); change_button_id(2); ">Interview Room 2</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Jessica'); log_navigation(2,[2,2,2,3,-1]); change_button_id(3); ">Conference Room</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -402,7 +402,7 @@
             <div class="indent-left">
                 <h4 class="p2">Please describe what happened in the police station.</h4>
                     <fieldset>
-                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);" ></textarea>
+                        <textarea  name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[2,2,0,current_button_id,1]);" ></textarea>
                     </fieldset>						
             </div>
         </div>
@@ -589,7 +589,7 @@
 </div>
 
 <!-- ****************************** !this is the 4th capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Chip'); log_navigation(1); ">Chip</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Chip'); log_navigation(1,[2,2,3,-1,-1]); ">Chip</button>
 <div id = "content_Chip" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -599,9 +599,9 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Chip'); log_navigation(2); ">Interview Room 2</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Chip'); log_navigation(2); ">Lobby</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('outside','Chip'); log_navigation(2); ">Outside</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Chip'); log_navigation(2,[2,2,3,0,-1]); change_button_id(0);">Interview Room 2</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Chip'); log_navigation(2,[2,2,3,1,-1]); change_button_id(1);">Lobby</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('outside','Chip'); log_navigation(2,[2,2,3,2,-1]); change_button_id(2); ">Outside</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -720,7 +720,7 @@
 
 
 <!-- ****************************** !this is the 5th capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Kint'); log_navigation(1); ">Kint</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Kint'); log_navigation(1,[2,2,4,-1,-1]); ">Kint</button>
 <div id = "content_Kint" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -730,7 +730,7 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('hall','Kint'); log_navigation(2); ">Hall</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('hall','Kint'); log_navigation(2,[2,2,4,0,-1]); change_button_id(0); ">Hall</a>
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -789,7 +789,7 @@
 </div>
 
 <!-- ****************************** !this is the 6th capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Mickey'); log_navigation(1); ">Mickey</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Mickey'); log_navigation(1,[2,2,5,-1,-1]); ">Mickey</button>
 <div id = "content_Mickey" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -799,8 +799,8 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Mickey'); log_navigation(2); ">Lobby</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('outside','Mickey'); log_navigation(2); ">Outside</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Mickey'); log_navigation(2,[2,2,5,0,-1]); change_button_id(0); ">Lobby</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('outside','Mickey'); log_navigation(2,[2,2,5,0,-1]); change_button_id(0); ">Outside</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -879,7 +879,7 @@
 
 
 <!-- ****************************** !this is the 7rd capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Martin'); log_navigation(1); ">Martin</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Martin'); log_navigation(1,[2,2,6,-1,-1]); ">Martin</button>
 <div id = "content_Martin" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -889,9 +889,9 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Martin'); log_navigation(2); ">Lobby</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Martin'); log_navigation(2); ">Conference Room</a> 
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_1','Martin'); log_navigation(2); ">Interview Room 1</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Martin'); log_navigation(2,[2,2,6,0,-1]); change_button_id(0); ">Lobby</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Martin');log_navigation(2,[2,2,6,1,-1]); change_button_id(1); ">Conference Room</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_1','Martin'); log_navigation(2,[2,2,6,2,-1]); change_button_id(2); ">Interview Room 1</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -986,7 +986,7 @@
 </div>
 
 <!-- ****************************** !this is the 8th capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Blade'); log_navigation(1); ">Blade</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Blade'); log_navigation(7); ">Blade</button>
 <div id = "content_Blade" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -996,9 +996,9 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Blade'); log_navigation(2); ">Lobby</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Blade'); log_navigation(2); ">Conference Room</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_1','Blade'); log_navigation(2); ">Interview Room 1</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Blade');  log_navigation(2,[2,2,7,0,-1]); change_button_id(0);  ">Lobby</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Blade');  log_navigation(2,[2,2,7,1,-1]); change_button_id(1);  ">Conference Room</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_1','Blade');  log_navigation(2,[2,2,7,2,-1]); change_button_id(2);  ">Interview Room 1</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -1194,7 +1194,7 @@
 </div>
 
 <!-- ****************************** !this is the 9th capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Doug'); log_navigation(1); ">Doug</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Doug'); log_navigation(1,[2,2,8,-1,-1]); ">Doug</button>
 <div id = "content_Doug" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -1204,9 +1204,9 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Doug'); log_navigation(2); ">Lobby</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Doug'); log_navigation(2); ">Conference Room</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('tucker_office','Doug'); log_navigation(2); ">Tucker's Office</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Doug'); log_navigation(2,[2,2,8,0,-1]); change_button_id(0); ">Lobby</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Doug'); log_navigation(2,[2,2,8,1,-1]); change_button_id(1); ">Conference Room</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('tucker_office','Doug'); log_navigation(2,[2,2,8,2,-1]); change_button_id(2); ">Tucker's Office</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -1403,7 +1403,7 @@
 
 
 <!-- ****************************** !this is the 10th capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Tucker'); log_navigation(1); ">Tucker</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Tucker'); log_navigation(1,[2,2,9,-1,-1]); ">Tucker</button>
 <div id = "content_Tucker" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -1413,9 +1413,9 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Tucker'); log_navigation(2); ">Lobby</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Tucker'); log_navigation(2); ">Conference Room</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('tucker_office','Tucker'); log_navigation(2); ">Tucker's Office</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Tucker'); log_navigation(2,[2,2,9,0,-1]); change_button_id(0); ">Lobby</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('conference_room','Tucker'); log_navigation(2,[2,2,9,1,-1]); change_button_id(1); ">Conference Room</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('tucker_office','Tucker');log_navigation(2,[2,2,9,2,-1]); change_button_id(2); ">Tucker's Office</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -1613,7 +1613,7 @@
 
 
 <!-- ****************************** !this is the 11th capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Cassidy'); log_navigation(1); ">Cassidy</button>
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Cassidy'); log_navigation(1,[2,2,10,-1,-1]); ">Cassidy</button>
 <div id = "content_Cassidy" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -1623,9 +1623,9 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Cassidy'); log_navigation(2); ">Lobby</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('hall','Cassidy'); log_navigation(2); ">Hall</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Cassidy'); log_navigation(2); ">Interview Room 2</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Cassidy'); log_navigation(2,[2,2,10,0,-1]); change_button_id(0); ">Lobby</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('hall','Cassidy');log_navigation(2,[2,2,10,1,-1]); change_button_id(1); ">Hall</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Cassidy'); log_navigation(2,[2,2,10,2,-1]); change_button_id(2); ">Interview Room 2</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
@@ -1821,8 +1821,8 @@
 </div>
 
 
-<!-- ****************************** !this is the 11th capsule *************************************-->
-<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Sting'); log_navigation(1); ">Sting</button>
+<!-- ****************************** !this is the 12th capsule *************************************-->
+<button type="button" class="collapsible" href="#" onclick="Show_Hidden('content_Sting'); log_navigation(1,[2,2,11,-1,-1]); ">Sting</button>
 <div id = "content_Sting" class="container" style="display: none;">
     <div class="leftpane">
         <video width="640" controls>    
@@ -1832,8 +1832,8 @@
     </div>
     
     <div class="middlepane">
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Sting'); log_navigation(2); ">Lobby</a>
-        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Sting'); log_navigation(2); ">Interview Room 2</a> 
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('lobby','Sting'); log_navigation(2,[2,2,11,0,-1]); change_button_id(0); ">Lobby</a>
+        <a class="button" href="#!" style="display:inline-block;width:150px;text-align: center;text-transform:none" onClick="change_room('interview_room_2','Sting'); log_navigation(2,[2,2,11,1,-1]); change_button_id(1); ">Interview Room 2</a> 
     </div>
 
     <div class="rightpane" style="height: 500px; overflow:scroll" >
