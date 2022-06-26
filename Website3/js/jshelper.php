@@ -20,9 +20,31 @@ if ($q==="submit") {
     $txt = strval($version);
     fwrite($version_w, $txt);
     fclose($version_w);
+    
     $response = "You have successfully submitted your answers to the current story!";
 
 }
+
+if ($q==="print_answer") {
+    if (isset($_POST["question_num"])){
+        // $log = $_POST["log"];
+         $question_num = $_POST["question_num"];
+         $answer_text = $_POST["answer_text"];
+         $userID = $_SESSION["user"];
+     }else{
+         print_r($_POST);
+         echo "Error";
+         http_response_code(400);
+     }
+    
+    $answer_file= fopen("$DOCUMENT_ROOT/Website3/data/answer_".$userID.".txt", "a") or die("Unable to open file!3");
+    fwrite($answer_file, $question_num."\n");
+    fwrite($answer_file, $answer_text."\n");
+    fclose($answer_file);
+    $response = "You have successfully printed your answers to the file!";
+
+}
+
 if ($q==="mouse_click") {
     if (isset($_POST["index_x"])){
        // $log = $_POST["log"];
@@ -59,7 +81,7 @@ if ($q==="mouse_click") {
     
     // echo "Connected successfully\n";
     
-    // $sql = "INSERT INTO mouse (time, index_x, index_y,type) VALUES ('$time_elapsed', '$index_x', '$index_y','1')";
+    // $sql = "INSERT INTO mouse (gameid, time, userid, index_x, index_y,type) VALUES ('3','$time_elapsed','$userID', '$index_x', '$index_y','1')";
     // if (mysqli_query($conn, $sql)) {
     //     echo "New record created successfully";
     // } else {
@@ -106,14 +128,14 @@ if ($q==="mouse_move") {
     
     // echo "Connected successfully\n";
     
-    // $sql = "INSERT INTO mouse (time, index_x, index_y,type) VALUES ('$time_elapsed', '$index_x', '$index_y','0')";
+    // $sql = "INSERT INTO mouse (gameid,time, userid, index_x, index_y,type) VALUES ('3','$time_elapsed','$userID', '$index_x', '$index_y','0')";
     // if (mysqli_query($conn, $sql)) {
     //     echo "New record created successfully";
     // } else {
     //     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     // }
     // mysqli_close($conn);
-    }
+}
 
 
 if ($q==="keydown") {
@@ -147,7 +169,7 @@ if ($q==="keydown") {
     
     // echo "Connected successfully\n";
     
-    // $sql = "INSERT INTO keyboard (time, content,action,userid) VALUES ('$time_elapsed', '$log', '0','$userID')";
+    // $sql = "INSERT INTO keyboard (gameid, time,userid, content,action) VALUES ('3','$time_elapsed','$userID', '$log', '0')";
     // if (mysqli_query($conn, $sql)) {
     //     echo "New record created successfully";
     // } else {
@@ -186,7 +208,7 @@ if ($q==="keyup") {
 
     // echo "Connected successfully\n";
     
-    // $sql = "INSERT INTO keyboard(time, content,action,userid) VALUES ('$time_elapsed', '$log', '1','$userID')";
+    // $sql = "INSERT INTO keyboard(gameid,time,userid, content,action) VALUES ('3','$time_elapsed','$userID', '$log', '1')";
     // if (mysqli_query($conn, $sql)) {
     //     echo "New record created successfully";
     // } else {
@@ -227,7 +249,7 @@ if ($q==="wheel") {
     
     // echo "Connected successfully\n";
     
-    // $sql = "INSERT INTO wheel (time, scroll_type,type) VALUES ('$time_elapsed', '$up','1')";
+    // $sql = "INSERT INTO wheel (gameid, time,userid, scroll_type,type) VALUES ('3','$time_elapsed','$userID', '$up','1')";
     // if (mysqli_query($conn, $sql)) {
     //     echo "New record created successfully";
     // } else {
@@ -266,7 +288,7 @@ if ($q==="navigate") {
     
     // echo "Connected successfully\n";
     
-    // $sql = "INSERT INTO wheel (time, level, start , level_0, level_1, level_2, level_3) VALUES ('$time_elapsed', '$level','$navigation_path[0]','$navigation_path[1]','$navigation_path[2]','$navigation_path[3]','$navigation_path[4]')";
+    // $sql = "INSERT INTO wheel (gameid,time,userid, level, start , level_0, level_1, level_2, level_3) VALUES ('3','$time_elapsed', '$userID', '$level','$navigation_path[0]','$navigation_path[1]','$navigation_path[2]','$navigation_path[3]','$navigation_path[4]')";
     // if (mysqli_query($conn, $sql)) {
     //     echo "New record created successfully";
     // } else {
