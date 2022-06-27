@@ -173,44 +173,10 @@ function submit(){
     xmlhttp.open("GET", "js/jshelper.php?q=" + "submit");
     xmlhttp.send();
     
-    clear_data();
+    // clear_data();
   }
 
-function print_answer(){
-  var answer_text;
-  for(i = 0;i<question_amount;i++){
-    if(!window.localStorage){
-        if(UserData.getItem('editor-text'+i.toString())==undefined) {
-            console.log("Window Local Storage: undeifined");
-        }else{
-            // console.log("edtior_array "+i+ ": "+UserData.getItem('editor-text'+i.toString()));
-            const xmlhttp = new XMLHttpRequest();
-            xmlhttp.onload = function() {
-              document.write(this.responseText);
-            }
-            xmlhttp.open("POST", "js/jshelper.php?q=" + "print_answer");
-            console.log("question_num="+(i+1)+"&answer_text="+answer_text);
-            answer_text = UserData.getItem('editor-text'+i.toString());
-            xmlhttp.send("question_num="+(i+1)+"&answer_text="+answer_text);
-            
-        }
-    }else{
-        if(localStorage.getItem('editor-text'+i.toString())!=null){
-            // console.log("edtior_array "+i+ ": "+localStorage.getItem('editor-text'+i.toString()));
-            const xmlhttp = new XMLHttpRequest();
-            xmlhttp.onload = function() {
-              document.write(this.responseText);
-            }
-            xmlhttp.open("POST", "js/jshelper.php?q=" + "print_answer");
-            console.log("question_num="+(i+1)+"&answer_text="+answer_text);
-            answer_text = UserData.getItem('editor-text'+i.toString());
-            xmlhttp.send("question_num="+(i+1)+"&answer_text="+answer_text);
-        }else{
-            console.log("Local Storage: undeifined");
-        }
-    }
-  }
-};
+
 
 /**
  * [Show_Hidden 点击控制div显示与隐藏]

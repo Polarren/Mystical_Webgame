@@ -21,27 +21,29 @@ if ($q==="submit") {
     fwrite($version_w, $txt);
     fclose($version_w);
     
-    $response = "You have successfully submitted your answers to the current story!";
+    $response = "You have successfully submitted your answers to the current story!\n";
 
 }
 
 if ($q==="print_answer") {
     if (isset($_POST["question_num"])){
         // $log = $_POST["log"];
-         $question_num = $_POST["question_num"];
-         $answer_text = $_POST["answer_text"];
-         $userID = $_SESSION["user"];
+        $question_num = $_POST["question_num"];
+        $answer_text = $_POST["answer_text"];
+        $userID = $_SESSION["user"];
+        $answer_file= fopen("$DOCUMENT_ROOT/Website3/data/answer_".$userID.".txt", "a") or die("Unable to open file!3");
+        fwrite($answer_file, $question_num."\n");
+        fwrite($answer_file, $answer_text."\n");
+        fclose($answer_file);
+        $response = "You have successfully printed your answers to the file!\n";
      }else{
          print_r($_POST);
-         echo "Error";
          http_response_code(400);
+        $response = "Error encountered\n";
      }
     
-    $answer_file= fopen("$DOCUMENT_ROOT/Website3/data/answer_".$userID.".txt", "a") or die("Unable to open file!3");
-    fwrite($answer_file, $question_num."\n");
-    fwrite($answer_file, $answer_text."\n");
-    fclose($answer_file);
-    $response = "You have successfully printed your answers to the file!";
+    
+    
 
 }
 
