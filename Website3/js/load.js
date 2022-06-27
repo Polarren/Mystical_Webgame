@@ -74,6 +74,22 @@ function keyup(){
 
 }
 
+window.onscroll = function(){
+  // var view_position = document.documentElement.scrollTop ;
+  var view_position = document.documentElement.scrollTop/document.body.scrollHeight;
+  console.log("Scroll event at postion: "+view_position);
+
+  // const xmlhttp = new XMLHttpRequest();
+  // xmlhttp.open('POST', "js/jshelper.php?q=" + "onscroll", true);
+  // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  // xmlhttp.onload = function () {
+  //     // do something to response
+  //     console.log(this.responseText);
+  // // };
+  // xmlhttp.send("view_position="+view_position);
+};
+
+
 function scroll(event){
   // console.log("Scroll event detected");
   var up=0;
@@ -93,7 +109,7 @@ function scroll(event){
           up = 0;
         }
   }
-
+  // read_video_position();
   const xmlhttp = new XMLHttpRequest();
   xmlhttp.open('POST', "js/jshelper.php?q=" + "wheel", true);
   xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -174,39 +190,74 @@ function submit(){
     xmlhttp.send();
     
     // clear_data();
-  }
+  };
 
 
 
-/**
- * [Show_Hidden 点击控制div显示与隐藏]
- * @param {[id]} obj [需要显示隐藏div的id]
- */
-function Show_Hidden(obj) {
-  var coll_array;
-  var i;
+  var video_shown;
+  /**
+   * [Show_Hidden 点击控制div显示与隐藏]
+   * @param {[id]} obj [需要显示隐藏div的id]
+   */
+   function Show_Hidden(obj) {
+    var coll_array;
+    var i;
+    
+  
+    var div = document.getElementById(obj);
+    refresh_textarea();
+    video_shown = obj;
+    if (div.style.display===""){
+  
+      div.style.display="none";
+      video_shown = "";
+    } else {
+      coll_array = document.getElementsByClassName("container");
+      // for (i = 0; i < coll_array.length; i++) {
+      //   if(coll_array[i].style.display===""){
+      //     // store_content(coll_array[i].name);
+      //   }
+      //   coll_array[i].style.display="none";
+      // }
+  
+      // load_content(div.name);
+      // load_content('content_lobby');
+      div.style.display="";
+    }
+  
+    
+  };
+
+
+// /**
+//  * [Show_Hidden 点击控制div显示与隐藏]
+//  * @param {[id]} obj [需要显示隐藏div的id]
+//  */
+// function Show_Hidden(obj) {
+//   var coll_array;
+//   var i;
  
 
-  var div = document.getElementById(obj);
-  refresh_textarea();
-  if (div.style.display===""){
-    // store_content(div.name);
-    div.style.display="none";
-  } else {
-    coll_array = document.getElementsByClassName("container");
-    for (i = 0; i < coll_array.length; i++) {
-      // if(coll_array[i].style.display===""){
-        // store_content(coll_array[i].name);
-      // }
-      coll_array[i].style.display="none";
-    }
-    // load_content(div.name);
-    // load_content('content_lobby');
-    div.style.display="";
-  }
+//   var div = document.getElementById(obj);
+//   refresh_textarea();
+//   if (div.style.display===""){
+//     // store_content(div.name);
+//     div.style.display="none";
+//   } else {
+//     coll_array = document.getElementsByClassName("container");
+//     for (i = 0; i < coll_array.length; i++) {
+//       // if(coll_array[i].style.display===""){
+//         // store_content(coll_array[i].name);
+//       // }
+//       coll_array[i].style.display="none";
+//     }
+//     // load_content(div.name);
+//     // load_content('content_lobby');
+//     div.style.display="";
+//   }
 
   
-}
+// }
 
 var current_button_id = null;
 
@@ -301,5 +352,48 @@ function change_room(room,name){
 
 }
 
+const room_num = new Map();
+room_num.set('content_lobby', 1);
+room_num.set('content_outside', 2);
+room_num.set('content_hall', 3);
+room_num.set('content_conference_room', 4);
+room_num.set('content_tucker_office', 5);
+room_num.set('content_interview_room_1', 6);
+room_num.set('content_interview_room_2', 7);
+room_num.set('content_toilet', 8);
 
+room_num.set('content_Dwight', 1);
+room_num.set('content_Schrader', 2);
+room_num.set('content_Jessica', 3);
+room_num.set('content_Chip', 4);
+room_num.set('content_Kint', 5);
+room_num.set('content_Mickey', 6);
+room_num.set('content_Martin', 7);
+room_num.set('content_Blade', 8);
+room_num.set('content_Doug', 9);
+room_num.set('content_Tucker', 10);
+room_num.set('content_Cassidy', 11);
+room_num.set('content_Sting', 12);
+
+function read_video_position(){
+  
+  if (video_shown!=""){
+    console.log("video_shown="+video_shown);
+    var cur_roomnum = room_num.get(video_shown);
+    var video_height = 71+60*cur_roomnum+18;
+    var log = document.documentElement.scrollTop ;
+    var ratio = (video_height-log)/window.innerHeight;
+    console.log("ratio="+ratio);
+    // const xmlhttp = new XMLHttpRequest();
+    // xmlhttp.open('POST', "js/jshelper.php?q=" + "video_position", true);
+    // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    // xmlhttp.onload = function () {
+    //     // do something to response
+    //     console.log(this.responseText);
+    // };
+    // // console.log("ddddddddddd");
+    // xmlhttp.send("log="+log);
+
+  }
+};
 
