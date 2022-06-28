@@ -26,26 +26,23 @@ if ($q==="submit") {
 }
 
 if ($q==="print_answer") {
-    if (isset($_POST["question_num"])){
+    if (isset($_POST["questionNum"])){
         // $log = $_POST["log"];
-        $question_num = $_POST["question_num"];
-        $answer_text = $_POST["answer_text"];
+        $question_num = $_POST["questionNum"];
+        $answer_text = $_POST["answertext"];
         $userID = $_SESSION["user"];
         $answer_file= fopen("$DOCUMENT_ROOT/Website3/data/answer_".$userID.".txt", "a") or die("Unable to open file!3");
-        fwrite($answer_file, $question_num."\n");
+        fwrite($answer_file, "Question ".$question_num.":\n");
         fwrite($answer_file, $answer_text."\n");
         fclose($answer_file);
         $response = "You have successfully printed your answers to the file!\n";
      }else{
          print_r($_POST);
-         http_response_code(400);
+        //  http_response_code(400);
         $response = "Error encountered\n";
      }
-    
-    
-    
 
-}
+};
 
 if ($q==="mouse_click") {
     if (isset($_POST["index_x"])){

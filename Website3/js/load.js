@@ -118,7 +118,45 @@ function scroll(event){
       console.log(this.responseText);
   };
   xmlhttp.send("up="+up);
-}
+};
+
+function print_answer(){
+  var answer_text;
+  for(i = 0;i<question_amount;i++){
+    if(!window.localStorage){
+        if(UserData.getItem('editor-text'+i.toString())==undefined) {
+            console.log("Window Local Storage: undeifined");
+        }else{
+            // console.log("edtior_array "+i+ ": "+UserData.getItem('editor-text'+i.toString()));
+            const xmlhttp = new XMLHttpRequest();
+            xmlhttp.onload = function() {
+              console.log(this.responseText);
+            }
+            xmlhttp.open("POST", "js/jshelper.php?q=" + "print_answer");
+            xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            answer_text = UserData.getItem('editor-text'+i.toString());
+            console.log("questionNum="+(i+1)+"&answertext="+answer_text);
+            xmlhttp.send("questionNum="+(i+1)+"&answertext="+answer_text);
+            
+        }
+    }else{
+        if(localStorage.getItem('editor-text'+i.toString())!=null){
+            // console.log("edtior_array "+i+ ": "+localStorage.getItem('editor-text'+i.toString()));
+            const xmlhttp = new XMLHttpRequest();
+            xmlhttp.onload = function() {
+              console.log(this.responseText);
+            }
+            xmlhttp.open("POST", "js/jshelper.php?q=" + "print_answer");
+            xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            answer_text = localStorage.getItem('editor-text'+i.toString());
+            console.log("questionNum="+(i+1)+"&answertext="+answer_text);
+            xmlhttp.send("questionNum="+(i+1)+"&answertext="+answer_text);
+        }else{
+            console.log("Local Storage: undeifined");
+        }
+    }
+  }
+};
 
 function start_logging(user_id){
     const xmlhttp = new XMLHttpRequest();
@@ -178,7 +216,7 @@ function log_navigation(level,path){
   xmlhttp.send("level="+level+"&path="+path);
 
 
-}
+};
 
 function submit(){
     print_answer();
@@ -189,75 +227,77 @@ function submit(){
     xmlhttp.open("GET", "js/jshelper.php?q=" + "submit");
     xmlhttp.send();
     
-    // clear_data();
+    clear_data();
   };
 
 
 
   var video_shown;
-  /**
-   * [Show_Hidden 点击控制div显示与隐藏]
-   * @param {[id]} obj [需要显示隐藏div的id]
-   */
-   function Show_Hidden(obj) {
-    var coll_array;
-    var i;
+  // /**
+  //  * [Show_Hidden 点击控制div显示与隐藏]
+  //  * @param {[id]} obj [需要显示隐藏div的id]
+  //  */
+  //  function Show_Hidden(obj) {
+  //   var coll_array;
+  //   var i;
     
   
-    var div = document.getElementById(obj);
-    refresh_textarea();
-    video_shown = obj;
-    if (div.style.display===""){
+  //   var div = document.getElementById(obj);
+  //   refresh_textarea();
+  //   video_shown = obj;
+  //   if (div.style.display===""){
   
-      div.style.display="none";
-      video_shown = "";
-    } else {
-      coll_array = document.getElementsByClassName("container");
-      // for (i = 0; i < coll_array.length; i++) {
-      //   if(coll_array[i].style.display===""){
-      //     // store_content(coll_array[i].name);
-      //   }
-      //   coll_array[i].style.display="none";
-      // }
+  //     div.style.display="none";
+  //     video_shown = "";
+  //   } else {
+  //     coll_array = document.getElementsByClassName("container");
+  //     // for (i = 0; i < coll_array.length; i++) {
+  //     //   if(coll_array[i].style.display===""){
+  //     //     // store_content(coll_array[i].name);
+  //     //   }
+  //     //   coll_array[i].style.display="none";
+  //     // }
   
-      // load_content(div.name);
-      // load_content('content_lobby');
-      div.style.display="";
-    }
+  //     // load_content(div.name);
+  //     // load_content('content_lobby');
+  //     div.style.display="";
+  //   }
   
     
-  };
+  // };
 
 
-// /**
-//  * [Show_Hidden 点击控制div显示与隐藏]
-//  * @param {[id]} obj [需要显示隐藏div的id]
-//  */
-// function Show_Hidden(obj) {
-//   var coll_array;
-//   var i;
+/**
+ * [Show_Hidden 点击控制div显示与隐藏]
+ * @param {[id]} obj [需要显示隐藏div的id]
+ */
+function Show_Hidden(obj) {
+  var coll_array;
+  var i;
  
 
-//   var div = document.getElementById(obj);
-//   refresh_textarea();
-//   if (div.style.display===""){
-//     // store_content(div.name);
-//     div.style.display="none";
-//   } else {
-//     coll_array = document.getElementsByClassName("container");
-//     for (i = 0; i < coll_array.length; i++) {
-//       // if(coll_array[i].style.display===""){
-//         // store_content(coll_array[i].name);
-//       // }
-//       coll_array[i].style.display="none";
-//     }
-//     // load_content(div.name);
-//     // load_content('content_lobby');
-//     div.style.display="";
-//   }
+  var div = document.getElementById(obj);
+  refresh_textarea();
+  video_shown = obj;
+  if (div.style.display===""){
+    // store_content(div.name);
+    div.style.display="none";
+    video_shown = "";
+  } else {
+    coll_array = document.getElementsByClassName("container");
+    for (i = 0; i < coll_array.length; i++) {
+      // if(coll_array[i].style.display===""){
+        // store_content(coll_array[i].name);
+      // }
+      coll_array[i].style.display="none";
+    }
+    // load_content(div.name);
+    // load_content('content_lobby');
+    div.style.display="";
+  }
 
   
-// }
+}
 
 var current_button_id = null;
 
