@@ -13,7 +13,9 @@ session_start();
     <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
     <script src="js/jquery.galleriffic.js" type="text/javascript"></script>
     <script src="js/jquery.opacityrollover.js" type="text/javascript"></script>  
-    <script src="js/load.js" type="text/javascript"></script>  
+    <script src="js/load.js" type="text/javascript"></script> 
+    
+
 
 	<!--[if lt IE 7]>
         <div style=' clear: both; text-align:center; position: relative;'>
@@ -77,10 +79,13 @@ session_start();
                             
                             <p> To start logging, please click on "Start".</p>
                         </article>
-                        <a class="button" href="#" onclick="start_logging('<?php echo $user_id ?>');style.display = 'none'" >
+                        <a id = "startbutton" class="button" href="#" onclick="start_logging('<?php echo $user_id ?>');style.display = 'none'" >
                             Start
                         </a>
-
+                        <script> continue_logging();</script> 
+                        <script>  if (started==1){
+                            
+                        }</script> 
                     </div>
                 </div>
 

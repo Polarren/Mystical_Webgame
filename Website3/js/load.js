@@ -158,6 +158,8 @@ function print_answer(){
   }
 };
 
+var started = 0;
+
 function start_logging(user_id){
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
@@ -175,6 +177,7 @@ function start_logging(user_id){
     window.addEventListener("DOMMouseScroll", scroll);
     //    给页面绑定鼠标滚轮事件，针对Google，mousewheel非标准事件已被弃用，请使用 wheel事件代替
     window.addEventListener("wheel", scroll);
+    started =1;
 }
 
 function continue_logging(){
@@ -189,12 +192,17 @@ function continue_logging(){
         window.addEventListener("DOMMouseScroll", scroll);
         //    给页面绑定鼠标滚轮事件，针对Google，mousewheel非标准事件已被弃用，请使用 wheel事件代替
         window.addEventListener("wheel", scroll);
+        // console.log("Setting started to be one");
+        var startbutton = document.getElementById("startbutton");
+        if (startbutton){startbutton.style.display="none";} 
       }
     }
     xmlhttp.open("GET", "js/jshelper.php?q=" + "started");
     xmlhttp.send();
+    // console.log("started = "+started);
+    
+};
 
-}
 
 
 
