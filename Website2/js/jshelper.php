@@ -46,26 +46,26 @@ if ($q==="mouse_click") {
     $response = "You have successfully logged mouse clicks: ".$index_x.' '.$index_y;
 
 
-$servername = "localhost";
-$database = "database_2";
-$username = "changliu";
-$password = "test123";
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $database);
-// Check connection
-if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-}
- 
-echo "Connected successfully\n";
- 
-$sql = "INSERT INTO mouse (time, index_x, index_y,type) VALUES ('$time_elapsed', '$index_x', '$index_y','1')";
-if (mysqli_query($conn, $sql)) {
-      echo "New record created successfully";
-} else {
-      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
-mysqli_close($conn);
+    $servername = "localhost";
+    $database = "database_2";
+    $username = "changliu";
+    $password = "test123";
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password, $database);
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    
+    echo "Connected successfully\n";
+    
+    $sql = "INSERT INTO mouse (time, index_x, index_y,type,user_id) VALUES ('$time_elapsed', '$index_x', '$index_y','1','$userID')";
+    if (mysqli_query($conn, $sql)) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+    mysqli_close($conn);
 
 }
 
@@ -93,26 +93,26 @@ if ($q==="mouse_move") {
     // $mouse_move = "1";
     $response = "You have successfully logged mouse moves: ".$index_x.' '.$index_y;
 
-// $servername = "localhost";
-// $database = "database_2";
-// $username = "changliu";
-// $password = "test123";
-// // Create connection
-// $conn = mysqli_connect($servername, $username, $password, $database);
-// // Check connection
-// if (!$conn) {
-//       die("Connection failed: " . mysqli_connect_error());
-// }
- 
-// echo "Connected successfully\n";
- 
-// $sql = "INSERT INTO mouse (time, index_x, index_y,type) VALUES ('$time_elapsed', '$index_x', '$index_y','0')";
-// if (mysqli_query($conn, $sql)) {
-//       echo "New record created successfully";
-// } else {
-//       echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-// }
-// mysqli_close($conn);
+    $servername = "localhost";
+    $database = "database_2";
+    $username = "changliu";
+    $password = "test123";
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password, $database);
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    
+    echo "Connected successfully\n";
+    
+    $sql = "INSERT INTO mouse (time, index_x, index_y,type,user_id) VALUES ('$time_elapsed', '$index_x', '$index_y','0','$userID')";
+    if (mysqli_query($conn, $sql)) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+    mysqli_close($conn);
 }
 
 
@@ -129,10 +129,10 @@ if ($q==="wheel") {
     $current_time = floor(microtime(true) * 1000);
     $time_elapsed = $current_time-$_SESSION["start_time"];
     $scroll_type = 'up';
-    if (!$up){
+    if ($up=="0"){
         $scroll_type = 'down';
     }
-    $response = "You have successfully logged scroll ".$scroll_type;
+    $response = "You have successfully logged a scroll: ".$scroll_type;
 
 
     // $servername = "localhost";
@@ -148,7 +148,7 @@ if ($q==="wheel") {
     
     // echo "Connected successfully\n";
     
-    // $sql = "INSERT INTO wheel (time, scroll_type,type) VALUES ('$time_elapsed', '$scroll_type','1')";
+    // $sql = "INSERT INTO wheel (time, scroll_type,type) VALUES ('$time_elapsed', '$up','1')";
     // if (mysqli_query($conn, $sql)) {
     //     echo "New record created successfully";
     // } else {
@@ -159,9 +159,9 @@ if ($q==="wheel") {
 }
 
 if ($q==="navigate") {
-    // echo "reaching here";
     if (isset($_POST["level"])){
         $level = $_POST["level"];
+        $navigation_path=$_POST["path"];
         $userID = $_SESSION["user"];
     }else{
         print_r($_POST);
@@ -171,7 +171,7 @@ if ($q==="navigate") {
     $current_time = floor(microtime(true) * 1000);
     $time_elapsed = $current_time-$_SESSION["start_time"];
 
-    $response = "You have successfully logged navigation: level ".$level;
+    $response = "You have successfully logged navigation: level ".$level.", path ".$navigation_path;
 
 
     // $servername = "localhost";
@@ -216,27 +216,27 @@ if ($q==="keydown") {
     // fwrite($mouse_move, $log);
     // fclose($mouse_move);
     $response = "You pressed a key: ".$log;
+        
+    $servername = "localhost";
+    $database = "database_2";
+    $username = "changliu";
+    $password = "test123";
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password, $database);
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
     
-$servername = "localhost";
-$database = "database_2";
-$username = "changliu";
-$password = "test123";
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $database);
-// Check connection
-if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-}
- 
-echo "Connected successfully\n";
- 
-$sql = "INSERT INTO keyboard (time, content,action,userid) VALUES ('$time_elapsed', '$log', '0','$userID')";
-if (mysqli_query($conn, $sql)) {
-      echo "New record created successfully";
-} else {
-      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
-mysqli_close($conn);
+    echo "Connected successfully\n";
+    
+    $sql = "INSERT INTO keyboard (time, content,action,user_id) VALUES ('$time_elapsed', '$log', '0','$userID')";
+    if (mysqli_query($conn, $sql)) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+    mysqli_close($conn);
 }
 if ($q==="keyup") {
     if (isset($_POST["log"])){
@@ -256,27 +256,28 @@ if ($q==="keyup") {
     // fclose($mouse_move);
     $response = "You released a key: ".$log;
 
-$servername = "localhost";
-$database = "database_2";
-$username = "changliu";
-$password = "test123";
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $database);
-// Check connection
-if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
+    $servername = "localhost";
+    $database = "database_2";
+    $username = "changliu";
+    $password = "test123";
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password, $database);
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    echo "Connected successfully\n";
+    
+    $sql = "INSERT INTO keyboard(time, content,action,user_id) VALUES ('$time_elapsed', '$log', '1','$userID')";
+    if (mysqli_query($conn, $sql)) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+    mysqli_close($conn);
 }
 
-echo "Connected successfully\n";
- 
-$sql = "INSERT INTO keyboard(time, content,action,userid) VALUES ('$time_elapsed', '$log', '1','$userID')";
-if (mysqli_query($conn, $sql)) {
-      echo "New record created successfully";
-} else {
-      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
-mysqli_close($conn);
-}
 if ($q === "start") {
     $_SESSION["started"] = "1";
     $_SESSION["user"] = $_POST["user"];
@@ -286,7 +287,6 @@ if ($q === "start") {
 }
 
 if ($q === "started") {
-
     $response =$_SESSION["started"];
 }
 

@@ -15,15 +15,67 @@ session_start();
     <script src="js/jquery.opacityrollover.js" type="text/javascript"></script>  
     <script src="js/load.js" type="text/javascript"></script>  
 
-	<!--[if lt IE 7]>
-        <div style=' clear: both; text-align:center; position: relative;'>
-            <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0"  alt="" /></a>
-        </div>
-	<![endif]-->
-    <!--[if lt IE 9]>
-   		<script type="text/javascript" src="js/html5.js"></script>
-        <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
-	<![endif]-->
+	
+    <!-- <style media="screen">
+            *,
+        *:before,
+        *:after{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #0855ae;
+        }
+        .popup{
+            background-color: #ffffff;
+            width: 420px;
+            padding: 30px 40px;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            left: 50%;
+            top: 50%;
+            border-radius: 8px;
+            font-family: "Poppins",sans-serif;
+            display: none; 
+            text-align: center;
+        }
+        .popup button_popup{
+            display: block;
+            margin:  0 0 20px auto;
+            background-color: transparent;
+            font-size: 30px;
+            color: #ffffff;
+            background: #03549a;
+            border-radius: 100%;
+            width: 40px;
+            height: 40px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        .popup h2{
+        margin-top: -20px;
+        }
+        .popup p{
+            font-size: 14px;
+            text-align: justify;
+            margin: 20px 0;
+            line-height: 25px;
+        }
+        a{
+            display: block;
+            width: 150px;
+            position: relative;
+            margin: 10px auto;
+            text-align: center;
+            background-color: #0f72e5;
+            border-radius: 20px;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 0;
+        }
+    </style> -->
 </head>
 <body id="page1">
 	<!--==============================header=================================-->
@@ -38,7 +90,12 @@ session_start();
                                 <li><a href="rooms.html" onclick="log_navigation(0)">Rooms</a></li>
                                 <li><a href="characters.html" onclick="log_navigation(0)" >characters</a></li>
                                 <li><a href="answer.html" onclick="log_navigation(0)" >Answer</a></li>
+                                <!-- <textarea id="q15text_answer" name="question_15_textarea" rows="3" cols="5" oninput="save_answer(this)" onclick="log_navigation(3);">ddd</textarea> -->
+
                             </ul>
+                            <div id = "status" style = "text-align:right">
+                                    <!-- <span id = "status" style="margin-left:30px"  ></span> -->
+                                </div>
                         </nav>
                     </div>
                 </div>
@@ -68,19 +125,16 @@ session_start();
                                 echo $user_id;
                                 //file_put_contents($myfile,intval($user_id)+1);
                                 fclose($myfile);
-                                $version_w = fopen("./data/version.txt", "rw") or die("Unable to open file!3");
-                                $txt = strval(intval($user_id)+1);
-                                fwrite($version_w, $txt);
-                                fclose($version_w);
+                                
                                 ?>
                             </p>
                             
                             <p> To start logging, please click on "Start".</p>
                         </article>
-                        <a class="button" href="#" onclick="start_logging('<?php echo $user_id ?>');style.display = 'none'" >
+                        <a id = "startbutton" class="button" href="#" onclick="start_logging('<?php echo $user_id ?>');style.display = 'none';resetStartTime()" >
                             Start
                         </a>
-
+                        <script> continue_logging();</script>
                     </div>
                 </div>
 
@@ -88,7 +142,32 @@ session_start();
         </div>
     </section>
 
-	<!--==============================footer=================================-->
+    <!-- <button onclick="resetStartTime()">Start</button> -->
+    
+
+    <!-- <div class="popup">
+        <button_popup id="close">&times;</button_popup>
+        <h2>Automatic Pop-Up</h2>
+        <p>
+           It's 30 minutes! submit or continue on this story.
+        </p>
+        <a href="#">Let's Go</a>
+        
+        <div class="buttons">                                        
+            <a class="button" href="#" onClick="submit()">Submit</a>
+        </div>    
+    </div>
+
+    <script type="text/javascript">
+        function open(){
+            document.querySelector(".popup").style.display = "block";
+        }
+
+        document.querySelector("#close").addEventListener("click", function(){
+            document.querySelector(".popup").style.display = "none";
+        })            
+    </script>  -->
+	<!-- ==============================footer================================= -->
     
 </body>
 </html>

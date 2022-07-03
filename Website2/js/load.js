@@ -30,7 +30,7 @@ function mousemove(){
   var index_x = event.clientX;
   var index_y = event.clientY;
   // console.log(log);
-  read_video_position();
+
   const xmlhttp = new XMLHttpRequest();
   xmlhttp.onload = function() {
     return;
@@ -87,26 +87,41 @@ function keyup(){
 }
 
 
+window.onscroll = function(){
+  // var view_position = document.documentElement.scrollTop ;
+  var view_position = document.documentElement.scrollTop/document.body.scrollHeight;
+  console.log("Scroll event at postion: "+view_position);
+
+  // const xmlhttp = new XMLHttpRequest();
+  // xmlhttp.open('POST', "js/jshelper.php?q=" + "onscroll", true);
+  // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  // xmlhttp.onload = function () {
+  //     // do something to response
+  //     console.log(this.responseText);
+  // // };
+  // xmlhttp.send("view_position="+view_position);
+};
+
 function scroll(event){
   // console.log("Scroll event detected");
-  var up;
+  var up=0;
   var event = event || window.event;
   if(event.wheelDelta) {   
         if(event.wheelDelta > 0) {     //scroll up
-          up = true;
+          up = 1;
         }
         if(event.wheelDelta < 0) {     //scroll down
-          up = false;
+          up = 0;
         }
   } else if(event.detail) {
         if(event.detail < 0) {    //scroll up
-          up = true;
+          up = 1;
         }
         if(event.detail > 0) {   //scroll down
-          up = false;
+          up = 0;
         }
   }
-
+  // read_video_position();
   const xmlhttp = new XMLHttpRequest();
   xmlhttp.open('POST', "js/jshelper.php?q=" + "wheel", true);
   xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -117,6 +132,7 @@ function scroll(event){
   xmlhttp.send("up="+up);
 }
 
+var started = 0;
 function start_logging(user_id){
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
@@ -137,6 +153,7 @@ function start_logging(user_id){
     window.addEventListener("DOMMouseScroll", function(){scroll()});
     //    给页面绑定鼠标滚轮事件，针对Google，mousewheel非标准事件已被弃用，请使用 wheel事件代替
     window.addEventListener("wheel", function(){scroll()});
+    started = 1;
 }
 
 function continue_logging(){
@@ -153,15 +170,20 @@ function continue_logging(){
         window.addEventListener("DOMMouseScroll", function(){scroll()});
     //    给页面绑定鼠标滚轮事件，针对Google，mousewheel非标准事件已被弃用，请使用 wheel事件代替
         window.addEventListener("wheel", function(){scroll()});
-
+        var startbutton = document.getElementById("startbutton");
+        if (startbutton){startbutton.style.display="none";} 
       }
     }
     xmlhttp.open("GET", "js/jshelper.php?q=" + "started");
     xmlhttp.send();
 
 }
-
-function log_navigation(level){
+var current_button_id = null;
+function change_button_id(button_id){
+  current_button_id=button_id;
+  console.log("changing curent button id to "+toString(button_id));
+};
+function log_navigation(level,path){
   // Level 0: Introduction; Room; Character; Answer
   // Level 1: Collapse bar
   // Level 2: Selection button
@@ -174,7 +196,8 @@ function log_navigation(level){
       // do something to response
       console.log(this.responseText);
   };
-  xmlhttp.send("level="+level);
+  xmlhttp.send("level="+level+"&path="+path);
+
 
 }
 
@@ -232,20 +255,20 @@ var video_shown;
     video_shown = "";
   } else {
     coll_array = document.getElementsByClassName("container");
-    // for (i = 0; i < coll_array.length; i++) {
-    //   if(coll_array[i].style.display===""){
-    //     // store_content(coll_array[i].name);
-    //   }
-    //   coll_array[i].style.display="none";
-    // }
+    for (i = 0; i < coll_array.length; i++) {
+      if(coll_array[i].style.display===""){
+        // store_content(coll_array[i].name);
+      }
+      coll_array[i].style.display="none";
+    }
 
     // load_content(div.name);
     // load_content('content_lobby');
     div.style.display="";
   }
-
-  
 }
+  
+
 
 function change_pic(button_id,pic_src){
   document.getElementById(button_id).src=pic_src;
@@ -263,20 +286,20 @@ function change_video(video_id, source_id, video_src){
 
 const question_map = new Map();
 
-question_map.set('Greene', [16,4,5]);
-question_map.set('Sean', [16,1,2]);
-question_map.set('Maestro', [1,2,8,15]);
-question_map.set('Mac', [5,6,9,10,11]);
-question_map.set('Tommy', [7,8,9,10,11,13,14,15]);
+question_map.set('Greene', [4]);
+question_map.set('Sean', [2]);
+question_map.set('Maestro', [2,15]);
+question_map.set('Mac', [6,9,11]);
+question_map.set('Tommy', [9,11,13,14,15]);
 question_map.set('Reeves', [3,4]);
 question_map.set('Security', [13,15]);
 
 
-question_map.set('office', [16,1,2]);
-question_map.set('restroom', [5,6,9,10,11]);
-question_map.set('storageroom', [7,8]);
-question_map.set('exhibitionroom', [1,2,4,5,15]);
-question_map.set('entrance', [7,8,13]);
+question_map.set('office', [2]);
+question_map.set('restroom', [6,9,11]);
+question_map.set('storageroom', []);
+question_map.set('exhibitionroom', [2,4,15]);
+question_map.set('entrance', [13]);
 question_map.set('meetingroom', [3,4]);
 
 
@@ -362,3 +385,61 @@ function read_video_position(){
 
 }
 
+
+var secs = 0;
+
+function countDown() {
+  var mins = secs ;
+  var element = document.getElementById("status");
+  element.innerHTML = "You have spent" + mins.toFixed(2) + " seconds";
+  secs++;
+  setTimeout(countDown, 1000);
+  if (secs == 5) {
+    element.innerHTML = '<h2>You have no time left!</h2>';
+    // secs = 5;
+    confirmfun();
+    // secs = 5;
+    // open();
+    
+  }
+}
+
+function testfun(){
+  alert("30 minutes gone!");
+}
+
+function confirmfun(){
+	var x;
+	var r=confirm("30 minutes gone!\nClick 'OK' to submit and jump to next story\nOr Click 'Cancel' to continue on this one");
+	if (r==true){
+		x="你按下了\"确定\"按钮!";
+	}
+	else{
+		x="你按下了\"取消\"按钮!";
+	}
+	// document.getElementById("demo").innerHTML=x;
+}
+
+function resetStartTime() {
+  startTime = new Date();
+  window.localStorage.setItem('startTime', startTime);
+  return startTime;
+}
+document.addEventListener('DOMContentLoaded', function(event) { 
+  // get timestamp
+  startTime = new Date(window.localStorage.getItem('startTime') || resetStartTime());
+  // start timer
+  window.setInterval(function() {
+    var secsDiff = new Date().getTime() - startTime.getTime();
+    var in_seconds = Math.floor(secsDiff / 1000);
+    if(in_seconds%60 <10) var seconds_display = '0'+in_seconds%60;
+    else var seconds_display = in_seconds%60;
+    var minuts = Math.floor(in_seconds/60);
+    document.getElementById('status').innerText = '\n'+minuts+ ' : '+seconds_display;
+    document.getElementById('status').style.fontSize = 'x-large';
+    document.getElementById('status').style.marginLeft;
+    if ( Math.floor(secsDiff / 1000)== 5) {      
+      confirmfun();      
+    }
+  }, 1000);
+});

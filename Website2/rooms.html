@@ -72,6 +72,11 @@
         border-collapse: collapse;
         /* background-color: #4da6ff; */
         }
+        body {
+            overflow-y: scroll; /* Show vertical scrollbar */
+            overflow-x: scroll; /* Show horizontal scrollbar */
+            }
+
         </style>
 </head>
 <body id="page4">
@@ -83,11 +88,14 @@
                 	<div class="grid_12">
                     	<nav>
                             <ul class="menu">
-                                <li><a href="index.php" onclick="log_navigation(0)">Introduction</a></li>
-                                <li><a class="active" href="rooms.html" onclick="log_navigation(0)">Rooms</a></li>
-                                <li><a href="characters.html" onclick="log_navigation(0)">characters</a></li>
-                                <li><a href="answer.html" onclick="log_navigation(0)">Answer</a></li>
+                                <li><a href="index.php" onclick="log_navigation(0,[1,0,-1,-1,-1])">Introduction</a></li>
+                                <li><a class="active" href="rooms.html" onclick="log_navigation(0,[1,1,-1,-1,-1])">Rooms</a></li>
+                                <li><a href="characters.html" onclick="log_navigation(0,[1,2,-1,-1,-1])">characters</a></li>
+                                <li><a href="answer.html" onclick="log_navigation(0,[1,3,-1,-1,-1])">Answer</a></li>
                             </ul>
+                            <div id = "status" style = "text-align:right">
+                                <!-- <span id = "status" style="margin-left:30px"  ></span> -->
+                            </div>
                         </nav>
                     </div>
                 </div>
@@ -96,12 +104,15 @@
         </div>
 
     </header>
-    
-  
+    <!-- <script> continue_logging();</script>    -->
+
+
+
+      
 
 
 <!-- !this is the first capsule -->
-    <button type="button" class="collapsible" href="#" onclick="show_hidden('office'); log_navigation(1); ">Office</button>
+    <button type="button" class="collapsible" href="#" onclick="show_hidden('office'); log_navigation(1,[1,1,0,-1,-1]); ">Office</button>
     <div id = "office" class="container" style="display: none;">
         <!-- <div class="toppane">Test Page</div> -->
         <div class="leftpane">
@@ -122,9 +133,9 @@
 
         <div class="middlepane">
             <br>
-            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Sean','office'); log_navigation(2); ">Sean</a> 
-            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Greene','office'); log_navigation(2); ">Greene</a> 
-            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Maestro','office'); log_navigation(2); ">Maestro</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Sean','office'); log_navigation(2,[1,1,0,0,-1]); change_button_id(0);">Sean</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Greene','office'); log_navigation(2,[1,1,0,1,-1]); change_button_id(1);">Greene</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Maestro','office'); log_navigation(2,[1,1,0,2,-1]); change_button_id(2);">Maestro</a> 
         </div>
         <div class="rightpane" style="height: 500px; overflow:scroll">
 
@@ -134,7 +145,7 @@
                     <h4 class="p2">Who gave Greene the picture of the painting? Why?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,0,current_button_id,16]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -145,7 +156,7 @@
                     <h4 class="p2">Why is the frame empty?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,0,current_button_id,1]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -157,7 +168,7 @@
                     <h4 class="p2">What is Maestro's plan?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,0,current_button_id,2]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -171,7 +182,7 @@
                     <h4 class="p2">Did Greene believe what Reeves told him?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,0,current_button_id,4]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -185,7 +196,7 @@
                     <h4 class="p2">What did Greene ask Mac to do?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,0,current_button_id,5]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -199,7 +210,7 @@
                     <h4 class="p2">What di Maestro told Tommy on the phone?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,0,current_button_id,8]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -212,7 +223,7 @@
                     <h4 class="p2">Why is Maestro shocked in the end?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,0,current_button_id,15]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -222,7 +233,7 @@
         
     </div>
 <!-- !this is the second capsule -->
-    <button type="button" class="collapsible" onclick="show_hidden('restroom'); log_navigation(1); ">Rest Room</button>
+    <button type="button" class="collapsible" onclick="show_hidden('restroom'); log_navigation(1,[1,1,1,-1,-1]); ">Rest Room</button>
     <div id = "restroom" class="container" style="display: none;">
         <!-- <div class="toppane">Test Page</div> -->
         <div class="leftpane">
@@ -245,8 +256,8 @@
 
         <div class="middlepane">
             <br>
-            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Mac','restroom'); log_navigation(2); ">Mac</a> 
-            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Tommy','restroom'); log_navigation(2); ">Tommy</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Mac','restroom'); log_navigation(2,[1,1,1,0,-1]); change_button_id(0);">Mac</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Tommy','restroom'); log_navigation(2,[1,1,1,1,-1]); change_button_id(1);">Tommy</a> 
             
      
         </div>
@@ -257,7 +268,7 @@
                     <h4 class="p2">What did Greene ask Mac to do?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,1,current_button_id,5]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -268,7 +279,7 @@
                     <h4 class="p2">Why is Mac in the museum?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,1,current_button_id,6]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -279,7 +290,7 @@
                     <h4 class="p2">Who is Tommy?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,1,current_button_id,7]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -290,7 +301,7 @@
                     <h4 class="p2">What did Maestro told Tommy on the phone?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,1,current_button_id,8]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -301,7 +312,7 @@
                     <h4 class="p2">What happened between Tommy and Mac in restroom?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,1,current_button_id,9]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -312,7 +323,7 @@
                     <h4 class="p2">Why did Mac choose to approach Tommy?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,1,current_button_id,10]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -323,7 +334,7 @@
                     <h4 class="p2">How did Mac think about the painting Tommy is carrying?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,1,current_button_id,11]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -334,7 +345,7 @@
                     <h4 class="p2">What happened between the security and Tommy when he was leaving?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,1,current_button_id,13]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -345,7 +356,7 @@
                     <h4 class="p2">How good is Tommy at his job?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,1,current_button_id,14]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -356,7 +367,7 @@
                     <h4 class="p2">Why is Maestro shocked in the end?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,1,current_button_id,15]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -366,7 +377,7 @@
     </div>
 
 <!-- !this is the third capsule -->
-    <button type="button" class="collapsible" onclick="show_hidden('storageroom'); log_navigation(1); ">Storage Room</button>
+    <button type="button" class="collapsible" onclick="show_hidden('storageroom'); log_navigation(1,[1,1,2,-1,-1]); ">Storage Room</button>
     <div id = "storageroom" class="container" style="display: none;">
         <!-- <div class="toppane">Test Page</div> -->
         <div class="leftpane">
@@ -388,8 +399,8 @@
 
         <div class="middlepane">
             <br>
-            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Maestro','storageroom'); log_navigation(2); ">Maestro</a> 
-            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Tommy','storageroom'); log_navigation(2); ">Tommy</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Maestro','storageroom'); log_navigation(2,[1,1,2,0,-1]);change_button_id(0); ">Maestro</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Tommy','storageroom'); log_navigation(2,[1,1,2,1,-1]);change_button_id(1); ">Tommy</a> 
             
         </div>
         <div class="rightpane" style="height: 500px; overflow:scroll">
@@ -399,7 +410,7 @@
                     <h4 class="p2">Why is the frame empty?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,2,current_button_id,1]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -414,7 +425,7 @@
                     <h4 class="p2">What is Maestro's plan?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,2,current_button_id,2]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -425,7 +436,7 @@
                     <h4 class="p2">Who is Tommy?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,2,current_button_id,7]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -436,7 +447,7 @@
                     <h4 class="p2">What did Maestro told Tommy on the phone?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,2,current_button_id,8]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -447,7 +458,7 @@
                     <h4 class="p2">What happened between Tommy and Mac in restroom?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,2,current_button_id,9]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -458,7 +469,7 @@
                     <h4 class="p2">Why did Mac choose to approach Tommy?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,2,current_button_id,10]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -469,7 +480,7 @@
                     <h4 class="p2">How did Mac think about the painting Tommy is carrying?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,2,current_button_id,11]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -480,7 +491,7 @@
                     <h4 class="p2">What happened between the security and Tommy when he was leaving?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,2,current_button_id,13]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -491,7 +502,7 @@
                     <h4 class="p2">How good is Tommy at his job?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,2,current_button_id,14]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -502,7 +513,7 @@
                     <h4 class="p2">Why is Maestro shocked in the end?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,2,current_button_id,15]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -511,7 +522,7 @@
         </div>
     </div>
 <!-- !this is the fourth capsule -->
-    <button type="button" class="collapsible" onclick="show_hidden('exhibitionroom'); log_navigation(1); ">Exhibition Hall</button>
+    <button type="button" class="collapsible" onclick="show_hidden('exhibitionroom'); log_navigation(1,[1,1,3,-1,-1]); ">Exhibition Hall</button>
     <div id = "exhibitionroom" class="container" style="display: none;">
         <!-- <div class="toppane">Test Page</div> -->
         <div class="leftpane">
@@ -534,12 +545,12 @@
 
         <div class="middlepane">
             <br>
-            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Greene','exhibitionroom'); log_navigation(2); ">Greene</a> 
-            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Sean','exhibitionroom'); log_navigation(2); ">Sean</a>      
-            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Maestro','exhibitionroom'); log_navigation(2); ">Maestro</a> 
-            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Tommy','exhibitionroom'); log_navigation(2); ">Tommy</a> 
-            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Mac','exhibitionroom'); log_navigation(2); ">Mac</a> 
-            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Security','exhibitionroom'); log_navigation(2); ">Security</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Greene','exhibitionroom'); log_navigation(2,[1,1,3,0,-1]); change_button_id(0);">Greene</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Sean','exhibitionroom'); log_navigation(2,[1,1,3,1,-1]); change_button_id(1);">Sean</a>      
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Maestro','exhibitionroom'); log_navigation(2,[1,1,3,2,-1]); change_button_id(2);">Maestro</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Tommy','exhibitionroom'); log_navigation(2,[1,1,3,3,-1]); change_button_id(3);">Tommy</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Mac','exhibitionroom'); log_navigation(2,[1,1,3,4,-1]); change_button_id(4);">Mac</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Security','exhibitionroom'); log_navigation(2,[1,1,3,5,-1]); change_button_id(5);">Security</a> 
 
             
         </div>
@@ -550,7 +561,7 @@
                     <h4 class="p2">Who gave Greene the picture of the painting? Why?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,3,current_button_id,16]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -561,7 +572,7 @@
                     <h4 class="p2">Why is the frame empty?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_1_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,3,current_button_id,1]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -575,7 +586,7 @@
                     <h4 class="p2">What is Maestro's plan?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_2_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,3,current_button_id,2]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -589,7 +600,7 @@
                     <h4 class="p2">Did Greene believe what Reeves told him?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,3,current_button_id,4]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -603,7 +614,7 @@
                     <h4 class="p2">What did Greene ask Mac to do?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,3,current_button_id,5]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -614,7 +625,7 @@
                     <h4 class="p2">Why is Mac in the museum?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_6_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,3,current_button_id,6]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -625,7 +636,7 @@
                     <h4 class="p2">Who is Tommy?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,3,current_button_id,7]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -636,7 +647,7 @@
                     <h4 class="p2">What did Maestro told Tommy on the phone?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,3,current_button_id,8]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -647,7 +658,7 @@
                     <h4 class="p2">What happened between Tommy and Mac in restroom?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,3,current_button_id,9]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -658,7 +669,7 @@
                     <h4 class="p2">Why did Mac choose to approach Tommy?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,3,current_button_id,10]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -669,7 +680,7 @@
                     <h4 class="p2">How did Mac think about the painting Tommy is carrying?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,3,current_button_id,11]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -680,7 +691,7 @@
                     <h4 class="p2">What happened between the security and Tommy when he was leaving?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,3,current_button_id,13]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -691,7 +702,7 @@
                     <h4 class="p2">How good is Tommy at his job?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,3,current_button_id,14]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -702,7 +713,7 @@
                     <h4 class="p2">Why is Maestro shocked in the end?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,3,current_button_id,15]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -712,7 +723,7 @@
         </div>
     </div>
 <!-- !this is the fifth capsule -->
-    <button type="button" class="collapsible" onclick="show_hidden('entrance'); log_navigation(1); ">Entrance</button>
+    <button type="button" class="collapsible" onclick="show_hidden('entrance'); log_navigation(1,[1,1,4,-1,-1]); ">Entrance</button>
     <div id = "entrance" class="container" style="display: none;">
         <!-- <div class="toppane">Test Page</div> -->
         <div class="leftpane">
@@ -733,8 +744,8 @@
 
         <div class="middlepane">
             <br>
-            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Tommy','entrance'); log_navigation(2); ">Tommy</a> 
-            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Security','entrance'); log_navigation(2); ">Security</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Tommy','entrance'); log_navigation(2,[1,1,4,0,-1]); change_button_id(0);">Tommy</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Security','entrance'); log_navigation(2,[1,1,4,1,-1]); change_button_id(1);">Security</a> 
 
         </div>
         <div class="rightpane" style="height: 500px; overflow:scroll">
@@ -744,7 +755,7 @@
                     <h4 class="p2">Who is Tommy?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_7_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,4,current_button_id,7]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -755,7 +766,7 @@
                     <h4 class="p2">What did Maestro told Tommy on the phone?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_8_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,4,current_button_id,8]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -766,7 +777,7 @@
                     <h4 class="p2">What happened between Tommy and Mac in restroom?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_9_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,4,current_button_id,9]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -777,7 +788,7 @@
                     <h4 class="p2">Why did Mac choose to approach Tommy?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_10_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,4,current_button_id,10]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -788,7 +799,7 @@
                     <h4 class="p2">How did Mac think about the painting Tommy is carrying?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_11_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,4,current_button_id,11]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -799,7 +810,7 @@
                     <h4 class="p2">What happened between the security and Tommy when he was leaving?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_13_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,4,current_button_id,13]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -810,7 +821,7 @@
                     <h4 class="p2">How good is Tommy at his job?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_14_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,4,current_button_id,14]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -821,7 +832,7 @@
                     <h4 class="p2">Why is Maestro shocked in the end?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_15_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,4,current_button_id,15]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -833,7 +844,7 @@
     </div>
 
 <!-- !this is the sixth capsule -->
-    <button type="button" class="collapsible" onclick="show_hidden('meetingroom'); log_navigation(1); ">Meeting Room</button>
+    <button type="button" class="collapsible" onclick="show_hidden('meetingroom'); log_navigation(1,[1,1,5,-1,-1]); ">Meeting Room</button>
     <div id = "meetingroom" class="container" style="display: none;">
         <!-- <div class="toppane">Test Page</div> -->
         <div class="leftpane"> 
@@ -850,8 +861,8 @@
 
         <div class="middlepane">
             <br>
-            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Greene','meetingroom'); log_navigation(2); ">Greene</a> 
-            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Reeves','meetingroom'); log_navigation(2); ">Reeves</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Greene','meetingroom'); log_navigation(2,[1,1,5,0,-1]); change_button_id(0);">Greene</a> 
+            <a class="button" href="#!" style="display:inline-block;width:100px;text-align: center;text-transform:none" onClick="change_character('Reeves','meetingroom'); log_navigation(2,[1,1,5,1,-1]); change_button_id(1);">Reeves</a> 
 
         </div>
         <div class="rightpane" style="height: 500px; overflow:scroll">
@@ -861,7 +872,7 @@
                     <h4 class="p2">Who gave Greene the picture of the painting? Why?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_16_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,5,current_button_id,16]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -872,7 +883,7 @@
                     <h4 class="p2">What did Reeves claim?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_3_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,5,current_button_id,3]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -883,7 +894,7 @@
                     <h4 class="p2">Did Greene believe what Reeves told him?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_4_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,5,current_button_id,4]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
@@ -897,7 +908,7 @@
                     <h4 class="p2">What did Greene ask Mac to do?</h4>
                     <!-- <form id="contact-form" method="post" enctype="multipart/form-data" rows="6">                     -->
                         <fieldset>
-                            <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3);"></textarea>
+                            <textarea name="question_5_textarea" rows="7" cols="80" oninput="save_answer(this)" onclick="log_navigation(3,[1,1,5,current_button_id,5]);"></textarea>
                         </fieldset>						
                     <!-- </form> -->
                 </div>
