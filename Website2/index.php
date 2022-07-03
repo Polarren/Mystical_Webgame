@@ -114,7 +114,7 @@ session_start();
                         <article class="grid_8">
                             <h3 class="p2">Before we start</h3>
                             <p> Everything in this website is fictional.</p>
-                            <p> Assume you are detective provided with a recording of an event taking place at the police station. </p>
+                            <p> Assume you are detective provided with a recording of an event taking place at the art gallery. </p>
                             
                             <p> In this website we have recordings from each room and person. </p>
                             <p> Please find the answer to the questions in the Answer page.</p>
