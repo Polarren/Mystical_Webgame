@@ -287,7 +287,11 @@ if ($q === "start") {
 }
 
 if ($q === "started") {
-    $response =$_SESSION["started"];
+    if (isset($_SESSION["started"])){
+        $response =$_SESSION["started"];
+    } else {
+        $response =0;
+    }
 }
 
 echo $response;

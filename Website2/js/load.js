@@ -160,6 +160,7 @@ function continue_logging(){
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
       if (this.responseText==="1"){
+        started =1;
         window.addEventListener('mousemove', function(){mousemove()});
         window.addEventListener('click', function(){mouseclick()});
         // let textbar = document.getElementById('notes');
@@ -171,7 +172,11 @@ function continue_logging(){
     //    给页面绑定鼠标滚轮事件，针对Google，mousewheel非标准事件已被弃用，请使用 wheel事件代替
         window.addEventListener("wheel", function(){scroll()});
         var startbutton = document.getElementById("startbutton");
-        if (startbutton){startbutton.style.display="none";} 
+        if (startbutton){startbutton.style.display="none";} else {
+          console.log("faild to find start button.");
+        }
+      } else {
+        started = 0;
       }
     }
     xmlhttp.open("GET", "js/jshelper.php?q=" + "started");
@@ -410,7 +415,7 @@ function testfun(){
 
 function confirmfun(){
 	var x;
-	var r=confirm("30 minutes gone!\nClick 'OK' to submit and jump to next story\nOr Click 'Cancel' to continue on this one");
+	var r=confirm("30 minutes have passed.\nClick 'OK' to submit and jump to next story\nOr click 'Cancel' to continue on this one");
 	if (r==true){
 		x="你按下了\"确定\"按钮!";
 	}
@@ -425,21 +430,49 @@ function resetStartTime() {
   window.localStorage.setItem('startTime', startTime);
   return startTime;
 }
+
+function update_timer(){
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.onload = function() {
+    if (this.responseText==="1"){
+      started =1;
+      var secsDiff = new Date().getTime() - startTime.getTime();
+      var in_seconds = Math.floor(secsDiff / 1000);
+      if(in_seconds%60 <10) var seconds_display = '0'+in_seconds%60;
+      else var seconds_display = in_seconds%60;
+      var minuts = Math.floor(in_seconds/60);
+      document.getElementById('status').innerText = '\n'+minuts+ ' : '+seconds_display;
+      document.getElementById('status').style.fontSize = 'x-large';
+      document.getElementById('status').style.marginLeft;
+      if ( Math.floor(secsDiff / 1000)== 5) {      
+        confirmfun();      
+      }
+    } else {
+      resetStartTime();
+      var secsDiff = 0;
+      var in_seconds = Math.floor(secsDiff / 1000);
+      if(in_seconds%60 <10) var seconds_display = '0'+in_seconds%60;
+      else var seconds_display = in_seconds%60;
+      var minuts = Math.floor(in_seconds/60);
+      document.getElementById('status').innerText = '\n'+minuts+ ' : '+seconds_display;
+      document.getElementById('status').style.fontSize = 'x-large';
+      document.getElementById('status').style.marginLeft;
+    }
+  }
+  xmlhttp.open("GET", "js/jshelper.php?q=" + "started");
+  xmlhttp.send();
+
+  
+
+}
+
+
 document.addEventListener('DOMContentLoaded', function(event) { 
   // get timestamp
   startTime = new Date(window.localStorage.getItem('startTime') || resetStartTime());
   // start timer
+  update_timer();
   window.setInterval(function() {
-    var secsDiff = new Date().getTime() - startTime.getTime();
-    var in_seconds = Math.floor(secsDiff / 1000);
-    if(in_seconds%60 <10) var seconds_display = '0'+in_seconds%60;
-    else var seconds_display = in_seconds%60;
-    var minuts = Math.floor(in_seconds/60);
-    document.getElementById('status').innerText = '\n'+minuts+ ' : '+seconds_display;
-    document.getElementById('status').style.fontSize = 'x-large';
-    document.getElementById('status').style.marginLeft;
-    if ( Math.floor(secsDiff / 1000)== 5) {      
-      confirmfun();      
-    }
+    update_timer();
   }, 1000);
 });

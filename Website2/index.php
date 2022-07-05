@@ -95,7 +95,7 @@ session_start();
                             </ul>
                             <div id = "status" style = "text-align:right">
                                     <!-- <span id = "status" style="margin-left:30px"  ></span> -->
-                                </div>
+                            </div>
                         </nav>
                     </div>
                 </div>
