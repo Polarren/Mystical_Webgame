@@ -41,6 +41,9 @@ session_start();
                                 <li><a href="characters.html" onclick="log_navigation(0,[0,2,-1,-1,-1])" >characters</a></li>
                                 <li><a href="answer.html" onclick="log_navigation(0,[0,3,-1,-1,-1])" >Answer</a></li>
                             </ul>
+                            <div id = "status" style = "text-align:right">
+                                    <!-- <span id = "status" style="margin-left:30px"  ></span> -->
+                            </div>
                         </nav>
                     </div>
                 </div>
@@ -79,13 +82,11 @@ session_start();
                             
                             <p> To start logging, please click on "Start".</p>
                         </article>
-                        <a id = "startbutton" class="button" href="#" onclick="start_logging('<?php echo $user_id ?>');style.display = 'none'" >
+                        <a id = "startbutton" class="button" href="#" onclick="start_logging('<?php echo $user_id ?>');style.display = 'none';resetStartTime();" >
                             Start
                         </a>
                         <script> continue_logging();</script> 
-                        <script>  if (started==1){
-                            
-                        }</script> 
+
                     </div>
                 </div>
 

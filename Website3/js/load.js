@@ -445,3 +445,69 @@ function read_video_position(){
   }
 };
 
+
+function confirmfun(){
+	// var x;
+	alert("30 minutes have passed.");
+	// if (r==true){
+	// 	submit();
+	// }
+	// else{
+	// 	x="你按下了\"取消\"按钮!";
+	// }
+	// document.getElementById("demo").innerHTML=x;
+}
+
+function resetStartTime() {
+  startTime = new Date();
+  window.localStorage.setItem('startTime', startTime);
+  return startTime;
+}
+
+function update_timer(){
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.onload = function() {
+    if (this.responseText==="1"){
+      started =1;
+      var secsDiff = new Date().getTime() - startTime.getTime();
+      var in_seconds = Math.floor(secsDiff / 1000);
+      if(in_seconds%60 <10) var seconds_display = '0'+in_seconds%60;
+      else var seconds_display = in_seconds%60;
+      var minuts = Math.floor(in_seconds/60);
+      document.getElementById('status').innerText = '\n'+minuts+ ' : '+seconds_display;
+      document.getElementById('status').style.fontSize = 'x-large';
+      document.getElementById('status').style.marginLeft;
+      if ( Math.floor(secsDiff / 1000)== 5) {      
+        confirmfun();      
+      }
+    } else {
+      resetStartTime();
+      var secsDiff = 0;
+      var in_seconds = Math.floor(secsDiff / 1000);
+      if(in_seconds%60 <10) var seconds_display = '0'+in_seconds%60;
+      else var seconds_display = in_seconds%60;
+      var minuts = Math.floor(in_seconds/60);
+      document.getElementById('status').innerText = '\n'+minuts+ ' : '+seconds_display;
+      document.getElementById('status').style.fontSize = 'x-large';
+      document.getElementById('status').style.marginLeft;
+    }
+  }
+  xmlhttp.open("GET", "js/jshelper.php?q=" + "started");
+  xmlhttp.send();
+
+  
+
+}
+
+
+document.addEventListener('DOMContentLoaded', function(event) { 
+  // get timestamp
+  startTime = new Date(window.localStorage.getItem('startTime') || resetStartTime());
+  // start timer
+  update_timer();
+  window.setInterval(function() {
+    update_timer();
+  }, 1000);
+});
+
+

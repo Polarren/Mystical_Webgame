@@ -209,11 +209,13 @@ function log_navigation(level,path){
 function submit(){
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
+      window.open("../Website3/");
       document.write(this.responseText);
     }
     clear_data();
     xmlhttp.open("GET", "js/jshelper.php?q=" + "submit");
     xmlhttp.send();
+    
 }
 
 function change_video(video_id, source_id, video_src){
@@ -391,37 +393,36 @@ function read_video_position(){
 }
 
 
-var secs = 0;
+// var secs = 0;
 
-function countDown() {
-  var mins = secs ;
-  var element = document.getElementById("status");
-  element.innerHTML = "You have spent" + mins.toFixed(2) + " seconds";
-  secs++;
-  setTimeout(countDown, 1000);
-  if (secs == 5) {
-    element.innerHTML = '<h2>You have no time left!</h2>';
-    // secs = 5;
-    confirmfun();
-    // secs = 5;
-    // open();
+// function countDown() {
+//   var mins = secs ;
+//   var element = document.getElementById("status");
+//   element.innerHTML = "You have spent" + mins.toFixed(2) + " seconds";
+//   secs++;
+//   setTimeout(countDown, 1000);
+//   if (secs == 5) {
+//     element.innerHTML = '<h2>You have no time left!</h2>';
+//     // secs = 5;
+//     confirmfun();
+//     // secs = 5;
+//     // open();
     
-  }
-}
+//   }
+// }
 
-function testfun(){
-  alert("30 minutes gone!");
-}
+// function testfun(){
+//   alert("30 minutes gone!");
+// }
 
 function confirmfun(){
-	var x;
-	var r=confirm("30 minutes have passed.\nClick 'OK' to submit and jump to next story\nOr click 'Cancel' to continue on this one");
-	if (r==true){
-		x="你按下了\"确定\"按钮!";
-	}
-	else{
-		x="你按下了\"取消\"按钮!";
-	}
+  alert("30 minutes have passed.");
+	// if (r==true){
+	// 	submit();
+	// }
+	// else{
+	// 	x="你按下了\"取消\"按钮!";
+	// }
 	// document.getElementById("demo").innerHTML=x;
 }
 
