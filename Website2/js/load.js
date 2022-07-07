@@ -98,7 +98,7 @@ window.onscroll = function(){
   // xmlhttp.onload = function () {
   //     // do something to response
   //     console.log(this.responseText);
-  // // };
+  // };
   // xmlhttp.send("view_position="+view_position);
 };
 
@@ -131,6 +131,47 @@ function scroll(event){
   };
   xmlhttp.send("up="+up);
 }
+
+
+function print_answer(){
+  var answer_text;
+  for(i = 0;i<question_amount;i++){
+    if(!window.localStorage){
+        if(UserData.getItem('editor-text'+i.toString())==undefined) {
+            console.log("Window Local Storage: undeifined");
+        }else{
+            // console.log("edtior_array "+i+ ": "+UserData.getItem('editor-text'+i.toString()));
+            const xmlhttp = new XMLHttpRequest();
+            xmlhttp.onload = function() {
+              console.log(this.responseText);
+            }
+            xmlhttp.open("POST", "js/jshelper.php?q=" + "print_answer");
+            xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            answer_text = UserData.getItem('editor-text'+i.toString());
+            console.log("questionNum="+(i+1)+"&answertext="+answer_text);
+            xmlhttp.send("questionNum="+(i+1)+"&answertext="+answer_text);
+            
+        }
+    }else{
+        if(localStorage.getItem('editor-text'+i.toString())!=null){
+            // console.log("edtior_array "+i+ ": "+localStorage.getItem('editor-text'+i.toString()));
+            const xmlhttp = new XMLHttpRequest();
+            xmlhttp.onload = function() {
+              console.log(this.responseText);
+            }
+            xmlhttp.open("POST", "js/jshelper.php?q=" + "print_answer");
+            xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            answer_text = localStorage.getItem('editor-text'+i.toString());
+            console.log("questionNum="+(i+1)+"&answertext="+answer_text);
+            xmlhttp.send("questionNum="+(i+1)+"&answertext="+answer_text);
+        }else{
+            console.log("Local Storage: undeifined");
+        }
+    }
+  }
+};
+
+
 
 var started = 0;
 function start_logging(user_id){
@@ -207,6 +248,9 @@ function log_navigation(level,path){
 }
 
 function submit(){
+  var confirmed = confirm("Are you sure you wish to submit?\n");
+  if (confirmed){
+    print_answer();
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
       window.open("../Website3/");
@@ -215,6 +259,8 @@ function submit(){
     clear_data();
     xmlhttp.open("GET", "js/jshelper.php?q=" + "submit");
     xmlhttp.send();
+  }
+    
     
 }
 
@@ -387,7 +433,7 @@ function read_video_position(){
       // do something to response
       console.log(this.responseText);
   };
-  // console.log("ddddddddddd");
+  
   xmlhttp.send("log="+log);
 
 }

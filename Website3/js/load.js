@@ -227,15 +227,19 @@ function log_navigation(level,path){
 };
 
 function submit(){
-    print_answer();
-    const xmlhttp = new XMLHttpRequest();
-    xmlhttp.onload = function() {
-      document.write(this.responseText);
+    var confirmed = confirm("Are you sure you wish to submit?\n");
+    if (confirmed){
+      print_answer();
+      const xmlhttp = new XMLHttpRequest();
+      xmlhttp.onload = function() {
+        document.write(this.responseText);
+      }
+      xmlhttp.open("GET", "js/jshelper.php?q=" + "submit");
+      xmlhttp.send();
+      
+      clear_data();
     }
-    xmlhttp.open("GET", "js/jshelper.php?q=" + "submit");
-    xmlhttp.send();
     
-    clear_data();
   };
 
 

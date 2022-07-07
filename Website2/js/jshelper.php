@@ -11,18 +11,38 @@ if ($q==="submit") {
     
     $_SESSION["started"] = "0";
     // Get current user id
-    $version_r = fopen("$DOCUMENT_ROOT/data/version.txt", "r") or die("Unable to open file!2");
+    $version_r = fopen("$DOCUMENT_ROOT/Website2/data/version.txt", "r") or die("Unable to open file!2");
    // $version_r = fopen("./data/version.txt", "r") or die("Unable to open file!2");
     $version = intval(fread($version_r,2))+1;
     fclose($version_r);
     // write new user id
-    $version_w = fopen("$DOCUMENT_ROOT/data/version.txt", "w") or die("Unable to open file!3");
+    $version_w = fopen("$DOCUMENT_ROOT/Website2/data/version.txt", "w") or die("Unable to open file!3");
     $txt = strval($version);
     fwrite($version_w, $txt);
     fclose($version_w);
     $response = "You have successfully submitted your answers to the current story!";
 
-}
+};
+
+if ($q==="print_answer") {
+    if (isset($_POST["questionNum"])){
+        // $log = $_POST["log"];
+        $question_num = $_POST["questionNum"];
+        $answer_text = $_POST["answertext"];
+        $userID = $_SESSION["user"];
+        $answer_file= fopen("$DOCUMENT_ROOT/Website2/data/answers/answer_".$userID.".txt", "a") or die("Unable to open file!4");
+        fwrite($answer_file, "Question ".$question_num.":\n");
+        fwrite($answer_file, $answer_text."\n");
+        fclose($answer_file);
+        $response = "You have successfully printed your answers to the file!\n";
+     }else{
+         print_r($_POST);
+        //  http_response_code(400);
+        $response = "Error encountered\n";
+     }
+
+};
+
 if ($q==="mouse_click") {
     if (isset($_POST["index_x"])){
        // $log = $_POST["log"];
