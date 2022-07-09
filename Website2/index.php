@@ -12,70 +12,24 @@ session_start();
     <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen"> 
     <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
     <script src="js/jquery.galleriffic.js" type="text/javascript"></script>
-    <script src="js/jquery.opacityrollover.js" type="text/javascript"></script>  
+    <script src="js/jquery.opacityrollover.js" type="text/javascript"></script> 
     <script src="js/load.js" type="text/javascript"></script>  
-
+    
 	
-    <!-- <style media="screen">
-            *,
-        *:before,
-        *:after{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-        body{
-            background-color: #0855ae;
-        }
-        .popup{
-            background-color: #ffffff;
-            width: 420px;
-            padding: 30px 40px;
+     <style>
+        .float {
+            float: right;
             position: absolute;
-            transform: translate(-50%,-50%);
-            left: 50%;
-            top: 50%;
-            border-radius: 8px;
-            font-family: "Poppins",sans-serif;
-            display: none; 
-            text-align: center;
-        }
-        .popup button_popup{
-            display: block;
-            margin:  0 0 20px auto;
-            background-color: transparent;
-            font-size: 30px;
-            color: #ffffff;
-            background: #03549a;
-            border-radius: 100%;
-            width: 40px;
-            height: 40px;
-            border: none;
-            outline: none;
-            cursor: pointer;
-        }
-        .popup h2{
-        margin-top: -20px;
-        }
-        .popup p{
-            font-size: 14px;
-            text-align: justify;
-            margin: 20px 0;
-            line-height: 25px;
-        }
-        a{
-            display: block;
-            width: 150px;
-            position: relative;
-            margin: 10px auto;
-            text-align: center;
-            background-color: #0f72e5;
-            border-radius: 20px;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 8px 0;
-        }
-    </style> -->
+            bottom: 0;
+            right: 0;
+            height: 300px;
+            width: 650px;
+            display: flex;
+            align-items: flex-end;
+            shape-outside: inset(calc(100% - 100px) 0 0);
+            }
+    </style> 
+
 </head>
 <body id="page1">
 	<!--==============================header=================================-->
@@ -118,6 +72,7 @@ session_start();
                             
                             <p> In this website we have recordings from each room and person. </p>
                             <p> Please find the answer to the questions in the Answer page.</p>
+                            <p> Before you start, please adjust the camera to include your face in the window.</p>
                             <p> Current user id:
                                 <?php
                                 $myfile = fopen("./data/version.txt", "r") or die("Unable to open file!1");
@@ -142,31 +97,29 @@ session_start();
         </div>
     </section>
 
-    <!-- <button onclick="resetStartTime()">Start</button> -->
-    
-
-    <!-- <div class="popup">
-        <button_popup id="close">&times;</button_popup>
-        <h2>Automatic Pop-Up</h2>
-        <p>
-           It's 30 minutes! submit or continue on this story.
-        </p>
-        <a href="#">Let's Go</a>
-        
-        <div class="buttons">                                        
-            <a class="button" href="#" onClick="submit()">Submit</a>
-        </div>    
+    <div  class=float>
+        <video autoplay="true" id="videoElement"></video>
     </div>
 
-    <script type="text/javascript">
-        function open(){
-            document.querySelector(".popup").style.display = "block";
+    <!-- !the code script below could be included in .js files -->
+    <script>
+
+        var video = document.querySelector("#videoElement");
+
+        if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function (stream) {
+            video.srcObject = stream;
+            })
+            .catch(function (err0r) {
+            console.log("Something went wrong!");
+            });
         }
 
-        document.querySelector("#close").addEventListener("click", function(){
-            document.querySelector(".popup").style.display = "none";
-        })            
-    </script>  -->
+
+    </script>
+
+    
 	<!-- ==============================footer================================= -->
     
 </body>
