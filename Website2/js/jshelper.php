@@ -314,5 +314,20 @@ if ($q === "started") {
     }
 }
 
+if ($q==="video") {
+    // print_r("Request received.");
+    // var_dump(file_get_contents('php://input'));
+    print_r($_FILES);
+    // echo "Error";
+    // http_response_code(400);
+    // $video = fopen("$DOCUMENT_ROOT/Website2/data/videos/video.webm", "wb") or die("Unable to open file!");
+    $blob = $_FILES["file"];
+    move_uploaded_file($_FILES["file"]["tmp_name"], "$DOCUMENT_ROOT/Website2/data/videos/video_user".$_SESSION['user'].".mp4");
+    // fwrite($video, $blob);
+    // fclose($video);
+    $response = "You have successfully saved your video to the current directory!";
+
+};
+
 echo $response;
 ?>

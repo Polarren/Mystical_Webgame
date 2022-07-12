@@ -83,6 +83,7 @@ session_start();
                                 
                                 ?>
                             </p>
+                            <!-- <video autoplay="true" id="videoElement" ></video> -->
                             
                             <p> To start logging, please click on "Start".</p>
                         </article>
@@ -97,27 +98,8 @@ session_start();
         </div>
     </section>
 
-    <div  class=float>
-        <video autoplay="true" id="videoElement"></video>
-    </div>
 
-    <!-- !the code script below could be included in .js files -->
-    <script>
-
-        var video = document.querySelector("#videoElement");
-
-        if (navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ video: true })
-            .then(function (stream) {
-            video.srcObject = stream;
-            })
-            .catch(function (err0r) {
-            console.log("Something went wrong!");
-            });
-        }
-
-
-    </script>
+   
 
     
 	<!-- ==============================footer================================= -->
