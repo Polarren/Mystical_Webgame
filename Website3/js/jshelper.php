@@ -273,26 +273,26 @@ if ($q==="navigate") {
     $response = "You have successfully logged navigation: level ".$level.", path ".$navigation_path;
 
 
-    // $servername = "localhost";
-    // $database = "database_2";
-    // $username = "changliu";
-    // $password = "test123";
-    // // Create connection
-    // $conn = mysqli_connect($servername, $username, $password, $database);
-    // // Check connection
-    // if (!$conn) {
-    //     die("Connection failed: " . mysqli_connect_error());
-    // }
+    $servername = "localhost";
+    $database = "database_2";
+    $username = "changliu";
+    $password = "test123";
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password, $database);
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
     
-    // echo "Connected successfully\n";
+    echo "Connected successfully\n";
     
-    // $sql = "INSERT INTO wheel (gameid,time,userid, level, start , level_0, level_1, level_2, level_3) VALUES ('3','$time_elapsed', '$userID', '$level','$navigation_path[0]','$navigation_path[1]','$navigation_path[2]','$navigation_path[3]','$navigation_path[4]')";
-    // if (mysqli_query($conn, $sql)) {
-    //     echo "New record created successfully";
-    // } else {
-    //     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    // }
-    // mysqli_close($conn);
+    $sql = "INSERT INTO wheel (gameid,time,userid, level, start , level_0, level_1, level_2, level_3) VALUES ('3','$time_elapsed', '$userID', '$level','$navigation_path[0]','$navigation_path[1]','$navigation_path[2]','$navigation_path[3]','$navigation_path[4]')";
+    if (mysqli_query($conn, $sql)) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+    mysqli_close($conn);
 
 }
 

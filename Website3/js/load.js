@@ -92,6 +92,15 @@ window.onscroll = function(){
 
 function scroll(event){
   // console.log("Scroll event detected");
+  const xmlhttp_1 = new XMLHttpRequest();
+  xmlhttp_1.onload = function() {
+    if (this.responseText!="1"){
+      return;
+    } 
+  }
+  xmlhttp_1.open("GET", "js/jshelper.php?q=" + "started");
+  xmlhttp_1.send();
+  
   var up=0;
   var event = event || window.event;
   if(event.wheelDelta) {   
@@ -213,16 +222,24 @@ function log_navigation(level,path){
   // Level 2: Selection button
   // Level 3: question textarea
   // console.log(log);
-  const xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('POST', "js/jshelper.php?q=" + "navigate", true);
-  xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  xmlhttp.onload = function () {
-      // do something to response
-      console.log(this.responseText);
-  };
-  // console.log(path);
-  xmlhttp.send("level="+level+"&path="+path);
-
+  const xmlhttp_1 = new XMLHttpRequest();
+  xmlhttp_1.onload = function() {
+    if (this.responseText==="1"){
+      const xmlhttp = new XMLHttpRequest();
+      xmlhttp.open('POST', "js/jshelper.php?q=" + "navigate", true);
+      xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      xmlhttp.onload = function () {
+          // do something to response
+          console.log(this.responseText);
+      };
+      // console.log(path);
+      xmlhttp.send("level="+level+"&path="+path);
+    } else {
+      return;
+    }
+  }
+  xmlhttp_1.open("GET", "js/jshelper.php?q=" + "started");
+  xmlhttp_1.send();
 
 };
 
@@ -491,9 +508,12 @@ function update_timer(){
       if(in_seconds%60 <10) var seconds_display = '0'+in_seconds%60;
       else var seconds_display = in_seconds%60;
       var minuts = Math.floor(in_seconds/60);
-      document.getElementById('status').innerText = '\n'+minuts+ ' : '+seconds_display;
-      document.getElementById('status').style.fontSize = 'x-large';
-      document.getElementById('status').style.marginLeft;
+      var status = document.getElementById('status');
+      if (status!=null){
+        document.getElementById('status').innerText = '\n'+minuts+ ' : '+seconds_display;
+        document.getElementById('status').style.fontSize = 'x-large';
+        document.getElementById('status').style.marginLeft;
+      }
     }
   }
   xmlhttp.open("GET", "js/jshelper.php?q=" + "started");
